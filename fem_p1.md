@@ -9,7 +9,12 @@ toc = true  # Show table of contents? true/false
 type = "docs"  # Do not modify.
 
 math = true
-permalink = "course/fem/fem_p1"
+
+[git]
+  icon = "github"
+  repo = "https://github.com/Bertbk/course_fem"
+  issue = "https://github.com/Bertbk/course_fem/issues"
+  prose = "https://prose.io/#Bertbk/course_fem/edit/master/"
 
 
 # Add menu entry to sidebar.
