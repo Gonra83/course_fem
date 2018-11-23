@@ -69,7 +69,7 @@ $$
 
 Remarquons que nombreux résultats d'intégration que nous énoncerons restent vrais pour un domaine à bord polygonal, et retenons surtout que les domaines considérés ne comportent ni "fissure" ni point de rebroussement, et leur frontière est "régulière", comme illustré sur la figure ci-dessous.
 
-{{< figure src="/img/course/fem/regulier.svg" title="Ouvert régulier (à gauche), avec point de rebroussement (milieu) et \"fissure\" (à droite). Les deux derniers ouverts ne sont pas réguliers" numbered="true" >}}
+{{< figure library="1" src="course/fem/regulier.svg" title="Ouvert régulier (à gauche), avec point de rebroussement (milieu) et \"fissure\" (à droite). Les deux derniers ouverts ne sont pas réguliers" numbered="true" >}}
 
 
 ## Formules de Green
@@ -84,7 +84,7 @@ $$
 où $n\_i$ est la $n^{ème}$ composante de la normale extérieure $\nn$ à $\Omega$.
 {{% /thm %}}
 
-{{< figure src="/img/course/fem/normal.svg" title="Normale unitaire $\nn$ extérieure sortante à $\Omega$" numbered="true" >}}
+{{< figure library="1" src="course/fem/normal.svg" title="Normale unitaire $\nn$ extérieure sortante à $\Omega$" numbered="true" >}}
 
 De ce Théorème fondamental découlent des Corollaires qui nous seront pratiques. Par exemple, si l'on prend $w=uv$ dans la formule précédente, il vient :
 
