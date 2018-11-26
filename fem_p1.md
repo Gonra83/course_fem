@@ -2,7 +2,7 @@
 title = "Éléments Finis P1-Lagrange"
 
 date = 2018-09-09T00:00:00
-# lastmod = 2018-09-09T00:00:00
+# lastmod = 2018-24-11T00:00:00
 
 draft = false  # Is this a draft? true/false
 toc = true  # Show table of contents? true/false
@@ -150,7 +150,7 @@ Une fonction de $\hme{V}$ **n'est pas affine** mais affine **par morceaux**. Il 
 L'ensemble $\hme{V}$ est inclus dans $\Ho$.
 {{% /thm  %}}
 {{% thm proof %}}
-Soit $v\in \hme{V}$ alors $v$ est continue sur $\overline{\Omega}$ et appartient donc à $\Lo$. Il nous faut montrer que $v$ admet des dérivées faibles dans $\Lo$. Sur chaque triangle $K$ de $\hme{\Tscr}$, la fonction $v$ est $\Cscr^{\infty}$ et admet donc une dérivée forte, et donc faible. Par la formule de Green, pour $\varphi\in \CinfcO$ :
+Soit $v\in \hme{V}$ alors $v$ est continue sur $\overline{\Omega}$ (qui est borné) et appartient donc à $\Lo$. Il nous faut montrer que $v$ admet des dérivées faibles dans $\Lo$. Sur chaque triangle $K$ de $\hme{\Tscr}$, la fonction $v$ est $\Cscr^{\infty}$ et admet donc une dérivée forte, et donc faible. Par la formule de Green, pour $\varphi\in \CinfcO$ :
 $$
   \int\_{\Omega} v(x) \frac{\partial \varphi}{\dxi}\diff x =
   \sum\_{K\in\hme{\Tscr}}\int\_{K} v\restrict\_K(x) \frac{\partial \varphi}{\dxi}\diff x = 
@@ -159,7 +159,7 @@ $$
 $$
 où $n\_{i,K}$ est la $i^{\mathrm{ème}}$ composante de la normale extérieure à $K$. 
 
-On s'intéresse ici uniquement au terme d'intégrale sur le bord et on sépare les contributions du bord de $\Omega$ des arêtes internes :
+On s'intéresse ici uniquement au terme d'intégrale sur le bord et on sépare les contributions du bord de $\Omega$ de celle des arêtes internes :
 $$
 \sum\_{K\in\hme{\Tscr}}\int\_{\partial K} v\restrict\_K(x)\varphi(x)n\_{i,K}\diff x =
 \sum\_{K\in\hme{\Tscr}}\left(\int\_{\partial K\cap\partial\Omega} v\restrict\_K(x)\varphi(x)n\_{i,K}\diff x +
@@ -170,7 +170,7 @@ $$
 \sum\_{K\in\hme{\Tscr}}\int\_{\partial K} v \restrict\_{K}(x)\varphi(x)n\_{i,K}\diff x =
 \sum\_{K\in\hme{\Tscr}}\int\_{\partial K\setminus(\partial K\cap\partial\Omega)} v\restrict\_{K}(x)\varphi(x)n\_{i,K}\diff x.
 $$
-Notons $\Sigma$ l'ensemble des arêtes "internes" $\sigma$ de $\hme{\Tscr}$, autrement dit une arête $\sigma$ appartient à deux triangles $\Kp$ et $\Kq$ et, de plus, sur $\sigma$, les normales $\nn\_p$ et $\nn\_q$ sont opposées : $n\_{i,\Kp} = -n\_{i, \Kq}$ et l'on a :
+Notons $\Sigma$ l'ensemble des arêtes "internes" $\sigma$ de $\hme{\Tscr}$, autrement dit une arête $\sigma$ appartient à deux triangles $\Kp$ et $\Kq$ et, de plus, sur $\sigma$, les normales $\nn\_p$ et $\nn\_q$ sont opposées : $n\_{i,\Kp} = -n\_{i, \Kq}$. Alors on a :
     $$
       \sum\_{K\in\hme{\Tscr}}\int\_{\partial K} v\restrict\_K(x)\varphi(x)n\_{i,K}\diff x
       =  \sum\_{\sigma\in\Sigma}\int\_{\sigma} (v\restrict\_{\Kp}(x) - v\restrict\_{\Kq}(x))\varphi(x) n\_{i,\Kp}\diff x.
@@ -184,7 +184,7 @@ Nous en déduisons que
 $$
 \forall K\in\hme{\Tscr},\qquad \left.\frac{\partial v}{\dxi}\right|_K = \frac{\partial v\restrict\_K}{\dxi}
 $$
-Les fonctions $v$ de $\hme{V}$ admettent donc des dérivées au sens faibles et qui sont dans $\Lo$, autrement dit, nous avons bien $v\in\Ho$.
+Les fonctions $v$ de $\hme{V}$ admettent donc des dérivées au sens faible et qui sont dans $\Lo$, autrement dit, nous avons bien $v\in\Ho$.
 {{% /thm  %}}
 Il ne nous reste plus qu'à caractériser l'espace $\hme{V}$.
 
@@ -206,9 +206,9 @@ $$
 \iff
 \left(
   \begin{array}{c c c}
-    1 & x\_1 & y\_1\\\\\\
-    1 & x\_2 & y\_2\\\\\\
-    1 & x\_3 & y\_3
+    x\_1 & y\_1 & 1\\\\\\
+    x\_2 & y\_2 & 1\\\\\\
+    x\_3 & y\_3 & 1
   \end{array}
 \right)
 \left(
@@ -226,30 +226,30 @@ $$
   \end{array}
 \right)
 $$
-Le déterminant d'un tel système n'est autre que [deux fois l'aires du triangle](https://fr.wikipedia.org/wiki/Aire_d%27un_triangle) :
+Le déterminant d'un tel système n'est autre que [deux fois l'aire du triangle](https://fr.wikipedia.org/wiki/Aire_d%27un_triangle) :
 $$
 \Delta = 
 \left|
   \begin{array}{c c c}
-    1 & x\_1 & y\_1\\\\\\
-    1 & x\_2 & y\_2\\\\\\
-    1 & x\_3 & y\_3
+    x\_1 & y\_1 & 1\\\\\\
+    x\_2 & y\_2 & 1\\\\\\
+    x\_3 & y\_3 & 1
   \end{array}
-\right| = 2\mathrm{Aire}(K) \neq 0.
+\right| = 2\mathrm{Aire}(K) \neq 0
 $$
-Le système admet donc une unique solution $(a,b,c)$ puisque le triangle n'est pas dégénéré.
+car le triangle K n'est pas dégénéré. Donc le système est inversible et admet une unique solution $(a,b,c)$.
 {{% /thm  %}}
 
 Le résultat qui suit montre que deux fonctions de $\hme{V}$ sont égales si et seulement si elles coïncident sur tous les sommets de la triangulation $\hme{\Tscr}$.
 {{% thm lemma %}}
-Si $\uh,\vh \in \hme{V}$ vérifient $\uh(\ssb) = \vh(\ssb)$ pour tout sommet $\ssb$ de $\hme{\Sscr}$, alors $\uh=\vh$ sur $\Omega$.
+Si $\uh,\vh \in \hme{V}$ vérifient $\uh(\ssb) = \vh(\ssb)$ pour tout sommet $\ssb$ de $\hme{\Tscr}$, alors $\uh=\vh$ sur $\Omega$.
 {{% /thm %}}
 {{% thm proof %}}
-En se plaçant sur le triangle $K = (\ssb\_1,\ssb\_2,\ssb\_3)$ de $\hme{\Tscr}$, nous avons $\uh(\ssb\_i) = \vh(\ssb\_i)$ pour $i=1,2,3$. Le Lemme précédent implique alors que $\uh\restrict\_{K}=\vh\restrict\_{K}$. Le triangle $K$ étant arbitraire, cette relation vaut sur tous les éléments de triangulation et donc sur $\Omega$ tout entier.
+En se plaçant sur le triangle $K = (\ssb\_1,\ssb\_2,\ssb\_3)$ de $\hme{\Tscr}$, nous avons $\uh(\ssb\_i) = \vh(\ssb\_i)$ pour $i=1,2,3$. Le Lemme précédent implique alors que $\uh\restrict\_{K}=\vh\restrict\_{K}$. Le triangle $K$ étant arbitraire, cette relation vaut sur tous les éléments de la triangulation et donc sur $\Omega$ tout entier.
 {{% /thm  %}}
 
 {{% thm proposition %}}
-Pour tout jeu de données complexes $(\alpha\_\ssb)_{\ssb\in\hme{\Sscr}}$, il existe une unique fonction $\uh\in \hme{V}$ vérifiant $\uh(\ssb) = \alpha\_{\ssb}$ pour tout sommet $\ssb$ de $\hme{\Tscr}$.
+Pour tout jeu de données de complexes $(\alpha\_\ssb)_{\ssb\in\hme{\Sscr}}$, il existe une unique fonction $\uh\in \hme{V}$ vérifiant $\uh(\ssb) = \alpha\_{\ssb}$ pour tout sommet $\ssb$ de $\hme{\Tscr}$.
 {{% /thm  %}}
 {{% thm proof %}}
 L'unicité est démontrée précédemment, il manque donc l'existence. Quitte à renuméroter, prenons un triangle $K=(\ssb\_1,\ssb\_2,\ssb\_3)$ de $\hme{\Tscr}$ et le jeu de valeurs associé $(\alpha\_1,\alpha\_2,\alpha\_3) \in \Cb$. La proposition précédente montre qu'il existe un (unique) polynôme $p\_K$ de $\Pun(K)$ tel que $p\_K(\ssb\_i)=\alpha\_i$ pour $i=1,2,3$. Nous pouvons répéter cette opération pour tous les triangles $K$ et nous introduisons $\uh$ tel que
@@ -266,19 +266,20 @@ $$
 une paramétrisation de $\Sigma$. Si $p\_K(x,y) = ax+by+c$, nous avons alors, pour tout $t\in[0,1]$ :
 $$
 \begin{array}{r l}
-  p\_K(\sigma(t)) &= a (x\_1 + t(x\_2-x\_1)) + b (y\_1 + t(y\_2-y\_1)) + c + t(c-c)\\\\\\
+  p\_K(\sigma(t)) &= a (x\_1 + t(x\_2-x\_1)) + b (y\_1 + t(y\_2-y\_1)) + c\\\\\\
+  &= a (x\_1 + t(x\_2-x\_1)) + b (y\_1 + t(y\_2-y\_1)) + c + t(c-c)\\\\\\
   &= [a x\_1+by\_1 +c] + t([a x\_2+by\_2 +c] +[ a\_K x\_1+by\_1 +c])\\\\\\
   &=  p\_K(\ssb\_1) +t(p\_K(\ssb\_2) - p\_K(\ssb\_1))\\\\\\
   &=  p\_{K'}(\ssb\_1) +t(p\_{K'}(\ssb\_2) - p\_{K'}(\ssb\_1))\\\\\\
   &=  p\_{K'}(\sigma(t)).
 \end{array}
 $$
-Autrement dit, les deux polynômes $p\_K$ et $p\_K'$ sont égaux sur l'arête $\Sigma$ et $\uh$ est bien continu sur toutes les arêtes de $\hme{\Tscr}$ en plus de l'être sur tous les triangles et tous les sommets : $\uh$ est donc bien **continu** sur tout $\overline{\Omega}$.
+Autrement dit, les deux polynômes $p\_K$ et $p\_K'$ sont égaux sur l'arête $\Sigma$ et $\uh$ est bien continue sur toutes les arêtes de $\hme{\Tscr}$ en plus de l'être sur tous les triangles et tous les sommets : $\uh$ est donc bien **continue** sur tout $\overline{\Omega}$.
 {{% /thm  %}}
 
 ## Fonctions de forme
 
-Au vue de ce qui précède, deux fonctions de $\Vh$ sont identiques si et seulement si elles possèdent la même valeur sur chaque sommet de $\\Sscrh$. En notant $\hme{N} = \mathrm{card}(\Sscrh)$, introduisons l'ensemble des fonctions de forme $(\mphi{j})\_{1\leq j \leq \hme{N}}$ de $\Vh$ défini par
+Au vu de ce qui précède, deux fonctions de $\Vh$ sont identiques si et seulement si elles possèdent la même valeur sur chaque sommet de $\\Tscrh$. En notant $\hme{N} = \mathrm{card}(\Sscrh)$, introduisons l'ensemble des fonctions de forme $(\mphi{j})\_{1\leq j \leq \hme{N}}$ de $\Vh$ défini par
 $$
 \forall i,j =1,..., \hme{N},\quad
 \mphi{j}(\ssb\_i) =
@@ -290,16 +291,16 @@ $$
   \end{array}
 \right.
 $$
-Ces fonctions sont la généralisation en 2D des *fonctions chapeau* unidimensionnel (elles ressemblent d'ailleurs encore plus à un "chapeau").
+Ces fonctions sont la généralisation en 2D des *fonctions chapeau* unidimensionnelles (elles ressemblent d'ailleurs encore plus à un "chapeau").
 {{% thm proposition %}}
-  L'espace $\Vh$ est un sous-espace de $H^1(\Omega)$ de dimension $\hme{N}$, le nombre de sommets de la triangulation $\\Sscrh$. De plus, la famille $(\mphi{j})_{1\leq j \leq \hme{N}}$ est une base de $\Vh$
+  L'espace $\Vh$ est un sous-espace de $H^1(\Omega)$ de dimension $\hme{N}$, le nombre de sommets de la triangulation $\\Tscrh$. De plus, la famille $(\mphi{j})_{1\leq j \leq \hme{N}}$ est une base de $\Vh$
 \{{% /thm %}}
 {{% thm proof %}}
   La première partie a déjà été démontrée, il ne reste plus qu'à montrer le fait que la famille de fonction $(\mphi{i})$ est une base de $\Vh$. Cette famille est libre puisque, pour une famille de données complexes $(\alpha\_i)_{1\leq i\leq \hme{N}}$,
 $$
 \begin{array}{r l}
   \dsp \sum\_{i=1}^{\hme{N}} \alpha\_i \mphi{i} = 0 &\iff \dsp \forall j=1,\ldots, \hme{N},\quad \sum\_{i=1}^{\hme{N}} \alpha\_i\mphi{i}(\ssb_j) = 0\\\\\\
-  &\iff \dsp \forall j= 1,\ldots, \hme{N},\quad \sum\_{i=1}^{\hme{N}}\alpha\_ja = 0\\\\\\
+  &\iff \dsp \forall j= 1,\ldots, \hme{N},\quad \alpha_j \times 1 +  \sum\_{i=1, i\neq j}^{\hme{N}}\alpha\_j\times 0 = 0\\\\\\
   & \iff \dsp \forall j= 1,\ldots, \hme{N},\quad \alpha\_j = 0
 \end{array}
 $$
@@ -326,4 +327,3 @@ Prenons une fonction de forme $\mphi{j}$ associée au sommet $\ssb\_j$, et un tr
 Une illustration du support des fonctions de forme est présentée sur la figure suivante :
 
 {{< figure library="1" src="course/fem/forme.svg" title="Support des fonctions de forme pour le maillage d'un carré." numbered="true" >}}
-
