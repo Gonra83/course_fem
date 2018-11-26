@@ -249,7 +249,7 @@ En se plaçant sur le triangle $K = (\ssb\_1,\ssb\_2,\ssb\_3)$ de $\hme{\Tscr}$,
 {{% /thm  %}}
 
 {{% thm proposition %}}
-Pour tout jeu de données de complexes $(\alpha\_\ssb)_{\ssb\in\hme{\Sscr}}$, il existe une unique fonction $\uh\in \hme{V}$ vérifiant $\uh(\ssb) = \alpha\_{\ssb}$ pour tout sommet $\ssb$ de $\hme{\Tscr}$.
+Pour tout jeu de données complexes $(\alpha\_\ssb)_{\ssb\in\hme{\Sscr}}$, il existe une unique fonction $\uh\in \hme{V}$ vérifiant $\uh(\ssb) = \alpha\_{\ssb}$ pour tout sommet $\ssb$ de $\hme{\Tscr}$.
 {{% /thm  %}}
 {{% thm proof %}}
 L'unicité est démontrée précédemment, il manque donc l'existence. Quitte à renuméroter, prenons un triangle $K=(\ssb\_1,\ssb\_2,\ssb\_3)$ de $\hme{\Tscr}$ et le jeu de valeurs associé $(\alpha\_1,\alpha\_2,\alpha\_3) \in \Cb$. La proposition précédente montre qu'il existe un (unique) polynôme $p\_K$ de $\Pun(K)$ tel que $p\_K(\ssb\_i)=\alpha\_i$ pour $i=1,2,3$. Nous pouvons répéter cette opération pour tous les triangles $K$ et nous introduisons $\uh$ tel que
@@ -279,7 +279,7 @@ Autrement dit, les deux polynômes $p\_K$ et $p\_K'$ sont égaux sur l'arête $\
 
 ## Fonctions de forme
 
-Au vu de ce qui précède, deux fonctions de $\Vh$ sont identiques si et seulement si elles possèdent la même valeur sur chaque sommet de $\\Tscrh$. En notant $\hme{N} = \mathrm{card}(\Sscrh)$, introduisons l'ensemble des fonctions de forme $(\mphi{j})\_{1\leq j \leq \hme{N}}$ de $\Vh$ défini par
+Au vu de ce qui précède, deux fonctions de $\Vh$ sont identiques si et seulement si elles possèdent la même valeur sur chaque sommet de $\Tscrh$. En notant $\hme{N} = \mathrm{card}(\Sscrh)$, introduisons l'ensemble des fonctions de forme $(\mphi{j})\_{1\leq j \leq \hme{N}}$ de $\Vh$ défini par
 $$
 \forall i,j =1,..., \hme{N},\quad
 \mphi{j}(\ssb\_i) =
@@ -293,7 +293,7 @@ $$
 $$
 Ces fonctions sont la généralisation en 2D des *fonctions chapeau* unidimensionnelles (elles ressemblent d'ailleurs encore plus à un "chapeau").
 {{% thm proposition %}}
-  L'espace $\Vh$ est un sous-espace de $H^1(\Omega)$ de dimension $\hme{N}$, le nombre de sommets de la triangulation $\\Tscrh$. De plus, la famille $(\mphi{j})_{1\leq j \leq \hme{N}}$ est une base de $\Vh$
+  L'espace $\Vh$ est un sous-espace de $H^1(\Omega)$ de dimension $\hme{N}$, le nombre de sommets de la triangulation $\Tscrh$. De plus, la famille $(\mphi{j})_{1\leq j \leq \hme{N}}$ est une base de $\Vh$
 \{{% /thm %}}
 {{% thm proof %}}
   La première partie a déjà été démontrée, il ne reste plus qu'à montrer le fait que la famille de fonction $(\mphi{i})$ est une base de $\Vh$. Cette famille est libre puisque, pour une famille de données complexes $(\alpha\_i)_{1\leq i\leq \hme{N}}$,
