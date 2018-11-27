@@ -124,7 +124,7 @@ De plus, nous noterons $\hme{\Sscr}$ l'ensemble des **sommets** ou **nœuds** du
 
 Quand ce paramètre $h$ tend vers 0, le maillage devient plus dense et "plus proche" de $\Omega$. On dit que le maillage est *plus raffiné*. Cette notion sera détaillée ultérieurement quand nous étudierons la convergence de cette méthode. Des exemples d'éléments interdits et autorisés sont présentés sur la figure ci-dessous :
 
-{{< figure library="1" src="course/fem/triangles.svg" title="Triangulation autorisée (gauche) et interdite (les autres)." numbered="true" >}}
+{{< figure src="../triangles.svg" title="Triangulation autorisée (gauche) et interdite (les autres)." numbered="true" >}}
 
 
 ## Espace des fonctions P<sub>1</sub>-Lagrange
@@ -326,4 +326,4 @@ Prenons une fonction de forme $\mphi{j}$ associée au sommet $\ssb\_j$, et un tr
 
 Une illustration du support des fonctions de forme est présentée sur la figure suivante :
 
-{{< figure library="1" src="course/fem/forme.svg" title="Support des fonctions de forme pour le maillage d'un carré." numbered="true" >}}
+{{< figure src="../forme.svg" title="Support des fonctions de forme pour le maillage d'un carré." numbered="true" >}}

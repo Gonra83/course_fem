@@ -85,7 +85,7 @@ Les $\Nt$ triangles du maillage seront numérotés de 1 à $\Nt$ : $\tri{1}, \tr
 
 Pour un triangle d'un maillage de sommets $\ssb\_I, \ssb\_J, \ssb\_K$, deux orientations sont possibles (le choix du premier sommet n'ayant aucune incidence sur l'orientation) :  $K = [\ssb\_I, \ssb\_J, \ssb\_K]$ ou $K' = [\ssb\_I, \ssb\_K, \ssb\_J]$. Le vecteur normale unitaire sortante au triangle $K$ est alors opposé à $K'$. Il est donc important que chaque triangle d'une même surface soit orienté dans le même sens ! 
 
-{{< figure library="1" src="course/fem/orientation.svg" title="Orientation d'un triangle" numbered="true" >}}
+{{< figure src="../orientation.svg" title="Orientation d'un triangle" numbered="true" >}}
 
 ## Numérotation des sommets
 
@@ -114,7 +114,7 @@ J(q,j) = J\_{q,j} = \loctoglob(q,j)
 $$
 
 
-{{< figure library="1" src="course/fem/loc2glob.svg" title="Numérotation globale (gauche) et numérotation locale (droite) des sommets d'un triangle particulier." numbered="true" >}}
+{{< figure src="../loc2glob.svg" title="Numérotation globale (gauche) et numérotation locale (droite) des sommets d'un triangle particulier." numbered="true" >}}
 
 
 ## Numérotation des fonctions de forme

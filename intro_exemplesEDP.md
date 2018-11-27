@@ -133,7 +133,7 @@ Notez que ces valeurs sont des valeurs physiques et ne sont pas une lubie mathé
 
 La résolution d'un tel problème dans un appartement deux pièces avec cuisine séparée (grand luxe Parisien) avec la méthode des éléments finis donne alors ce résultat :
 
-{{< figure library="1" src="course/fem/wifi/wifi.jpg" title="Propagation d'une onde Wi-Fi dans un appartement. Après avoir traversé 2 murs, l'onde Wi-Fi semble très amortie. Sous le résultat est affiché le plan de l'appartement et la position du routeur (petit disque à gauche)">}}
+{{< figure src="../wifi.jpg" title="Propagation d'une onde Wi-Fi dans un appartement. Après avoir traversé 2 murs, l'onde Wi-Fi semble très amortie. Sous le résultat est affiché le plan de l'appartement et la position du routeur (petit disque à gauche)">}}
 
 
 
