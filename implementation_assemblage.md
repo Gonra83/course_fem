@@ -87,6 +87,7 @@ $\newcommand{\tri}[1]{K\_{#1}}$
 $\newcommand{\loctoglob}{\mathrm{Loc2Glob}}$
 $\newcommand{\aK}[1]{a\_{#1}}$
 $\newcommand{\Ns}{N\_s}$
+$\newcommand{\Nt}{N\_t}$
 $\newcommand{\mphi}[1]{\varphi\_{#1}}$
 $\newcommand{\mphiK}[2]{\mphi{#2}^{#1}}$
 
@@ -110,8 +111,8 @@ Chaque intégrale sur $\Omega$ peut être décomposée comme somme sur les trian
 $$
 \left\\{ 
   \begin{array}{l}
-    \dsp \AIJ = \sum\_{\tri{p}\in\hme{\Tscr}}\left(\int\_{\tri{p}}\nabla \mphi{J}(x) \cdot\overline{\nabla \mphi{I}(x)}\diff x +\int\_{\tri{p}}\mphi{J}(x) \overline{\mphi{I}(x)}\diff x\right)\\\\\\
-    \dsp \BI = \sum\_{\tri{p}\in\hme{\Tscr}}\int\_{\tri{p}}f(x)\overline{\mphi{I}(x)}\diff x.
+    \dsp \AIJ = \sum\_{p=1}^{\Nt}\left(\int\_{\tri{p}}\nabla \mphi{J}(x) \cdot\overline{\nabla \mphi{I}(x)}\diff x +\int\_{\tri{p}}\mphi{J}(x) \overline{\mphi{I}(x)}\diff x\right)\\\\\\
+    \dsp \BI = \sum\_{p=1}^{\Nt}\int\_{\tri{p}}f(x)\overline{\mphi{I}(x)}\diff x.
   \end{array}
 \right.
 $$
@@ -145,7 +146,7 @@ Malheureusement, cet algorithme a un coût en $\grandO{N\_s^2}$ ce qui est trop 
 
 Une autre manière de procéder, que l'on appelle **assemblage**, boucle sur les éléments plutôt que sur les sommets, en remarquant que :
 $$
-a(\mphi{J},\mphi{I}) = \sum\_{\tri{p}\in\Tscr\_h} \aK{p}(\mphi{J},\mphi{I}), \qquad \aK{p}(\mphi{J},\mphi{I}) = \left(\int\_{\tri{p}}\nabla \mphi{J}(x) \cdot\overline{\nabla \mphi{I}(x)}\diff x +\int\_{\tri{p}}\mphi{J}(x) \overline{\mphi{I}(x)}\diff x\right).
+a(\mphi{J},\mphi{I}) = \sum\_{p=1}^{\Nt} \aK{p}(\mphi{J},\mphi{I}), \qquad \aK{p}(\mphi{J},\mphi{I}) = \left(\int\_{\tri{p}}\nabla \mphi{J}(x) \cdot\overline{\nabla \mphi{I}(x)}\diff x +\int\_{\tri{p}}\mphi{J}(x) \overline{\mphi{I}(x)}\diff x\right).
 $$
 Ensuite, nous réécrivons la matrice $A$ sous la forme suivante
 $$
@@ -155,8 +156,8 @@ où $\ee\_J$ est le vecteur de la base canonique de $\Rb^{\Ns}$. Nous avons alor
 $$
 \begin{array}{r l}
   A &= \dsp \sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}a(\mphi{J},\mphi{I}) \ee\_I^T\ee\_J\\\\\\
-    &= \dsp \sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}\sum\_{\tri{p}\in\hme{\Tscr}}\aK{p}(\mphi{J},\mphi{I}) \ee\_I^T\ee\_J\\\\\\
-    &= \dsp \sum\_{\tri{p}\in\hme{\Tscr}}\sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}\aK{p}(\mphi{J},\mphi{I}) \ee\_I^T\ee\_J
+    &= \dsp \sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}\sum\_{p=1}^{\Nt}\aK{p}(\mphi{J},\mphi{I}) \ee\_I^T\ee\_J\\\\\\
+    &= \dsp \sum\_{p=1}^{\Nt}\sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}\aK{p}(\mphi{J},\mphi{I}) \ee\_I^T\ee\_J
 \end{array}
 $$
 
@@ -164,8 +165,8 @@ Nous remarquons maintenant que $\aK{p}(\mphi{J},\mphi{I})$ est nul dès lors que
 
 $$
 \begin{array}{r c l}
-  A   &=& \dsp \sum\_{\tri{p}\in\hme{\Tscr}}\sum\_{i=1}^{3}\sum\_{j=1}^{3}\aK{p}(\mphiK{p}{j},\mphiK{p}{i}) \ee\_{I\_{p,i}}^T\ee\_{I\_{p,j}}\\\\\\
-&=& \dsp \sum\_{\tri{p}\in\hme{\Tscr}}\sum\_{i=1}^{3}\sum\_{j=1}^{3}\aK{p}(\mphi{I\_{p,j}},\mphi{I\_{p,i}}) \ee\_{I\_{p,i}}^T\ee\_{I\_{p,j}}
+  A   &=& \dsp \sum\_{p=1}^{\Nt}\sum\_{i=1}^{3}\sum\_{j=1}^{3}\aK{p}(\mphiK{p}{j},\mphiK{p}{i}) \ee\_{I\_{p,i}}^T\ee\_{I\_{p,j}}\\\\\\
+&=& \dsp \sum\_{p=1}^{\Nt}\sum\_{i=1}^{3}\sum\_{j=1}^{3}\aK{p}(\mphi{I\_{p,j}},\mphi{I\_{p,i}}) \ee\_{I\_{p,i}}^T\ee\_{I\_{p,j}}
 \end{array}
 $$
 
@@ -198,7 +199,7 @@ Ce sont précisément les données que nous fournissent le fichier de maillage (
 {{% /alert %}}
 
 {{% alert note%}}
-En réalité, les boucles sur les sommets locaux, c'est-à-dire les boucles sur $i$ et $j$, ne varient pas de 1 à 3, mais de 1 au nombre de sommets $N^p\_s$ de l'éléments. En effet, un élément peut être par exemple un segment, avec uniquement 2 sommets ou un tétraèdres, avec 4 sommets.
+En réalité, les boucles sur les sommets locaux, c'est-à-dire les boucles sur $i$ et $j$, ne varient pas de 1 à 3, mais de 1 au nombre de sommets $N^p\_s$ de l'élément. En effet, un élément peut être par exemple un segment, avec uniquement 2 sommets ou un tétraèdres, avec 4 sommets.
 {{% /alert%}}
 
 {{% alert warning %}}

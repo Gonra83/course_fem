@@ -114,7 +114,7 @@ $\newcommand{\ut}{u\_t}$
 ## Formulation faible et espace H<sup>1</sup><sub>0</sub>
 
 
-Nous considérons tout d'abord le cas où $g= 0$. La condition de Dirichlet est dite \emph{essentielle} car elle est intégrée à l'espace fonctionnel. On étudie tout d'abord ce problème dans le cas régulier, et on introduit l'espace des fonctions $\Cun$ nulles sur le bord de $\Omega$ :
+Nous considérons tout d'abord le cas où $g= 0$. La condition de Dirichlet est dite **essentielle** car elle est intégrée à l'espace fonctionnel. On étudie tout d'abord ce problème dans le cas régulier, et on introduit l'espace des fonctions $\Cun$ nulles sur le bord de $\Omega$ :
 $$
 \Cunz = \enstq{u\in\Cun}{u\restrict\_{\partial\Omega}= 0}.
 $$
@@ -123,7 +123,7 @@ $$
 \begin{array}{r l}
   \dsp \int\_{\Omega} -\Delta u(\xx)\overline{v}(\xx)\diff(\xx) &=
   \dsp \int\_{\Omega} \nabla u(\xx)\cdot\overline{\nabla v(\xx)}\diff\xx+ 
-  \dsp \int\_{\partial\Omega} \dn u(\xx) \overline{v(\xx)}\diff\xx &= \\\\\\
+  \dsp \int\_{\partial\Omega} \dn u(\xx) \overline{v(\xx)}\diff\xx \\\\\\ &=
   \dsp \int\_{\Omega} \nabla u(\xx)\cdot\overline{\nabla v(\xx)}\diff\xx.
 \end{array}
 $$
@@ -132,7 +132,7 @@ $$
 \left\\{
   \begin{array}{l}
     \text{Trouver } u\in\Cunz\text{ tel que }\\\\\\
-\dsp \forall v \in \Cunz,\quad a(u,v) = \ell(v),
+    \dsp \forall v \in \Cunz,\quad a(u,v) = \ell(v),
   \end{array}
 \right.
 $$
@@ -147,14 +147,14 @@ $$
 $$
 Malheureusement, nous ne pourrons toujours pas appliquer le Théorème de Lax-Migram sur cette formulation faible, car $\Cunz$ n'est pas complet (en tout cas, pas pour la norme qui nous intéresse). Nous introduisons alors un espace de Sobolev qui prend en compte la condition de Dirichlet.
 $$
-\Hoz = \enstq{u\in\Ho}{\gamma u = 0},
+\Hoz = \enstq{u\in\Ho}{\gamma\_{\partial\Omega} u = 0},
 $$
-où $\gamma:\Ho\to L^2(\partial\Omega)$ est l'application trace sur $\partial\Omega$.
+où $\gamma\_{\partial\Omega}:\Ho\to L^2(\partial\Omega)$ est l'application trace sur $\partial\Omega$.
 {{% thm lemma %}}
 L'espace $\Hoz$ est un espace de Hilbert.
 {{% /thm  %}}
 {{% thm proof %}}
-La définition de l'espace veut dire que $\Hoz = \ker(\gamma)$ et comme l'application trace est continue, alors son noyau est fermé. L'espace $\Hoz$ est un sous-espace fermé de $\Ho$ qui est un Hilbert : $\Hoz$ est donc également un espace de Hilbert.
+Par la définition de l'espace, nous avons $\Hoz = \ker(\gamma\_{\partial\Omega})$. Nous avons vu que l'application trace est continue, son noyau est alors fermé. L'espace $\Hoz$ est un sous-espace fermé de $\Ho$ qui est un Hilbert : $\Hoz$ est donc également un espace de Hilbert.
 {{% /thm  %}}
 La formulation faible que nous étudions finalement est :
 $$
@@ -169,27 +169,27 @@ $$
 Nous vérifions maintenant les hypothèses du théorème de Lax-Milgram pour démontrer l'existence et l'unicité de la solution à la formulation variationnelle ci-dessus :
 
 1. $\Hoz$ est un espace de Hilbert
-2. Continuité de $\ell$ :
+2. Continuité de $\ell(\cdot)$ :
   $$
     \begin{array}{ r >{\displaystyle}l l}
-      \forall v\in\Hoz,\quad \abs{\ell(v)} & = \abs{\int\_{\Omega}f(\xx)\conj{v(\xx)}\diff\xx} & \\\\\\
+      \forall v\in\Hoz,\quad \abs{\ell(v)} & \dsp = \abs{\int\_{\Omega}f(\xx)\conj{v(\xx)}\diff\xx} & \\\\\\
       & \leq \normL{f}\normL{v}& \textit{Cauchy Schwarz}\\\\\\
       & \leq \normL{f}\normH{v}& \textit{Inégalité des normes}
     \end{array}
   $$
-3. Continuité de $a$ :
+3. Continuité de $a(\cdot,\cdot)$ :
   $$
     \begin{array}{ r >{\displaystyle}l l}
-      \forall u, v\in\Hoz,\quad \abs{a(u,v)} & = \abs{\int\_{\Omega}\nabla u(\xx)\cdot \conj{\nabla v(\xx)}\diff\xx} & \\\\\\
+      \forall u, v\in\Hoz,\quad \abs{a(u,v)} &\dsp  = \abs{\int\_{\Omega}\nabla u(\xx)\cdot \conj{\nabla v(\xx)}\diff\xx} & \\\\\\
       & \leq \normL{\nabla u}\normL{\nabla v}& \textit{Cauchy Schwarz}\\\\\\
       & \leq \normH{u}\normH{v}& \textit{Inégalité des normes}
     \end{array}
   $$
-4. Coercivité de $a$ :
+4. Coercivité de $a(\cdot,\cdot)$ :
   $$
-  \forall u\in\Hoz,\quad \Re{a(u,u)}  = a(u,u) = \abs{\int\_{\Omega}\nabla u(\xx)\cdot \conj{\nabla u(\xx)}\diff\xx} = \normL{\nabla u}^2\ldots
+  \forall u\in\Hoz,\quad \Re\left(a(u,u)\right)  = a(u,u) = \abs{\int\_{\Omega}\nabla u(\xx)\cdot \conj{\nabla u(\xx)}\diff\xx} = \normL{\nabla u}^2\ldots
   $$
-La coercivité est en réalité compliqué puisque nous aimerions avoir :  
+La coercivité est en réalité compliquée à obtenir puisque nous aimerions avoir :  
 $$ 
 \normL{\nabla u}^2 \geq C \normH{u}^2 = C\left(\normL{\nabla u}^2 + \normL{u}^2\right),
 $$ 
@@ -206,24 +206,28 @@ $$
 $$
 {{% /thm %}}
 
+{{% alert note %}}
+L'inégalité de Poincaré est aussi valable si la condition de Dirichlet n'est posée que sur une partie du bord $\partial\Omega$, comme montré ci-après.
+{{% /alert %}}
+
 ## Condition de Dirichlet partielle : combinaison de Neumann et  Dirichlet
 
-L'inégalité de Poincaré est aussi valable si la condition de Dirichlet n'est posée que sur une partie du bord $\partial\Omega$. Prenons par exemple le problème suivant, où $w\in L^2(\Gamma\_N)$, $\Gamma\_D\cup\Gamma\_N =\partial\Omega$ et $\Gamma\_D\cap\Gamma\_N = \emptyset$ :
+ Prenons par exemple le problème suivant, où $w\in L^2(\Gamma\_N)$, $\Gamma\_D\cup\Gamma\_N =\partial\Omega$ et $\Gamma\_D\cap\Gamma\_N = \emptyset$ :
 
 \begin{equation}\label{eq:eqGammaD}
   \left\\{
     \begin{array}{r c l l}
-      -\Delta u & = & f & (\Omega)\\
-      u & =  & 0 & (\Gamma\_D)\\
+      -\Delta u & = & f & (\Omega)\\\\\\
+      u & =  & 0 & (\Gamma\_D)\\\\\\
       \dn u & =  & w & (\Gamma\_N)
     \end{array}
   \right.
 \end{equation}
 
-En notant $\Gamma\_D \colon \Ho\to L^2(\Gamma\_D)$ l'application trace sur $\Gamma\_D$, nous introduisons l'espace $\HoD$ suivant :
+En notant $\gamma\_D \colon \Ho\to L^2(\Gamma\_D)$ l'application trace sur $\Gamma\_D$, nous introduisons l'espace $\HoD$ suivant :
 
 $$
-\HoD = \enstq{u\in\Ho}{\Gamma\_D(u) = 0}.
+\HoD = \enstq{u\in\Ho}{\gamma\_D(u) = 0}.
 $$
 Autrement dit, $\HoD$ peut être vu comme les fonctions $\Ho$ nulles sur le bord $\Gamma\_D$. L'espace $\HoD$ est toujours un espace de Sobolev, pour les mêmes raisons que pour $\Hoz$ et la formulation faible s'écrira alors, après calculs :
 $$
@@ -266,7 +270,7 @@ $$
 \Vhz = \enstq{u\in V_h}{u\restrict\_{\Gamma\_D} = 0}
 $$
 
-Mais nous pouvons aussi raisonner sur le système linéaire directement. Nous séparons les degrés de liberté en deux sous ensembles
+Mais nous pouvons aussi raisonner sur le système linéaire directement. Nous séparons les degrés de liberté en deux sous-ensembles :
 
 1. Ceux qui appartiennent à $\Omega$ ou à $\Gamma\_N$ : nous les noterons avec un indice $I$ (pour Intérieur) : $u\_I$
 2. Ceux qui appartiennent à $\Gamma\_D$, ils seront notés avec un indice $D$ : $u\_D$
@@ -280,7 +284,7 @@ U =\left(
   \end{array}
 \right),
 $$
-et le système linéaire $AU = b$  s'écrit alors
+et le système linéaire $AU = b$  devient :
 $$
 AU = b \iff 
 \left(
@@ -303,7 +307,7 @@ AU = b \iff
 \right)
 $$
 
-Les degrés de liberté $u\_D$ sont en réalité fixé à 1 du fait de la condition de Dirichlet, autrement dit, le système à résoudre se résume à ($I\_{D,D}$ étant la matrice identité) :
+Les degrés de liberté $u\_D$ sont en réalité fixés à 0 du fait de la condition de Dirichlet, autrement dit, le système à résoudre se résume à ($I\_{D,D}$ étant la matrice identité) :
 $$
   AU = b \iff 
   \left(
@@ -329,11 +333,15 @@ $$
 
 Informatiquement, nous devons donc rendre les lignes et colonnes associées aux degrés de liberté de Dirichlet, nulles, sauf sur la diagonale avec la valeur 1. Cette opération est souvent effectuée après l'assemblage de la matrice.
 
+{{% alert note %}}
+La valeur de 1 sur la diagonale est finalement arbitraire : nous pouvons choisir n'importe quelle valeur. Pour des raisons de précision numérique, il peut être plus pertinent de choisir comme valeur la moyenne de la somme de la diagonale de $A\_{I,I}$ (sa trace). Cette technique peu coûteuse permet d'éviter de polluer le conditionnement de la matrice par des valeurs potentiellement trop grande ou trop petite par rapport à la "moyenne".
+{{% /alert %}}
+
 ## Condition de Dirichlet non homogène
 
 ### Notion de relèvement
 
-Nous considérons maintenant le cas d'une condition de Dirichlet non homogène, autrement dit, si $g\in L^2(\Gamma\_D)$ et $h\neq 0$ :
+Nous considérons maintenant le cas d'une condition de Dirichlet non homogène, autrement dit, si $g\in L^2(\Gamma\_D)$ et $g\neq 0$ :
 
 $$
 \left\\{
@@ -349,7 +357,7 @@ Nous pouvons introduire l'espace suivant
 $$
 \Hog = \enstq{u\in \Ho}{u\restrict\_{\Gamma\_D} = g},
 $$
-mais ce n'est pas un espace vectoriel ! Pour remédier à ce problème, nous nous ramenons au cas d'une condition de Dirichlet homogène en introduisant un *relèvement* $u\_g$ de $g$ : une fonction de $\Ho$ telle que $u\_g = g$ sur $\Gamma\_D$. Nous ne nous préoccuperons pas de savoir si une telle fonction existe et supposons que tel est le cas (*en réalité, $g$ doit appartenir à l'espace $H^{\frac{1}{2}}(\partial\Omega)$*). Le problème devient alors de chercher $\ut = u-u\_g$ satisfaisant :
+mais ce **n'est pas un espace vectoriel** ! Pour remédier à ce problème, nous nous ramenons au cas d'une condition de Dirichlet homogène en introduisant un *relèvement* $u\_g$ de $g$ : une fonction de $\Ho$ telle que $\gamma\_{\Gamma\_D}u\_g = g$. Nous ne nous préoccuperons pas de savoir si une telle fonction existe et supposons que tel est le cas (*en réalité, $g$ doit appartenir à l'espace $H^{\frac{1}{2}}(\partial\Omega)$*). Le problème devient alors de chercher $\ut = u-u\_g$ satisfaisant :
 
 $$
 \left\\{
@@ -377,7 +385,7 @@ u\_{h,g}(\ssb\_j) =
   \end{array}
 \right.
 $$
-Cette fonction n'est pas un relèvement de $g$ puisqu'elle ne coïncide avec $g$ que sur les sommets, mais pas nécessairement entre les sommets. Toutefois, au niveau discret, elle remplit ce rôle : c'est un relèvement de l'interpolé $g\_h$ de $g$ sur l'espace éléments finis.
+Cette fonction n'est pas un relèvement de $g$ puisqu'elle ne coïncide avec $g$ que sur les sommets, mais pas nécessairement entre les sommets. Toutefois, au niveau discret, elle remplit ce rôle : c'est **un relèvement de l'interpolée** $g\_h = \Pi\_h g$ de $g$ sur l'espace éléments finis.
 
 En pratique, la matrice est alors décomposée ainsi :
 $$
@@ -401,7 +409,7 @@ AU = b \iff
   \end{array}
 \right).
 $$
-La matrice obtenue est non symétrique, ce qui peut poser des problèmes (par ex. augmentation du coût de stockage mémoire). Pour remédier à ce problème, une solution consiste à réécrire sous la forme suivante :
+La matrice obtenue est non symétrique, ce qui peut poser des problèmes (par ex. augmentation du coût de stockage mémoire). Une astuce simple consiste à réécrire sous la forme suivante :
 $$
   AU = b \iff 
   \left(

@@ -95,7 +95,7 @@ Les $\Ns$ sommets $\sumit{I}$ d'un maillage seront numérotés de 1 à $\Ns$ : $
 
 ### Locale
 
-Chaque sommet appartient à au moins un triangle et possède alors une numérotation **locale** dans ce triangle, c'est-à-dire 1, 2 ou 3. Pour ne pas confondre avec la numérotation globale, nous indiquerons le numéro du triangle, par exempel $\sumitK{p}{i}$ et le $i^{ème}$ sommets du triangle $\tri{p}$. Dit autrement, le triangle $\tri{p}$ a pour sommets $\sumitK{p}{1}, \sumitK{p}{2}, \sumitK{p}{3}$.
+Chaque sommet appartient à au moins un triangle et possède alors une numérotation **locale** dans ce triangle, c'est-à-dire 1, 2 ou 3. Pour ne pas confondre avec la numérotation globale, nous indiquerons le numéro du triangle, par exemple $\sumitK{p}{i}$ est le $i^{ème}$ sommet du triangle $\tri{p}$. Dit autrement, le triangle $\tri{p}$ a pour sommets $\sumitK{p}{1}, \sumitK{p}{2}, \sumitK{p}{3}$.
 
 ### Locale vers Globale
 
@@ -103,7 +103,7 @@ Pour un triangle $\tri{p} = [\sumitK{p}{1}, \sumitK{p}{2}, \sumitK{p}{3}]$ donn�
 $$
 \begin{array}{l}
   \forall p=1\,\ldots,\Nt, \forall i = 1, 2, 3, \\\\\\
-  \loctoglob(i,p) = I \iff \sumitK{p}{i} = \sumit{I}.
+  \loctoglob(p,i) = I \iff \sumitK{p}{i} = \sumit{I}.
 \end{array}
 $$
 
@@ -130,8 +130,8 @@ $$
 
 En général, un fichier de maillage contient plusieurs informations :
 
-1. Le **numéro globale** et les **coordonnées** des sommets
-2. La **connectivité** des éléménts
+1. Le **numéro global** et les **coordonnées** des sommets
+2. La **connectivité** des éléments
 
 Il ne faut pas oublier que le bord du domaine, $\partial\Omega$, est lui aussi maillé par des éléments de type segment. Notons qu'un fichier de maillage est souvent écrit en ASCII et non en binaire. 
 

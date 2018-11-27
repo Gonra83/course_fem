@@ -171,7 +171,6 @@ $$
 En valeur absolue, cela correspond à 2 fois l'aire du triangle $\tri{p}$. Le déterminant est donc non nul puisque le triangle n'est pas dégénéré et la transformation $\TK{p}$ est donc bien inversible. Une illustration de la transformation $\TK{p}$ est présentée sur la figure ci-dessous.
 
 {{< figure src="../ref.svg" title="Passage du triangle de référence $\Kh$ vers un triangle $\tri{p}$ par la transformation $\TK{p}$." numbered="true" >}}
-TODO: figure modifier Latex
 
 {{% alert note%}}
 Nous avons choisi ici une transformation linéaire du triangle $\Kh$ au triangle $\tri{p}$. Si nous souhaitons obtenir des éléments courbes, nous devons alors prendre une transformation, par exemple, quadratique.

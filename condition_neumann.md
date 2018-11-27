@@ -71,8 +71,8 @@ Commençons par la formulation variationnelle dans l'espace des fonctions $\Cscr
 $$
 \int\_{\Omega}\nabla u(x) \cdot \overline{\nabla v(x)} \diff x +
 \int\_{\Omega}  u(x)\overline{ v(x)} \diff x
--\int\_{\partial\Omega} \dn u(x)\overline{v(x)} \diff s(x)
-= \int\_{\Omega} f(x)\overline{v(x)} \diff x.
+-\int\_{\partial\Omega} \dn u(x)\overline{v(x)} \diff s(x) =
+\int\_{\Omega} f(x)\overline{v(x)} \diff x.
 $$
 En utilisant la condition $\dn u = g$ sur $\partial\Omega$, nous obtenons la formulation variationnelle suivante :
 \begin{equation}\label{fv:dnNonH}
@@ -147,14 +147,14 @@ Pour pouvoir appliquer le Théorème de Lax-Milgram, nous devons basculer dans l
 \end{equation}
 où $a(\cdot,\cdot)$ et $\ell(\cdot)$ sont définies de la même manière que précédemment. Pour pouvoir appliquer le Théorème de Lax-Milgram, nous savons par le cas de Neumann homogène que l'application $a(\cdot,\cdot)$ est continue et coercive. Le problème vient de la fonction $\ell$ :
 $$
-\ell(v) = \int\_{\Omega}f\overline{v} + \int\_{\partial\Omega}g\overline{v}.
+\ell(v) = \int\_{\Omega}f\,\overline{v} \diff x+ \int\_{\partial\Omega}g\,\overline{v} \diff s.
 $$
-En effet, il n'est pas clair que la deuxième quantité existe et soit continue : nous n'avons pas donné de sens à la trace sur $\partial\Omega$ d'une fonction de $\Ho$, c'est-à-dire à $v|\_{\partial\Omega}$. C'est l'objet du théorème ci-dessous (admis).
+En effet, rien ne prouve que la deuxième quantité existe et soit continue : nous n'avons pas donné de sens à la trace sur $\partial\Omega$ d'une fonction de $\Ho$, c'est-à-dire à $v|\_{\partial\Omega}$. C'est l'objet du théorème ci-dessous (admis).
 
-{{% thm theorem "Continuité de la trace" %}}
+{{% thm theorem "Continuité de la Trace" %}}
   Soit $\Gamma\subset\partial\Omega$ une partie du bord de mesure non nulle au sens de la mesure de surface. Alors il existe une unique application $\gamma\_{\Gamma}\colon\Ho\to L^2(\Gamma)$ qui est continue au sens de $\normH{\cdot}$ :
   $$
-\exists C>0 \text{ tel que } \forall v \in\Ho \quad \norm{\gamma\_{\Gamma}(v)}\_{L^2(\partial\Omega)} \leq C\normH{v}.
+\exists C>0 \text{ tel que } \forall v \in\Ho, \; \norm{\gamma\_{\Gamma}(v)}\_{L^2(\partial\Omega)} \leq C\normH{v}.
   $$
   Cette application est de plus caractérisée par
   $$
@@ -166,9 +166,15 @@ Ce théorème nous permet de montrer que la forme $\ell$ a un sens (chaque quant
 $$
 \begin{array}{r c l }
   \abs{\ell(v)} &\leq & \dsp \abs{\int\_{\Omega} f(x)\conj{v(x)}\diff x} + \abs{\int\_{\partial\Omega} g(x)\conj{v(x)}\diff x}\\\\\\
-    &\leq & \dsp \normL{f}\normL{v} + \abs{\int\_{\partial\Omega} g(x)\conj{\gamma\_{\partial\Omega}(v(x))}}\\\\\\
-    &\leq & \dsp \normL{f}\normL{v} + \norm{g}\_{L^2(\partial\Omega)}\norm{\gamma\_{\partial\Omega}(v)}\_{L^2(\partial\Omega)}\\\\\\
+    &\leq & \dsp \abs{\int\_{\Omega} f(x)\conj{v(x)}\diff x}+ \abs{\int\_{\partial\Omega} g(x)\conj{\gamma\_{\partial\Omega}(v(x))}}.
+\end{array}
+$$
+En appliquant successivement l'inégalité de Cauchy-Schwarz puis l'inégalité due à la continuité de la Trace sur $\partial\Omega$, nous obtenons la continuité de $\ell(\cdot)$:
+$$
+\begin{array}{r c l }
+  \abs{\ell(v)} &\leq &\dsp \normL{f}\normL{v} + \norm{g}\_{L^2(\partial\Omega)}\norm{\gamma\_{\partial\Omega}(v)}\_{L^2(\partial\Omega)}\\\\\\
     &\leq & \dsp \left(\normL{f} + C\norm{g}\_{L^2(\partial\Omega)}\right)\normH{v}.
 \end{array}
 $$
+
 Nous pouvons en conclure que \eqref{fvH:dnNonH} admet une unique solution par le Théorème de Lax-Milgram.
