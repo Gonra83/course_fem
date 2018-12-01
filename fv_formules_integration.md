@@ -92,7 +92,7 @@ De ce Théorème fondamental découlent des Corollaires qui nous seront pratique
 Soit $\Omega$ un ouvert borné, régulier de classe $\Cscr^1$. Soit $u$ et $v$ deux fonctions de $\Cscr^1(\overline{\Omega})$, alors elles vérifient la formule d'intégration par parties
 $$
 \int\_{\Omega}\frac{\partial u}{\partial x\_i}(x)v(x)\diff x =
--\int\_{\Omega}v(x)\frac{\partial v}{\partial x\_i}(x)\diff x
+-\int\_{\Omega}u(x)\frac{\partial v}{\partial x\_i}(x)\diff x
 + \int\_{\partial\Omega}u(x)v(x)n\_i(x)\diff s.
 $$
 {{% /thm %}}
