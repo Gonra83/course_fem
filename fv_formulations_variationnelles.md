@@ -55,7 +55,7 @@ Nous considérons le problème modèle suivant, avec $\Omega$ un ouvert borné r
 \label{eq:pbmodel}
 \end{equation}
 
-Cette équation est parfois appelé *positive Helmholtz equation*.
+Cette équation est parfois appelée *positive Helmholtz equation*.
 
 
 Pour résoudre ce problème, nous apprécierions grandement que $u$ soit de classe $\Cscr^2(\overline{\Omega})$ *(pour pouvoir la dériver deux fois)*. Comme nous le verrons plus loin, cette condition sur la régularité pose problème. 
@@ -135,7 +135,7 @@ $$
 \implies& \dsp \int\_{\Omega} \left(\nabla u\cdot \conj{\nabla v} + \Delta u\cdot\conj{v}\right)\;\diff x
 + \int\_{\Omega} (-\Delta u +  u - f)\conj{v}\;\diff x &=& 0\\\\\\
  \implies &
-\dsp \int\_{\partial\Omega}\dn u \conj{v} \;\diff s + \int\_{\Omega} (-\Delta u + u - f)\conj{v}\;\diff x &=& 0\\\\\\
+\dsp \int\_{\partial\Omega}\underbrace{(\dn u)}_{=0} \conj{v} \;\diff s + \int\_{\Omega} (-\Delta u + u - f)\conj{v}\;\diff x &=& 0\\\\\\
 \implies & \dsp \int\_{\Omega} (-\Delta u + u - f)\conj{v}\;\diff x &=& 0\\\\\\
 \end{array}
 $$
@@ -165,5 +165,4 @@ a(u,v) &:=& \dsp\int\_{\Omega} \nabla u\cdot \conj{\nabla v} \;\diff x+ \int\_{\
 \end{array}\right.
 $$
 
-Plutôt que de tenter de résoudre le problème d'origine \eqref{eq:pbmodel}, nous sommes maintenant tenter de résoudre la formulation variationnelle \eqref{eq:FV}, en cherchant $u$ uniquement $\Cscr^1(\overline{\Omega})$ - et, surprise, nous avons (presque) raison !
-
+Plutôt que de tenter de résoudre le problème d'origine \eqref{eq:pbmodel}, nous sommes maintenant tentés de résoudre la formulation variationnelle \eqref{eq:FV}, en cherchant $u$ uniquement $\Cscr^1(\overline{\Omega})$ - et, surprise, nous avons (presque) raison !
