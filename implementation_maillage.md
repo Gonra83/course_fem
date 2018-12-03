@@ -176,7 +176,18 @@ i Type n_tags tag_1 tag_2 ... tag_{n_tags} I_{i,1} I_{i,2} ... I_{i,N}
 $EndElements
 ```
 
-### Exemple de maillages
+## Exemples
 
-TODO: image sous marin + fichier
+### Sous-marin
 
+<object type="text/html" data="http://localhost:1313/bthierry/course/fem/sub/index.html" width="100%" height="auto"></object>
+
+- [Script GMSH](https://github.com/Bertbk/geogmsh/blob/master/submarine.geo)
+- [Plein écran]({{<relref "sub.html">}})
+
+### Théière
+
+<object type="text/html" data="http://localhost:1313/bthierry/course/fem/teapot/index.html" width="100%" height="auto"></object>
+
+- [Script GMSH](https://github.com/Bertbk/geogmsh/blob/master/teapot.geo)
+- [Plein écran]({{<relref "teapot.html">}})
