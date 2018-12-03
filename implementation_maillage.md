@@ -180,14 +180,14 @@ $EndElements
 
 ### Sous-marin
 
-<object type="text/html" data="http://localhost:1313/bthierry/course/fem/sub/index.html" width="100%" height="auto"></object>
+<object type="text/html" data="../sub/index.html" width="100%" height="auto"></object>
 
 - [Script GMSH](https://github.com/Bertbk/geogmsh/blob/master/submarine.geo)
 - [Plein écran]({{<relref "sub.html">}})
 
 ### Théière
 
-<object type="text/html" data="http://localhost:1313/bthierry/course/fem/teapot/index.html" width="100%" height="auto"></object>
+<object type="text/html" data="../teapot/index.html" width="100%" height="auto"></object>
 
 - [Script GMSH](https://github.com/Bertbk/geogmsh/blob/master/teapot.geo)
 - [Plein écran]({{<relref "teapot.html">}})
