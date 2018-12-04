@@ -222,25 +222,23 @@ Nous avons alors $\varphi\_j^p(x,y) = \varphi\_j^p(\TK{p}(\xi,\eta))$ avec :
 1. $\varphi\_j^p\circ\TK{p}\in\Pun(\Kh)$
 2. $\varphi\_j^p\circ\TK{p}(\sh\_i) = \delta\_{ij}$
 
-En d'autres termes, nous avons l'égalité suivante :
+En d'autres termes, nous avons $\varphi\_j^p\circ\TK{p} = \varphih\_j$ et donc la suite d'égalités suivantes :
 $$
-\varphi\_j^p(x,y) = \varphi\_j^p(\TK{p}(\xi,\eta)) = \varphih\_j(\xi,\eta),
+\varphi\_j^p(x,y) = \varphi\_j^p(\TK{p}(\xi,\eta)) = \varphih\_j(\xi,\eta).
 $$
-où les $\varphih\_j$ sont les fonctions de forme du triangle de référence. 
-
 En notant $\JK{p}$ la matrice Jacobienne de $\TK{p}$, alors la quantité $\Mep(i,j)$ peut alors s'écrire, par changement de variables :
 $$
 \begin{array}{r c l}
 \Mep(i,j) &=& \dsp\int\_{\tri{p}}\mphiK{p}{j}(x,y)\overline{\mphiK{p}{i}(x,y)} \diff(x,y)\\\\\\
-&=&\dsp \det(\JK{p})\underbrace{\int\_{\Kh}\varphih\_{j}(\xi,\eta)\overline{\varphih\_{i}(\xi,\eta)}\diff(\xi,\eta)}\_{Déjà calculé !}\\\\\\
+&=&\dsp \det(\JK{p})\underbrace{\int\_{\Kh}\varphih\_{j}(\xi,\eta)\overline{\varphih\_{i}(\xi,\eta)}\diff(\xi,\eta)}\_{\text{Déjà calculé !}}\\\\\\
 \end{array}
 $$
 
-Pour calculer la matrice élémentaire d'un triangle $\tri{p}$, nous n'avons besoin *que du* déterminant de la Jacobienne : $\det(\JK{p})$.
+Pour calculer la matrice élémentaire d'un triangle $\tri{p}$ quelconque, nous avons maintenant uniquement besoin déterminant de la Jacobienne : $\det(\JK{p})$.
 
 ### Expression et Jacobienne de la transformation
 
-La transformation que nous cherchons, $\TK{p}$ est linéaire et "conserve" les sommets et leur ordre. Pour obtenir son expression, nous construisons des fonctions *d'interpolation géométrique*, $(\psih\_i)\_{1\leq i \leq 3}$ linéaire sur $\Kh$ et telle que :
+La transformation que nous cherchons, $\TK{p}$ est linéaire et "conserve" les sommets et leur ordre. Pour obtenir son expression, nous construisons des fonctions **d'interpolation géométrique**, $(\psih\_i)\_{1\leq i \leq 3}$ linéaire sur $\Kh$ et telle que :
 $$
 \forall i,j=1,2,3, \quad \psih\_i(\sh\_{j}) = \deltaij.
 $$
@@ -253,7 +251,7 @@ $$
 $$
 
 {{% alert note %}}
-Les fonctions d'interpolation géométrique $\phih\_j$ sont ici identiques aux fonctions de forme $\varphih_j$, c'est pourquoi nous parlons d'éléments finis **isparamétriques**. Cependant, il faut bien se rappeler que ce n'est pas obligatoire et le choix des fonctions $\psih\_j$ et $\varphih\_j$ est *découplé*. En particulier, pour obtenir des éléments courbes, nous pourrions choisir par exemple des fonctions $\psih\_j$ quadratiques.
+Les fonctions d'interpolation géométrique $\varphih\_j$ sont ici identiques aux fonctions de forme $\varphih\_j$, c'est pourquoi nous parlons d'éléments finis **isparamétriques**. Cependant, il faut bien se rappeler que ce n'est pas obligatoire et le choix des fonctions $\psih\_j$ et $\varphih\_j$ est *découplé*. En particulier, pour obtenir des éléments courbes, nous pourrions choisir par exemple des fonctions $\psih\_j$ quadratiques.
 {{% /alert %}}
 
 Comme $\psih\_j = \varphih\_j$ pour tout $j=1,2,3$, nous disposons de leur expression analytique :
