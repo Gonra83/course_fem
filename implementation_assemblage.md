@@ -107,7 +107,7 @@ $$
   \end{array}
 \right.
 $$
-Chaque intégrale sur $\Omega$ peut être décomposée comme somme sur les triangles $\tri{p}$ de $\hme{\Tscr}$: 
+Chaque intégrale sur $\Omega$ peut être décomposée comme une somme sur les triangles $\tri{p}$ de $\hme{\Tscr}$: 
 $$
 \left\\{ 
   \begin{array}{l}
@@ -122,7 +122,7 @@ Nous pouvons remarquer que la matrice $A$ est **creuse**, c'est-à-dire qu'un no
 ## Calcul des coefficients : approche naïve
 
 
-Nous devons bien entendu construire cette matrice : calculer chacun de ses coefficients et les stocker. Un algorithme *naïf* mais naturel pour calculer chaque coefficient est de boucler sur les sommets $\sumit{I}$ et $\sumit{J}$ et de remplir la matrice au fur et à mesure, c'est-à-dire remplir les coefficient $\AIJ$ l'un après l'autre. 
+Nous devons bien entendu construire cette matrice : calculer chacun de ses coefficients et les stocker. Un algorithme *naïf* mais naturel pour calculer chaque coefficient est de boucler sur les sommets $\sumit{I}$ et $\sumit{J}$ et de remplir la matrice au fur et à mesure, c'est-à-dire de remplir les coefficients $\AIJ$ les uns après les autres. 
 
 ```
 For every vertices I = 1:N_s
@@ -161,7 +161,7 @@ $$
 \end{array}
 $$
 
-Nous remarquons maintenant que $\aK{p}(\mphi{J},\mphi{I})$ est nul dès lors que $\sumit{I}$ ou $\sumit{J}$ n'est pas un sommet de $\tri{p}$. Finalement, la somme sur tous les sommets du maillage se réduit alors une somme sur les sommets de $\tri{p}$ uniquement, notés $\\{\sumitK{p}{1}, \sumitK{p}{2}, \sumitK{p}{3}\\}$.
+Nous remarquons maintenant que $\aK{p}(\mphi{J},\mphi{I})$ est nul dès lors que $\sumit{I}$ ou $\sumit{J}$ n'est pas un sommet de $\tri{p}$. Finalement, la somme sur tous les sommets du maillage se réduit alors à une somme sur les sommets de $\tri{p}$ uniquement, notés $\\{\sumitK{p}{1}, \sumitK{p}{2}, \sumitK{p}{3}\\}$.
 
 $$
 \begin{array}{r c l}
@@ -170,17 +170,17 @@ $$
 \end{array}
 $$
 
-Pour chaque élément (=triangle) du maillage, nous effectuons 9 opérations : l'assemblage est de complexité linéaire par rapport au nombre d'éléments, et est bien moindre que $\Ns^2$.
+Pour chaque élément (=triangle) du maillage, nous effectuons 9 opérations : l'assemblage est de complexité linéaire par rapport au nombre d'éléments, ce qui est bien moindre que $\Ns^2$.
 
 
 
 ```
 A = 0; // Matrice nulle
 B = 0; // Vecteur nul
-For l = 1:N_triangles
-  For p=1:3 //3 = N_s
+For p = 1:N_triangles
+  For i=1:3 //3 = N_s
     I = Loc2Glob(p, i)$ // Indice globale du i-ème sommet dans la matrice
-    For q=1:3 //3 = N_s
+    For j=1:3 //3 = N_s
       J = Loc2Glob(p, j)$ // Indice globale de j-ème sommet dans la matrice
       A(I,J) += a_{p}(phi_J, phi_I) // forme a(.,.) restreinte au triangle K_p
     EndFor
@@ -193,7 +193,7 @@ EndFor
 Pour utiliser une telle méthode, nous avons besoin de :
 
 1. La connectivité des éléments et en particulier, pour un triangle donné, connaître ses 3 sommets
-2. La fonction que nous avons appelé $\loctoglob$
+2. La fonction que nous avons appelée $\loctoglob$
 
 Ce sont précisément les données que nous fournissent le fichier de maillage (quel hasard) !
 {{% /alert %}}
@@ -206,6 +206,6 @@ En réalité, les boucles sur les sommets locaux, c'est-à-dire les boucles sur 
 Cet algorithme est pour l'instant encore inutilisable :
   
 - Les quantités $\aK{p}(\mphi{J}, \mphi{I})$ ne sont pas déterminées analytiquement : nous verrons plus tard comment les approcher efficacement à l'aide de formules de quadrature.
-- L'écriture de l'algorithme suppose que la matrice est dense, au sens où elle possède une valeur pour chaque indices $(I,J)$. Nous devons donc adapter cette écriture pour le cas d'une matrice creuse (diminution du coût mémoire).
-- Il manque toujours et bien entendu les (éventuelles) conditions de Dirichlet
+- L'écriture de l'algorithme suppose que la matrice est dense, au sens où elle possède une valeur pour chaque indice $(I,J)$. Nous devons donc adapter cette écriture pour le cas d'une matrice creuse (diminution du coût mémoire).
+- Il manque toujours et bien entendu les (éventuelles) conditions de Dirichlet.
 {{% /alert %}}
