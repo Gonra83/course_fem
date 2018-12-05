@@ -68,11 +68,11 @@ $\newcommand{\mphi}[1]{\varphi\_{#1}}$
 $\newcommand{\mphiK}[2]{\mphi{#2}^{#1}}$
 
 
-Le maillage du domaine est une étape que nous ne détaillerons pas (ou alors plus tard). Sachons cependant que cette étape est à la fois compliquée, du point de vue mathématiques et algorithmique, et très coûteuse, surtout en 3D ! Pour des géométries complexes, le temps de création du maillage peut dépasser celui de la résolution du système linéaire. Nous utiliserons le logiciel libre [GMSH](https://GMSH.info) et un [tutoriel]({{< ref "course/gmsh">}}) pour mailler et dessiner les domaines.
+Le maillage du domaine est une étape que nous ne détaillerons pas (ou alors plus tard). Sachons cependant que cette étape est à la fois compliquée, du point de vue mathématique et algorithmique, et très coûteuse, surtout en 3D ! Pour des géométries complexes, le temps de création du maillage peut dépasser celui de la résolution du système linéaire. Nous utiliserons le logiciel libre [GMSH](https://GMSH.info) et un [tutoriel]({{< ref "course/gmsh">}}) pour mailler et dessiner les domaines.
 
 
 {{% alert note %}}
-Nous nous restreignons ici au cas d'éléments triangulaires à 3 sommets. Cependant, tout est adapatable (et à adapter !) en fonction de la géométrie de l'élément : segment, triangle (à plus que 3 points), quadrangle, prisme, ... Mais aussi en fonction du nombre de l'ordre de l'élément.
+Nous nous restreignons ici au cas d'éléments triangulaires à 3 sommets. Cependant, tout est adaptable (et à adapter !) en fonction de la géométrie de l'élément : segment, triangle (à plus que 3 points), quadrangle, prisme, ... Mais aussi en fonction de l'ordre de l'élément.
 {{% /alert %}}
 
 ## Triangles
@@ -83,7 +83,7 @@ Les $\Nt$ triangles du maillage seront numérotés de 1 à $\Nt$ : $\tri{1}, \tr
 
 ### Orientation
 
-Pour un triangle d'un maillage de sommets $\ssb\_I, \ssb\_J, \ssb\_K$, deux orientations sont possibles (le choix du premier sommet n'ayant aucune incidence sur l'orientation) :  $K = [\ssb\_I, \ssb\_J, \ssb\_K]$ ou $K' = [\ssb\_I, \ssb\_K, \ssb\_J]$. Le vecteur normale unitaire sortante au triangle $K$ est alors opposé à $K'$. Il est donc important que chaque triangle d'une même surface soit orienté dans le même sens ! 
+Pour un triangle d'un maillage de sommets $\ssb\_I, \ssb\_J, \ssb\_K$, deux orientations sont possibles (le choix du premier sommet n'ayant aucune incidence sur l'orientation) :  $K = [\ssb\_I, \ssb\_J, \ssb\_K]$ ou $K' = [\ssb\_I, \ssb\_K, \ssb\_J]$. La normale unitaire sortante au triangle $K$ est alors opposé à $K'$. Il est donc important que chaque triangle d'une même surface soit orienté dans le même sens ! 
 
 {{< figure src="../orientation.svg" title="Orientation d'un triangle" numbered="true" >}}
 
@@ -142,7 +142,7 @@ Il ne faut pas oublier que le bord du domaine, $\partial\Omega$, est lui aussi m
 Nous nous restreignons ici au format de fichier v2 et non v4 (plus récent).
 {{% /alert %}}
 
-Pour `GMSH`, les fichiers de maillage ont la structure du tableau ci-dessous ($\Ns=$nombre de sommets, $\Ne=$nombre d'éléments). Le type d'éléments est un entier, 1 pour un élément segment et 2 pour un élément triangulaire. Par exemple, pour un triangle numéro 10 reliant les points 100, 101 et 102 et disposant deux tags 3 et 4, cela donne
+Pour `GMSH`, les fichiers de maillage ont la structure du tableau ci-dessous ($\Ns=$nombre de sommets, $\Ne=$nombre d'éléments). Le type d'élément est un entier, 1 pour un élément segment et 2 pour un élément triangulaire. Par exemple, pour un triangle numéro 10 reliant les points 100, 101 et 102 et disposant de deux tags 3 et 4, cela donne
 
 | Indice | Type | N. tags |tag 1 | tag 2 | Noeud 1 | Noeud 2 | Noeud 3 |
 | --- | --- | --- |---|--- | ---| ---| --- |
