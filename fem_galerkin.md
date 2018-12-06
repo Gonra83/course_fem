@@ -82,7 +82,7 @@ Nous noterons $\PSV{\cdot}{\cdot}$ et $\normV{\cdot}$ respectivement le produit 
 
 ## Dimension finie
 
-Obtenir une solution de \eqref{eq3:pbmodel} est compliqué car $V$ est (a priori) de dimension infini. La méthode de Galerkin consiste à "approcher" l'espace fonctionnel $V$ par un espace $\Vh\subset V$, de **dimension fini**, mais toujours de Hilbert, et ce pour le même produit scalaire ! La formulation faible \eqref{eq3:pbmodel} est alors résolue dans $\Vh$ uniquement, avec pour solution $u\_h$ :
+Obtenir une solution de \eqref{eq3:pbmodel} est compliqué car $V$ est (a priori) de dimension infinie. La méthode de Galerkin consiste à "approcher" l'espace fonctionnel $V$ par un espace $\Vh\subset V$, de **dimension finie**, mais toujours de Hilbert, et ce pour le même produit scalaire ! La formulation faible \eqref{eq3:pbmodel} est alors résolue dans $\Vh$ uniquement, avec pour solution $u\_h$ :
 \begin{equation}\label{eq3:pbmodelh}
 \left\\{
   \begin{array}{l}
@@ -110,7 +110,7 @@ Travailler dans un espace de dimension finie présente un très grand avantage :
 - [PETSc](https://www.mcs.anl.gov/petsc/) : Bibliothèque contenant entres autres de nombreux solveurs directs (dont MUMPS) ou itératifs (GMRES, ...)
 
 {{% thm lemma %}}
-Soit $V$ un espace de Hilbert et $\Vh$ un sous espace de dimension fini. Soit $a(\cdot,\cdot)$ une forme sesquilinéaire continue et coercive sur $V$, $\ell(\cdot)$ une forme anti-linéaire continue sur $V$. Le problème approché \eqref{eq3:pbmodelh} admet une unique solution. De plus, cette solution s'obtient par la résolution d'un système linéaire de matrice définie positive.
+Soit $V$ un espace de Hilbert et $\Vh$ un sous espace de dimension finie. Soit $a(\cdot,\cdot)$ une forme sesquilinéaire continue et coercive sur $V$, $\ell(\cdot)$ une forme anti-linéaire continue sur $V$. Le problème approché \eqref{eq3:pbmodelh} admet une unique solution. De plus, cette solution s'obtient par la résolution d'un système linéaire de matrice définie positive.
 {{% /thm %}}
 {{% thm proof %}}
 Le problème  \eqref{eq3:pbmodelh} admet toujours une unique solution d'après le Théorème de Lax-Milgram. Comme $\Vh$ est de dimension finie, notée $\Nh$, nous pouvons en extraire une base $(\mphi{1}, \mphi{2}, \..., \mphi{\Nh})$ et écrire
@@ -153,7 +153,7 @@ $$
 Quelques remarques :
 
 - La matrice $\hme{A}$ *discrétise* l'opérateur $a(\cdot,\cdot)$ au sens où elle est de taille finie.
-- La **coercivité** d'une forme $a(\cdot,\cdot)$ est, en quelque sorte, l'équivalent de la **définie positivité** de sa matrice. La coercivité s'applique au domaine "continue" (les *fonctions* ou *opérateurs*) tandis que la définie positivité est un terme appliqué au domaine "algébrique" (les *matrices* (infinies ou non)).  
+- La **coercivité** d'une forme $a(\cdot,\cdot)$ est, en quelque sorte, l'équivalent de la **définie positivité** de sa matrice. La coercivité s'applique au domaine "continu" (les *fonctions* ou *opérateurs*) tandis que la définie positivité est un terme appliqué au domaine "algébrique" (les *matrices* (infinies ou non)).  
 - L'hypothèse de Lax-Milgram sur la **coercivité** de $a(\cdot,\cdot)$ est une **hypothèse forte** puisque la matrice $\hme{A}$ discrétisant $a(\cdot,\cdot)$ doit être **définie positive** !
 {{% /alert %}}
 
