@@ -125,14 +125,14 @@ $$
 Deux remarques :
 
 - La matrice $M$ représente l'opérateur identité dans la base des éléments finis (ce n'est pas la matrice diagonale remplie de 1...). En effet, si "l'EDP" était juste $u = f$, alors on aurait $a(u,v) = \int\_{\Omega}u\overline{v}$ et sa matrice $\Pun$ serait la matrice de masse.
-- Dans la littérature, cette matrice est souvent notée $K$, mais nous l'appelons $D$ pour éviter toute confusion avec les triangles, nommés $K$ également.
+- Dans la littérature, la matrice de rigidité est souvent notée $K$, mais nous l'appelons $D$ pour éviter toute confusion avec les triangles, nommés $K$ également.
 {{% /alert %}}
 
 ## Matrice de masse élémentaire
 
 Nous nous focalisons sur la matrice de masse, le principe est similaire pour la matrice $D$ et est détaillé juste après.
 
-Pour construire la matrice $M$, nous avons vu qu'il était préférable de parcourir les triangles plutôt que les sommets, autrement dit, plutôt que de calculer $M(I,J)$ directement, mieux vaut calculer, pour tout triangle $p$, les *contributions élémentaires* $\Mep(i,j)$ pour $i,j = 1,2,3$, définie par :
+Pour construire la matrice $M$, nous avons vu qu'il était préférable de parcourir les triangles plutôt que les sommets, autrement dit, plutôt que de calculer $M(I,J)$ directement, mieux vaut calculer, pour tout triangle $p$, la *contribution élémentaire* $\Mep(i,j)$ pour $i,j = 1,2,3$, définie par :
 \begin{equation}
 \label{eq:matelem}
 \Mep(i,j) = \int\_{\tri{p}} \mphiK{p}{i} \overline{\mphiK{p}{j}}.
@@ -141,7 +141,7 @@ Chaque contribution élémentaire $\Mep(i,j)$ est ensuite ajoutée à $M(I,J)$, 
 Nous nous focalisons ainsi maintenant sur le calcul de \eqref{eq:matelem}.
 
 {{% alert note %}}
-La quantité $\Mep$ est une matrice $3\times 3$ appelées *matrice de masse élémentaire*.
+La quantité $\Mep$ est une matrice $3\times 3$ appelée *matrice de masse élémentaire*.
 {{% /alert %}}
 
 ## Triangle de référence
@@ -151,7 +151,7 @@ Plaçons nous dans un triangle "simple" $\Kh$, appelé *triangle de référence*
 
 {{< figure src="../triangle_ref.svg" title="Triangle de référence $\Kh$ et son repère paramétrique $(\xi,\eta)$." numbered="true" >}}
 
-Plutôt que d'indicer par $p$, nous notons $\varphih\_i \in \Pun(\Kh)$ les trois fonctions de forme associés aux sommets $\sh\_{i}$, pour $i=1,2,3$, définie par
+Plutôt que d'indicer par $p$, nous notons $\varphih\_i \in \Pun(\Kh)$ les trois fonctions de forme associés aux sommets $\sh\_{i}$, pour $i=1,2,3$, définies par
 $$
 \varphih\_j(\sh\_{i}) = \delta\_{ij}.
 $$
@@ -181,12 +181,12 @@ $$
 $$
 {{% /thm %}}
 {{% thm proof %}}
-Prenons tout d'abord le cas $i=j=3$, soit $\varphih\_2(\xi,\eta) = \xi$. Dans ce cas :
+Prenons tout d'abord le cas $i=j=2$, soit $\overline{\varphih\_i} = \varphih\_j = \varphih\_2(\xi,\eta) = \xi$. Dans ce cas :
 $$
 \int\_{\Kh} \xi^2 \diff (\xi,\eta) = \int\_0^1\int\_0^{1-\xi} \xi^2 \diff\eta\diff\xi = \int\_0^1(1-\xi)\xi^2\diff\xi =
 \left[\frac{\xi^3}{3} - \frac{\xi^4}{4}\right]\_0^1=\frac{1}{3}-\frac{1}{4} = \frac{1}{12}.
 $$
-Les calculs sont similaires pour $j=1$ et $j=2$.
+Les calculs sont similaires pour $j=1$ et $j=3$.
 
 Prenons maintenant $i\neq j$, par exemple $i=3$ et $j=2$ :
 $$
@@ -234,11 +234,11 @@ $$
 \end{array}
 $$
 
-Pour calculer la matrice élémentaire d'un triangle $\tri{p}$ quelconque, nous avons maintenant uniquement besoin déterminant de la Jacobienne : $\det(\JK{p})$.
+Pour calculer la matrice élémentaire d'un triangle $\tri{p}$ quelconque, nous avons maintenant uniquement besoin du déterminant de la Jacobienne : $\det(\JK{p})$.
 
 ### Expression et Jacobienne de la transformation
 
-La transformation que nous cherchons, $\TK{p}$ est linéaire et "conserve" les sommets et leur ordre. Pour obtenir son expression, nous construisons des fonctions **d'interpolation géométrique**, $(\psih\_i)\_{1\leq i \leq 3}$ linéaire sur $\Kh$ et telle que :
+La transformation que nous cherchons, $\TK{p}$, est linéaire et "conserve" les sommets et leur ordre. Pour obtenir son expression, nous construisons des fonctions **d'interpolation géométrique**, $(\psih\_i)\_{1\leq i \leq 3}$, linéaires sur $\Kh$ et telles que :
 $$
 \forall i,j=1,2,3, \quad \psih\_i(\sh\_{j}) = \deltaij.
 $$
@@ -251,7 +251,7 @@ $$
 $$
 
 {{% alert note %}}
-Les fonctions d'interpolation géométrique $\varphih\_j$ sont ici identiques aux fonctions de forme $\varphih\_j$, c'est pourquoi nous parlons d'éléments finis **isparamétriques**. Cependant, il faut bien se rappeler que ce n'est pas obligatoire et le choix des fonctions $\psih\_j$ et $\varphih\_j$ est *découplé*. En particulier, pour obtenir des éléments courbes, nous pourrions choisir par exemple des fonctions $\psih\_j$ quadratiques.
+Les fonctions d'interpolation géométrique $\varphih\_j$ sont ici identiques aux fonctions de forme $\varphih\_j$, c'est pourquoi nous parlons d'éléments finis **isoparamétriques**. Cependant, il faut bien se rappeler que ce n'est pas obligatoire et que le choix des fonctions $\psih\_j$ et $\varphih\_j$ est *découplé*. En particulier, pour obtenir des éléments courbes, nous pourrions choisir par exemple des fonctions $\psih\_j$ quadratiques.
 {{% /alert %}}
 
 Comme $\psih\_j = \varphih\_j$ pour tout $j=1,2,3$, nous disposons de leur expression analytique :
@@ -365,7 +365,7 @@ $$
 $$
 {{% /thm %}}
 {{% thm proof %}}
-  Clairement, la matrice est symétriques. Nous avons :
+  Clairement, la matrice est symétrique. Nous avons :
   $$\hat{D}\_{1,1} =
     \int\_{\Kh}\nabla\varphih\_1\cdot\overline{\nabla\varphih\_1} \diff (\xi,\eta) =
     \int\_{\Kh} (-1,-1)\left(\begin{array}{l}-1\\\\\\ -1\end{array}\right) \diff (\xi,\eta) =
