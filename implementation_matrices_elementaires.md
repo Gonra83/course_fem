@@ -318,6 +318,12 @@ $$
 \Dep(i,j) = \int\_{\tri{p}}\nabla \mphiK{p}{j}\cdot \overline{\nabla\mphiK{p}{i}}.
 $$
 
+Nous pouvons d'ors et déjà remarqué que, en éléments finis $\Pun$, les quantités $\mphiK{p}{j}$ sont constantes sur chaque triangle et peuvent alors être sorties de l'intégrales :
+$$
+\Dep(i,j) = \nabla \mphiK{p}{j}\cdot \overline{\nabla\mphiK{p}{i}}\int\_{\tri{p}}\diff\xx = \abs{\tri{p}}\left[\nabla \mphiK{p}{j}\cdot \overline{\nabla\mphiK{p}{i}}\right]
+$$
+Les fonctions $\mphiK{p}{j}$ peuvent être calculées analytiquement ainsi que leur gradient. Nous étudions tout de même le cas plus abstrait d'éléments finis non forcément $\Pun$.
+
 ### Triangle de référence
 
 Bien que nous puissions obtenir une expression analytique dans le cas d'un triangle quelconque, nous nous en tenons ici au triangle de référence. Notons que nous disposons des expressions analytiques des gradients des fonctions de forme $\varphih\_j$ :
@@ -463,9 +469,15 @@ Au final, comme $X\cdot Y = X^TY$, nous obtenons
 \int\_{\tri{p}} (\nabla\mphiK{p}{j})^T\overline{\nabla\mphiK{p}{i}} \diff(x,y)
   = \det(\JK{p})\int\_{\Kh} (\nabla\varphih\_{j})^T  (\BK{p}^T \overline{\BK{p}})\overline{\nabla\varphih\_{i}} \diff (\xi,\eta).
 \end{equation}
-La matrice $\BK{p}$ étant réelle, nous pouvons supprimer la conjugaison portant sur $\BK{p}$.
+La matrice $\BK{p}$ étant réelle, nous pouvons supprimer la conjugaison portant sur $\BK{p}$. 
 
-
+{{% alert note %}}
+Pour les éléments finis $\Pun$, la matrice $\BK{p}$ ne dépend pas de $(\xi,\eta)$, de même des gradients $\nabla\varphih\_{j}$ : tout peut être sorti de l'intégrale, et comme $\det(\JK{p}) = 2\abs{\tri{p}}$ :
+$$
+\int\_{\tri{p}} \nabla\mphiK{p}{j}\cdot\overline{\nabla\mphiK{p}{i}} \diff(x,y) =
+  2\abs{\tri{p}}^2(\nabla\varphih\_{j})^T  (\BK{p}^T \overline{\BK{p}})\overline{\nabla\varphih\_{i}}.
+$$
+{{% /alert %}}
 
 ## Quadratures
 
