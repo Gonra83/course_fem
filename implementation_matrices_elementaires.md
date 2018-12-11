@@ -465,7 +465,6 @@ $$
 $$
 Au final, comme $X\cdot Y = X^TY$, nous obtenons
 \begin{equation}\label{eq:intRigidite}
-  \int\_{\tri{p}} \nabla\mphiK{p}{j}\cdot\overline{\nabla\mphiK{p}{i}} \diff(x,y) =
 \int\_{\tri{p}} (\nabla\mphiK{p}{j})^T\overline{\nabla\mphiK{p}{i}} \diff(x,y)
   = \det(\JK{p})\int\_{\Kh} (\nabla\varphih\_{j})^T  (\BK{p}^T \overline{\BK{p}})\overline{\nabla\varphih\_{i}} \diff (\xi,\eta).
 \end{equation}
