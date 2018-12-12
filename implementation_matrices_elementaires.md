@@ -468,7 +468,7 @@ Au final, comme $X\cdot Y = X^TY$, nous obtenons
 \int\_{\tri{p}} (\nabla\mphiK{p}{j})^T\overline{\nabla\mphiK{p}{i}} \diff(x,y)
   = \det(\JK{p})\int\_{\Kh} (\nabla\varphih\_{j})^T  (\BK{p}^T \overline{\BK{p}})\overline{\nabla\varphih\_{i}} \diff (\xi,\eta).
 \end{equation}
-La matrice $\BK{p}$ étant réelle, nous pouvons supprimer la conjugaison portant sur $\BK{p}$. 
+La matrice $\BK{p}$ étant réelle, nous pouvons supprimer la conjugaison portant sur $\BK{p}$.
 
 {{% alert note %}}
 Pour les éléments finis $\Pun$, la matrice $\BK{p}$ ne dépend pas de $(\xi,\eta)$, de même des gradients $\nabla\varphih\_{j}$ : tout peut être sorti de l'intégrale, et comme $\det(\JK{p}) = 2\abs{\tri{p}}$ :
