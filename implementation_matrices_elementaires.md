@@ -509,10 +509,18 @@ Nous présentons ici deux règles de quadrature pour l'intégration sur $\Kh$ d'
 
 ###  Sur une arrête
 
-Dans ce cas, nous utilisons aussi une arrête de référence $[0,1]$ ainsi qu'une transformation, nous ne détaillons pas les calculs et fournissons uniquement deux formules de quadrature sur le segment de référence, exacte pour des polynômes de degré 1 :
+Voici quelques formules de quadrature sur un segment $[\sumitK{p}{1}, \sumitK{p}{2}]$ avec le degré de précision, *i.e* la formule est exacte si $g$ est un polynôme de degré égal ou inférieur. Nous notons $\abs{\sigma} = \norm{\sumitK{p}{1} - \sumitK{p}{2}}$ la taille du segment et $\sumitK{p}{12} = \frac{\sumitK{p}{1} + \sumitK{p}{2}}{2}$ le milieu du segment:
 
-- Point du milieu : $\dsp \int\_0^1\gh(x)\diff x \simeq \gh(\frac{1}{2})$
-- Trapèze :  $\dsp \int\_0^1\gh(x)\diff x \simeq \frac{1}{2}\left(\gh(0) + \gh(1)\right)$
+| Nom | Degré de <br>précision | $\dsp \int\_{\sumitK{p}{1}}^{\sumitK{p}{2}}g(x)\diff x\simeq \ldots$    |
+| -------- |-------- |  ---------------- |
+|    Point du milieu | 1| $\dsp g(\sumitK{p}{12})$ |
+|    Trapèze | 1  | $\dsp\frac{\abs{\sigma}}{2}\left(g(\sumitK{p}{1}) + g(\sumitK{p}{2})\right)$ |
+|    1/3 Simpson | 2 | $\dsp\frac{\abs{\sigma}}{6}\left(g(\sumitK{p}{1}) + 4g(\sumitK{p}{12}) + g(\sumitK{p}{2})\right)$ |
+
+<!-- 
+- Point du milieu (degré 1) : $\dsp \int\_{\sumitK{p}{1}}^{\sumitK{p}{2}}g(x)\diff x \simeq g(\sumitK{p}{12})$
+- Trapèze (degré 1) :  $\dsp \int\_{\sumitK{p}{1}}^{\sumitK{p}{2}}g(x)\diff x \simeq \frac{\abs{\sigma}}{2}\left(g(\sumitK{p}{1}) + g(\sumitK{p}{2})\right)$
+- 1/3 Simpson (degré 2) :  $\dsp \int\_{\sumitK{p}{1}}^{\sumitK{p}{2}}g(x)\diff x \simeq \frac{\abs{\sigma}}{6}\left(g(\sumitK{p}{1}) + 4g(\sumitK{p}{12}) + g(\sumitK{p}{2})\right)$ -->
 
 {{% alert note %}}
 Les formules de quadrature ont évidemment un impact sur la qualité de l'approximation, toutefois, elles jouent un rôle relativement mineur par rapport aux autres approximations (et l'on peut choisir plus de points d'intégration !).
