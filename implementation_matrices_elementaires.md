@@ -471,12 +471,13 @@ Au final, comme $X\cdot Y = X^TY$, nous obtenons
 La matrice $\BK{p}$ étant réelle, nous pouvons supprimer la conjugaison portant sur $\BK{p}$.
 
 {{% alert note %}}
-Pour les éléments finis $\Pun$, la matrice $\BK{p}$ ne dépend pas de $(\xi,\eta)$, de même des gradients $\nabla\varphih\_{j}$ : tout peut être sorti de l'intégrale, et comme $\det(\JK{p}) = 2\abs{\tri{p}}$ :
+Pour les éléments finis $\Pun$, la matrice $\BK{p}$ ne dépend pas de $(\xi,\eta)$, de même des gradients $\nabla\varphih\_{j}$ : tout peut être sorti de l'intégrale, et comme $\det(\JK{p}) = 2\abs{\tri{p}}$ et $\abs{\Kh}= \frac{1}{2}$ :
 $$
 \int\_{\tri{p}} \nabla\mphiK{p}{j}\cdot\overline{\nabla\mphiK{p}{i}} \diff(x,y) =
-  2\abs{\tri{p}}^2(\nabla\varphih\_{j})^T  (\BK{p}^T \overline{\BK{p}})\overline{\nabla\varphih\_{i}}.
+  \abs{\tri{p}}(\nabla\varphih\_{j})^T  (\BK{p}^T \overline{\BK{p}})\overline{\nabla\varphih\_{i}}.
 $$
 {{% /alert %}}
+
 
 ## Quadratures
 
