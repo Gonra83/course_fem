@@ -84,7 +84,7 @@ $$
 \begin{array}{l c c l}
 a\colon & \Ho\times\Ho & \to &\Ho\\\\\\
         & (u,v)&\mapsto& \dsp \int\_{\Omega}\nabla u\cdot\overline{\nabla v} +  \int\_{\Omega} u \overline{ v} + 
- \int\_{\partial \Omega}\alpha u|\_{\partial\Omega} \overline{ v}|\_{\partial\Omega}\\\\\\
+ \int\_{\partial \Omega} u|\_{\partial\Omega} \overline{ v}|\_{\partial\Omega}\\\\\\
 \ell\colon & \Ho & \to &\Ho\\\\\\
         & v&\mapsto& \dsp \int\_{\Omega}f \overline{v} + \int\_{\partial \Omega}g \overline{v}|\_{\partial\Omega}
  \end{array}
@@ -99,12 +99,12 @@ Nous avons vu que [les intégrales sur le bord ont un sens]({{<relref "condition
 $$
 \begin{array}{r c l}
 \abs{a(u,v)} & = & \dsp\abs{\int\_{\Omega}\nabla u\cdot\overline{\nabla v} +  \int\_{\Omega} u \overline{ v} + 
- \int\_{\partial \Omega}\alpha u|\_{\partial\Omega} \overline{ v}|\_{\partial\Omega}}\\\\\\
+ \int\_{\partial \Omega} u|\_{\partial\Omega} \overline{ v}|\_{\partial\Omega}}\\\\\\
  & \leq & \dsp\abs{\int\_{\Omega}\nabla u\cdot\overline{\nabla v} +  \int\_{\Omega} u \overline{ v}} + 
- \abs{\alpha}\abs{\int\_{\partial \Omega} u|\_{\partial\Omega} \overline{ v}|\_{\partial\Omega}}\\\\\\
-  & \leq & \dsp \normH{u} \normH{v}+\abs{\alpha}\norm{u|\_{\partial\Omega}}\_{\partial\Omega} \norm{v|\_{\partial\Omega}}\_{\partial\Omega}\\\\\\
-  & \leq & \dsp \normH{u} \normH{v} + \abs{\alpha}C^2\normH{u}\normH{v}\\\\\\
-  & \leq & \dsp (1 + \abs{\alpha}C^2)\normH{u} \normH{v}\\\\\\
+ \abs{\int\_{\partial \Omega} u|\_{\partial\Omega} \overline{ v}|\_{\partial\Omega}}\\\\\\
+  & \leq & \dsp \normH{u} \normH{v}+\norm{u|\_{\partial\Omega}}\_{\partial\Omega} \norm{v|\_{\partial\Omega}}\_{\partial\Omega}\\\\\\
+  & \leq & \dsp \normH{u} \normH{v} + C^2\normH{u}\normH{v}\\\\\\
+  & \leq & \dsp (1 + C^2)\normH{u} \normH{v}\\\\\\
  \end{array}
 $$
 La constance $C$ est la constance de continuité de l'opérateur Trace sur $\partial\Omega$.
@@ -113,8 +113,8 @@ La constance $C$ est la constance de continuité de l'opérateur Trace sur $\par
 $$
 \begin{array}{r c l}
 a(u,u) & = & \dsp\int\_{\Omega}\nabla u\cdot\overline{\nabla u} +  \int\_{\Omega} u \overline{u} + 
- \int\_{\partial \Omega}\alpha u|\_{\partial\Omega} \overline{u}|\_{\partial\Omega}\\\\\\
-  & = & \dsp \normH{u}^2+ \underbrace{\int\_{\partial \Omega}\alpha u|\_{\partial\Omega} \overline{u}|\_{\partial\Omega}}\_{\geq 0}\\\\\\
+ \int\_{\partial \Omega} u|\_{\partial\Omega} \overline{u}|\_{\partial\Omega}\\\\\\
+  & = & \dsp \normH{u}^2+ \underbrace{\int\_{\partial \Omega} u|\_{\partial\Omega} \overline{u}|\_{\partial\Omega}}\_{\geq 0}\\\\\\
   & \geq & \dsp \normH{u}^2
  \end{array}
 $$
@@ -129,7 +129,7 @@ où la matrice $A$ et le vecteur $b$ sont donnés par
 $$
 \begin{array}{r c l}
   A(I,J) &=& \dsp\int\_{\Omega}\nabla \mphi{J}\cdot\overline{\nabla \mphi{I}} +  \int\_{\Omega} \mphi{J} \overline{ \mphi{I}} + 
- \int\_{\partial \Omega}\alpha \mphi{J}|\_{\partial\Omega} \overline{ \mphi{I}}|\_{\partial\Omega}\\\\\\
+ \int\_{\partial \Omega} \mphi{J}|\_{\partial\Omega} \overline{ \mphi{I}}|\_{\partial\Omega}\\\\\\
   B(I) &=& \dsp\int\_{\Omega} f \overline{ \mphi{I}} +  \int\_{\partial \Omega}g \overline{ \mphi{I}}|\_{\partial\Omega}
 \end{array}
 $$
