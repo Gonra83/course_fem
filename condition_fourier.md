@@ -1,5 +1,5 @@
 +++
-title = "Conditions de Fourier"
+title = "Conditions de Fourier-Robin"
 
 date = 2018-09-09T00:00:00
 # lastmod = 2018-09-09T00:00:00
@@ -89,7 +89,39 @@ a\colon & \Ho\times\Ho & \to &\Ho\\\\\\
         & v&\mapsto& \dsp \int\_{\Omega}f \overline{v} + \int\_{\partial \Omega}g \overline{v}|\_{\partial\Omega}
  \end{array}
 $$
-Nous avons vu que [les intégrales sur le bord ont un sens]({{<relref "condition_neumann.md">}}) du fait de l'existence de l'opérateur trace. Après discrétisation dans la base éléments finis, nous sommes ramenés à la résolution du système linéaire
+
+
+## Existence et unicité
+
+Nous avons vu que [les intégrales sur le bord ont un sens]({{<relref "condition_neumann.md">}}) du fait de l'existence de l'opérateur trace. Pour [une condition de Neumann]({{<relref "condition_neumann.md">}}), l'opérateur $\ell$ est le même et nous avons déjà vu qu'il vérifie les hypothèses du Théorème de Lax-Milgram. Il ne nous reste qu'à vérifier que $a(\cdot,\cdot)$ est sesquilinéaire (trivial), continue  et coercive.
+
+1. Continuité de $a(\cdot,\cdot)$ pour tout $u,v\in\Ho$ :
+$$
+\begin{array}{r c l}
+\abs{a(u,v)} & = & \dsp\abs{\int\_{\Omega}\nabla u\cdot\overline{\nabla v} +  \int\_{\Omega} u \overline{ v} + 
+ \int\_{\partial \Omega}\alpha u|\_{\partial\Omega} \overline{ v}|\_{\partial\Omega}}\\\\\\
+ & \leq & \dsp\abs{\int\_{\Omega}\nabla u\cdot\overline{\nabla v} +  \int\_{\Omega} u \overline{ v}} + 
+ \abs{\alpha}\abs{\int\_{\partial \Omega} u|\_{\partial\Omega} \overline{ v}|\_{\partial\Omega}}\\\\\\
+  & \leq & \dsp \normH{u} \normH{v}+\abs{\alpha}\norm{u|\_{\partial\Omega}}\_{\partial\Omega} \norm{v|\_{\partial\Omega}}\_{\partial\Omega}\\\\\\
+  & \leq & \dsp \normH{u} \normH{v} + \abs{\alpha}C^2\normH{u}\normH{v}\\\\\\
+  & \leq & \dsp (1 + \abs{\alpha}C^2)\normH{u} \normH{v}\\\\\\
+ \end{array}
+$$
+La constance $C$ est la constance de continuité de l'opérateur Trace sur $\partial\Omega$.
+
+2. Coercivité de $a(\cdot,\cdot)$, avec $u\in\Ho$ :
+$$
+\begin{array}{r c l}
+a(u,u) & = & \dsp\int\_{\Omega}\nabla u\cdot\overline{\nabla u} +  \int\_{\Omega} u \overline{u} + 
+ \int\_{\partial \Omega}\alpha u|\_{\partial\Omega} \overline{u}|\_{\partial\Omega}\\\\\\
+  & = & \dsp \normH{u}^2+ \underbrace{\int\_{\partial \Omega}\alpha u|\_{\partial\Omega} \overline{u}|\_{\partial\Omega}}\_{\geq 0}\\\\\\
+  & \geq & \dsp \normH{u}^2
+ \end{array}
+$$
+Le problème admet donc une unique solution.
+
+## Matrice de masse sur le bord
+Après discrétisation dans la base éléments finis, nous sommes ramenés à la résolution du système linéaire
 $$
 A U = b,
 $$
@@ -101,9 +133,6 @@ $$
   B(I) &=& \dsp\int\_{\Omega} f \overline{ \mphi{I}} +  \int\_{\partial \Omega}g \overline{ \mphi{I}}|\_{\partial\Omega}
 \end{array}
 $$
-
-## Matrice de masse sur le bord
-
 Le vecteur $B$ se calcul grâce aux formules de quadratures. La matrice $A$ est obtenue par la somme de la matrice de rigidité $D$, de masse $M$ et d'une dernière matrice $M\_{\partial\Omega}$ de coefficient :
 $$
 M\_{\partial\Omega}(I,J)= \int\_{\partial \Omega} \mphi{J}|\_{\partial\Omega} \overline{\mphi{I}}|\_{\partial\Omega}.

@@ -290,7 +290,7 @@ AU = b \iff
 \left(
   \begin{array}{c c}
     A\_{I,I}  & A\_{I, D}\\\\\\
-    A\_{D_I} & A\_{D,D}
+    A\_{D, I} & A\_{D,D}
   \end{array}
 \right)
 \left(
@@ -312,7 +312,7 @@ $$
   AU = b \iff 
   \left(
     \begin{array}{c c}
-      A\_{I,I}  & 0\\\\\\
+      A\_{I,I}  &A\_{I,D}\\\\\\
       0 & I\_{D,D}
     \end{array}
   \right)
@@ -331,10 +331,38 @@ $$
   \right)
 $$
 
+
 Informatiquement, nous devons donc rendre les lignes et colonnes associées aux degrés de liberté de Dirichlet, nulles, sauf sur la diagonale avec la valeur 1. Cette opération est souvent effectuée après l'assemblage de la matrice.
 
 {{% alert note %}}
 La valeur de 1 sur la diagonale est finalement arbitraire : nous pouvons choisir n'importe quelle valeur. Pour des raisons de précision numérique, il peut être plus pertinent de choisir comme valeur la moyenne de la somme de la diagonale de $A\_{I,I}$ (sa trace). Cette technique peu coûteuse permet d'éviter de polluer le conditionnement de la matrice par des valeurs potentiellement trop grande ou trop petite par rapport à la "moyenne".
+{{% /alert %}}
+
+{{% alert note %}}
+Dans le cas de condition de Dirichlet homogène, ce système ce simplifie :
+$$
+  AU = b \iff 
+  \left(
+    \begin{array}{c c}
+      A\_{I,I}  & 0\\\\\\
+      0 & I\_{D,D}
+    \end{array}
+  \right)
+  \left(
+    \begin{array}{c}
+      u\_I\\\\\\
+      u\_D
+    \end{array}
+  \right)
+  = 
+  \left(
+    \begin{array}{c}
+      b\_I\\\\\\
+      0
+    \end{array}
+  \right),
+$$
+ou encore, plus simplement : $A\_{I,I} u\_I = b\_I$.
 {{% /alert %}}
 
 ## Condition de Dirichlet non homogène
@@ -385,7 +413,7 @@ u\_{h,g}(\ssb\_j) =
   \end{array}
 \right.
 $$
-Cette fonction n'est pas un relèvement de $g$ puisqu'elle ne coïncide avec $g$ que sur les sommets, mais pas nécessairement entre les sommets. Toutefois, au niveau discret, elle remplit ce rôle : c'est **un relèvement de l'interpolée** $g\_h = \Pi\_h g$ de $g$ sur l'espace éléments finis.
+Cette fonction n'est pas un relèvement de $g$ puisqu'elle ne coïncide avec $g$ que sur les sommets, mais pas nécessairement entre les sommets. Toutefois, au niveau discret, elle remplit ce rôle : c'est **un relèvement de l'interpolée** $g\_h = \Pi\_h g$ de $g$ sur l'espace éléments finis (la différence est subtile mais importante).
 
 En pratique, la matrice est alors décomposée ainsi :
 $$
@@ -393,7 +421,7 @@ AU = b \iff
 \left(
   \begin{array}{c c}
     A\_{I,I}  & A\_{I, D}\\\\\\
-    0 & I
+    0 & I\_{D,D}
   \end{array}
 \right)
 \left(
@@ -415,7 +443,7 @@ $$
   \left(
     \begin{array}{c c}
       A\_{I,I}  & 0\\\\\\
-      0 & I
+      0 & I\_{D,D}
     \end{array}
   \right)
   \left(
