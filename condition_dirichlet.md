@@ -195,7 +195,7 @@ $$
 $$ 
 et fort heureusement c'est le cas, grâce à l'inégalité de Poincaré.
 
-## Inégalité de Pointcaré
+## Inégalité de Poincaré
 
 Nous admettrons le théorème suivant, qui nous permet d'obtenir la coercivité de $a(\cdot,\cdot)$. Au final, toutes les hypothèses du théorème de Lax-Milgram sont respectées et le problème admet une unique solution.
 
@@ -248,9 +248,9 @@ $$
 \right.
 $$
 
-Nous vérifions maintenant les hypothèses du théorème de Lax-Milgram. La continuité de $a$ et de $\ell$ ont déjà été démontré précédemment. Seule nous intéresse ici la coercivité de $a$, donnée par une autre version de l'inégalité de Poincaré (plus complète) :
+Nous vérifions maintenant les hypothèses du théorème de Lax-Milgram. La continuité de $a$ et de $\ell$ ont déjà été démontrées précédemment. Seule nous intéresse ici la coercivité de $a$, donnée par une autre version de l'inégalité de Poincaré (plus complète) :
 {{% thm theorem "Inégalité de Poincaré générale" %}}
-Soit $\Gamma\_D\subset\partial\Omega$ une partie du bord de mesure non nulle. Il existe une constante $C>0$ telle que :
+Soit $\Gamma\_D\subset\partial\Omega$ une partie du bord de mesure non nulle au sens de la mesure de surface. Il existe une constante $C>0$ telle que :
 $$
   \forall u\in\HoD,\quad \normL{\nabla u}^2 \geq C \normH{u}^2.
 $$
@@ -265,7 +265,7 @@ $$
 Dans la suite, nous considérons le cas général où la condition de Dirichlet homogène est posée sur une partie du bord $\Gamma\_D$ uniquement, c'est à dire le problème \eqref{eq:eqGammaD}.
 
 
-Si $V_h$ est l'espace des éléments finis $\Pb^1$ sur $\Omega$, alors une discrétisation naturelle de $\Hoz$ est l'espace $\Vhz$ définie
+Si $V_h$ est l'espace des éléments finis $\Pb^1$ sur $\Omega$, alors une discrétisation naturelle de $\Hoz$ est l'espace $\Vhz$ défini par
 $$
 \Vhz = \enstq{u\in V_h}{u\restrict\_{\Gamma\_D} = 0}
 $$
@@ -275,7 +275,7 @@ Mais nous pouvons aussi raisonner sur le système linéaire directement. Nous s�
 1. Ceux qui appartiennent à $\Omega$ ou à $\Gamma\_N$ : nous les noterons avec un indice $I$ (pour Intérieur) : $u\_I$
 2. Ceux qui appartiennent à $\Gamma\_D$, ils seront notés avec un indice $D$ : $u\_D$
 
-Quitte à renumérotter, le vecteur $U$ de degrés de liberté se réécrit
+Quitte à renuméroter, le vecteur $U$ de degrés de liberté se réécrit
 $$
 U =\left(
   \begin{array}{c}
