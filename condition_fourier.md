@@ -70,7 +70,7 @@ $\newcommand{\sumit}[1]{\mathbf{s}\_{#1}}$
   \end{array}
   \right.
 \end{equation}
-La condition de Fourier (ou Robin ou Fourier-Robin) s'écrit aussi $\dn u = g -u$ sur $\partial\Omega$. Après calcul, la formulation variationnel s'écrit
+La condition de Fourier (ou Robin ou Fourier-Robin) s'écrit aussi $\dn u = g -u$ sur $\partial\Omega$. Après calcul, la formulation variationnelle s'écrit
 $$
 \left\\{ 
   \begin{array}{r c l l}
@@ -107,7 +107,7 @@ $$
   & \leq & \dsp (1 + C^2)\normH{u} \normH{v}\\\\\\
  \end{array}
 $$
-La constance $C$ est la constance de continuité de l'opérateur Trace sur $\partial\Omega$.
+La constante $C$ est la constante de continuité de l'opérateur Trace sur $\partial\Omega$.
 
 2. Coercivité de $a(\cdot,\cdot)$, avec $u\in\Ho$ :
 $$
@@ -133,16 +133,16 @@ $$
   B(I) &=& \dsp\int\_{\Omega} f \overline{ \mphi{I}} +  \int\_{\partial \Omega}g \overline{ \mphi{I}}|\_{\partial\Omega}
 \end{array}
 $$
-Le vecteur $B$ se calcul grâce aux formules de quadratures. La matrice $A$ est obtenue par la somme de la matrice de rigidité $D$, de masse $M$ et d'une dernière matrice $M\_{\partial\Omega}$ de coefficient :
+Le vecteur $B$ se calcule grâce aux formules de quadratures. La matrice $A$ est obtenue par la somme de la matrice de rigidité $D$, de masse $M$ et d'une dernière matrice $M\_{\partial\Omega}$ de coefficients :
 $$
 M\_{\partial\Omega}(I,J)= \int\_{\partial \Omega} \mphi{J}|\_{\partial\Omega} \overline{\mphi{I}}|\_{\partial\Omega}.
 $$
-Cette matrice correspond à une matrice de masse sur le bord $\partial\Omega$. Nous pouvons tout d'abord remarquer que $\mphi{I}|\_{\partial\Omega} = 0$ dès que $\sumit{I}$ n'est pas sur $\partial\Omega$. Comme toujours, nous préférons la décomposer en contributions élémentaires où, ici, un élement sera un segment :
+Cette matrice correspond à une matrice de masse sur le bord $\partial\Omega$. Nous pouvons tout d'abord remarquer que $\mphi{I}|\_{\partial\Omega} = 0$ dès que $\sumit{I}$ n'est pas sur $\partial\Omega$. Comme toujours, nous préférons la décomposer en contributions élémentaires où, ici, un élément sera un segment :
 $$
 M\_{\partial\Omega}(I,J)= \sum\_{\sigma \in \partial\Omega} 
 \int\_{\sigma} \mphi{J}|\_{\sigma} \overline{\mphi{I}}|\_{\sigma}.
 $$
-Nous pouvons maintenant remarquer que la somme sur les arêtes n'en est pas une puisque l'intégrale sur $\sigma$ est nulle dès que $\sumit{I}$ ou $\sumit{J}$ n'est pas un sommet de l'arrête. Cependant, n'oublions pas que nous ne calculons pas les coefficients un à un mais que nous *assemblons* la matrice, autrement dit, nous parcourons chaque segment, calculons toutes les contributions élémentaires associés à ce dernier, et additionnons le tout dans la grande matrice du système. 
+Nous pouvons maintenant remarquer que la somme sur les arêtes n'en est pas une puisque l'intégrale sur $\sigma$ est nulle dès que $\sumit{I}$ ou $\sumit{J}$ n'est pas un sommet de l'arête. Cependant, n'oublions pas que nous ne calculons pas les coefficients un à un mais que nous *assemblons* la matrice, autrement dit, nous parcourons chaque segment, calculons toutes les contributions élémentaires associées à ce dernier, et additionnons le tout dans la grande matrice du système. 
 
 Autrement dit et quitte à renuméroter, nous considérons une arête $\sigma = [\sumit{1}^{\sigma}, \sumit{2}^{\sigma}]$, nous cherchons à calculer :
 $$
@@ -162,20 +162,20 @@ Quand $\xx = \sumit{1}^{\sigma}$ alors $t=0$ et $\xx = \sumit{2}^{\sigma}$ alors
 La trace d'une fonction de forme $\mathbb{P}\_1$ sur $\sigma$ est la "fonction chapeau" 1D classique. Plus précisément :
 $$
 \begin{array}{l}
-\mphi{1}^{\sigma}(\xx) =\mphi{1}^{\sigma}(\xx(t)) = \hat{\phi\_1}(t) = t\\\\\\
-\mphi{2}^{\sigma}(\xx) =\mphi{2}^{\sigma}(\xx(t)) = \hat{\phi\_2}(t) = 1-t
+\mphi{1}^{\sigma}(\xx) =\mphi{1}^{\sigma}(\xx(t)) = \hat{\phi\_1}(t) = 1-t\\\\\\
+\mphi{2}^{\sigma}(\xx) =\mphi{2}^{\sigma}(\xx(t)) = \hat{\phi\_2}(t) = t
 \end{array}
 $$
 
 À l'inverse, connaissant $t$ on peut retrouver le point $\xx$ :
 $$
-\xx(t) = t\sumit{0} + (1-t)\sumit{1}.
+\xx(t) = (1-t)\sumit{1} + t\sumit{2}.
 $$
 Nous avons une transformation bijective entre $\sigma$ et le segment $[0,1]$ dit de référence et noté $\hat{\sigma}$. Nous pouvons opérer un changement de variable ($i,j = 1,2$):
 $$
 \int\_{\sigma}\mphi{j}^{\sigma} \overline{\mphi{i}^{\sigma}} \diff \xx= \abs{\sigma}\int\_{0}^1\mphi{j}^{\sigma}(\xx(t)) \overline{\mphi{i}^{\sigma}\xx(t)} \diff t = \abs{\sigma}\int\_{0}^1\hat{\phi}\_{j}(t) \overline{\hat{\phi}\_i(t)} \diff t.
 $$
-Le coefficient de masse de bord calcule alors aisément : 
+Le coefficient de masse de bord se calcule alors aisément : 
 $$
 M^e\_{\sigma}(i,j) =\frac{\abs{\sigma}}{6}
 \left(
