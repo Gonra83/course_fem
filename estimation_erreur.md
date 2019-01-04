@@ -108,62 +108,20 @@ $\newcommand{\TK}{T^K}$
 $\newcommand{\varphiK}{\varphi^K}$
 $\newcommand{\ug}{u\_g}$
 $\newcommand{\ut}{u\_t}$
+$\newcommand{\tri}[1]{K\_{#1}}$
 
 
 
 Nous étudions ici à "quel point" la solution numérique est "proche" de la solution exacte, en fonction du raffinement de maillage. Les résultats sont très techniques, nous ne donnerons aucune démonstration. Cependant, il est important de retenir de ce qui suit que la méthode des éléments fonctionne d'autant mieux que :
 
 1. La solution recherchée est régulière
-2. Le maillage est régulier (pas de triangle "plat")
-
-## Un premier élément : le lemme de Céa
-
-Le Lemme de Céa nous a déjà donné première estimation de l'erreur :
-\begin{equation}
-\label{eq:cea}
-\normH{u-\uh} \leq C \inf\_{\vh\in\Vh}\normH{u-\vh}.
-\end{equation}
-En d’autres termes, nous devons examinons simplement la question de savoir *comment approcher une fonction (quelconque)*
-$v\in V$ par une fonction de $\Vh$, et notamment comment se comporte cette approximation lorsque le maillage se raffine.
-
-Nous devons donc estimer $\inf\_{\vh\in\Vh}\normH{u-\vh}$.
-
-## Opérateur d'interpolation
-
-On introduit un opérateur d'interpolation $\Pi\_h$ dont on peut majorer la distance à une fonction $v\in V$ donnée :
-$$
-\begin{array}{r c c l}
-  \Pi\_h^K \colon  & \Cscr^0(\overline{\Omega}) & \to & \Pun(\Omega)\\\\\\
-                & v & \mapsto & \dsp \Pi\_h(v) = \sum\_{j=1}^{\Nh} v(\ssb\_j)\varphi\_j
-\end{array}
-$$
-
-Autrement dit, $\Pi\_h(v)$ est l'échantillonnage de $v$ sur tous les noeuds du maillage. D'après \eqref{eq:cea}, si on prend $w$ continue sur $\overline{\Omega}$, nous avons
-$$
-\normH{u-\uh} \leq C \normH{u-\Pi\_h(w)}.
-$$
-Peut-on prendre $w=u$ ? Oui, si $u$ est suffisamment régulier... Ce qui est en réalité le cas, en général. Dans ce cas là, nous avons alors :
-$$
-\normH{u-\uh} \leq C \normH{u-\Pi\_h(u)}.
-$$
-L'erreur commise par la méthode des éléments finis est donc majoré par l'erreur d'interpolation de la solution.
-
-{{% alert warning %}}
-Il n'y a aucune raison pour que $\uh = \Pi\_h u$ !
-{{% /alert %}}
-
-La stratégie consiste à construire un opérateur d'interpolation $\Pi\_h$ dont on peut majorer la distance à une fonction $v\in V$ donnée. Localement, sur un triangle $K$ de sommet $\{\ssb^K\_1,\ssb^K\_2,\ssb^K\_3\}$, nous pouvons construire cet opérateur :
-$$
-\begin{array}{r c c l}
-  \Pi\_h^K \colon  & \Cscr^0(K) & \to & \Pun(K)\\\\\\
-                & v & \mapsto & \dsp \Pi\_h^K(v) = \sum\_{j=1}^3 v(\ssb\_j^K)\varphi\_j^K
-\end{array}
-$$
-
-
-
+2. Le maillage est régulier (pas de triangle "applati")
 
 ## Contexte de l'étude
+
+Nous restons en dimension de l'espace à 2 ou 3.
+
+### Problème de Dirichlet
 
 Nous nous plaçons dans le cas du problème de Dirichlet sur un domaine $\Omega$ polygonal :
 \begin{equation}
@@ -193,12 +151,12 @@ a(\uh, \vh) &=\dsp  \int\_{\Omega}\nabla \uh(\xx)\cdot\conj{\nabla \vh(\xx)}\dif
 \end{array}
 $$
 
-L'espace $\Vhz^k$ est l'espace des éléments finis d'ordre $k$ dont les fonctions sont nulles sur $\partial\Omega$:
+L'espace $\Vhz$ est l'espace des éléments finis d'ordre 1 dont les fonctions sont nulles sur $\partial\Omega$:
 $$
-\Vhz^k = \enstq{u\in\Cscr^0(\overline{\Omega})}{\forall K\in\Tscr\_h, u\restrict\_K\in\Pk(T) \text{ et } u\restrict\_{\partial\Omega}= 0}.
+\Vhz = \enstq{u\in\Pun(\Omega)}{u\restrict\_{\partial\Omega}= 0}.
 $$
 
-## Maillages réguliers
+### Maillages réguliers
 
 Nous introduisons  trois définitions pour un triangle $K$ :
 
@@ -223,34 +181,111 @@ La dernière condition signifie qu'il existe un angle $\theta\_0$ qui minimise t
 {{% /alert %}}
 
 
+## Un premier élément : le lemme de Céa
+
+Le Lemme de Céa nous a déjà donné première estimation de l'erreur :
+\begin{equation}
+\label{eq:cea}
+\normH{u-\uh} \leq \frac{M}{\alpha} \inf\_{\vh\in\Vh}\normH{u-\vh},
+\end{equation}
+où $M$ et $\alpha$ sont respectivement la constante de continuité et de coercivité de la forme $a(\cdot,\cdot)$. Ces constantes dépendent du problème physique uniquement (de l'EDP) et non de la méthode de résolution : nous ne pouvons pas agir sur ces paramètres. Le troisième terme en revanche fait intervenir l'espace $\Vh$ et en particulier $\inf\_{\vh\in\Vh}\normH{u-\vh}$ correspond en quelque sorte à la "meilleur approximation possible de $u$ dans $\Vh$" au sens de $\Ho$. Nous en revenons au point de départ : nous n'approchons en quelque sorte pas $u$ mais son espace $V$ par un sous espace $\Vh$. 
+
+Si nous utilisons des éléments finis $\Pun$, notre paramètre est la finesse de maillage (ou le nombre de sommets). Nous cherchons à savoir "à quelle vitesse" $\Vh$ se "rapproche" de $V$, et donc $\uh$ et de $u$.
+
+## Opérateur d'interpolation
+
+On introduit un opérateur d'interpolation $\Pi\_h$ dont on peut majorer la distance à une fonction $v\in V$ donnée :
+$$
+\begin{array}{r c c l}
+  \Pi\_h^K \colon  & \Cscr^0(\overline{\Omega}) & \to & \Pun(\Omega)\\\\\\
+                & v & \mapsto & \dsp \Pi\_h(v) = \sum\_{j=1}^{\Nh} v(\ssb\_j)\varphi\_j
+\end{array}
+$$
+
+Autrement dit, $\Pi\_h(v)$ est l'échantillonnage de $v$ sur tous les noeuds du maillage. D'après \eqref{eq:cea}, nous pouvons choisir une fonction quelconque $w$ continue sur $\overline{\Omega}$ et nous avons :
+$$
+\normH{u-\uh} \leq C \normH{u-\Pi\_h(w)}.
+$$
+Plutôt qu'une fonction quelconque, on a (très) envie de prendre $w=u$. Le peut-on ? Oui, si $u$ est suffisamment régulière (=continue)... Ce qui est en réalité très souvent le cas (rappellons que $u$ est la solution exacte d'un problème physique comme la température, le (petit) déplacement, ...) ! Prenons un peu de liberté et supposons que cela soit vérifié, nous avons alors :
+$$
+\normH{u-\uh} \leq C \normH{u-\Pi\_h(u)}.
+$$
+L'erreur commise par la méthode des éléments finis est donc majoré par **l'erreur d'interpolation de la solution sur $\Pun$**.
+
+{{% alert warning %}}
+Il n'y a aucune raison pour que $\uh = \Pi\_h u$ !
+{{% /alert %}}
+
+<!-- On s'intéresse maintenant à $\normH{u-\Pi\_h(u)}^2$ qui a le bon goût de pouvoir se décomposer triangle par triangle :
+$$
+\normH{u-\Pi\_h(u)}^2 = \int\_{\Omega}\abs{u-\Pi\_h(u)}^2 = \sum\_{p=1}^{N\_t}\int\_{\tri{p}}\abs{u-\Pi\_h(u)}^2
+$$ -->
+
+<!-- La stratégie consiste à construire un opérateur d'interpolation $\Pi\_h$ dont on peut majorer la distance à une fonction $v\in V$ donnée. Localement, sur un triangle $K$ de sommet $\{\ssb^K\_1,\ssb^K\_2,\ssb^K\_3\}$, nous pouvons construire cet opérateur :
+$$
+\begin{array}{r c c l}
+  \Pi\_h \colon  & \Cscr^0(K) & \to & \Pun(K)\\\\\\
+                & v & \mapsto & \dsp \Pi\_h^K(v) = \sum\_{j=1}^3 v(\ssb\_j^K)\varphi\_j^K
+\end{array}
+$$ -->
+
+
+
+
+
+
+
+
 ## Estimation de l'erreur
 
-Dans cette section, la suite  de maillages $(\Tscr\_h)\_h$ est supposée régulière et la dimension de l'espace est 2 ou 3.
 
 {{% thm proposition %}}
-Pour tout $v\in H^{k+1}(\Omega)$, l'interpolée $\Pi\_hv$ est bien définie et il existe une constance $C>0$ indépendante de $h$ et $v$ telle que, pour $k \geq 1$ :
+Pour tout $v\in H^{2}(\Omega)$, l'interpolée $\Pi\_hv$ est bien définie et il existe une constance $C>0$ indépendante de $h$ et $v$ telle que :
 $$
-  \normH{v - \Pi\_h v}\leq C h^k\norm{v}\_{H^{k+1}(\Omega)}.
+  \normH{v - \Pi\_h v}\leq C h\norm{v}\_{H^{2}(\Omega)}.
 $$
 {{% /thm  %}}
-Cette proposition montre que l'erreur d'interpolation d'une fonction régulière dépend de la régularité de la fonction, et surtout que plus $k$ des éléments finis augmente, plus l'interpolation sera précise. Nous pouvons enfin énoncer le théorème d'estimation de l'erreur par la méthode des éléments finis.
 
+Cette proposition implique le théorème suivant
 {{% thm theorem %}}
-Soit $u\in\Hoz$, la solution du problème de Dirichlet \eqref{pb:diri}, et soit $\uh\in \Vhz$ la solution (exacte) du problème approchée \eqref{pb:dirih} par la méthode des éléments finis $\Pk$. La méthode des éléments finis converge :
+Soit $u\in\Hoz$, la solution du problème de Dirichlet \eqref{pb:diri}, et soit $\uh\in \Vhz$ la solution (exacte) du problème approchée \eqref{pb:dirih} par la méthode des éléments finis $\Pun$. La méthode des éléments finis converge :
 $$
   \lim\_{h\to 0}\normH{u-\uh} = 0,
 $$
-et nous avons l'estimation suivante, si $u\in H^{k+1}(\Omega)$ (la solution exacte):
+et nous avons l'estimation suivante, si $u\in H^2(\Omega)$ (la solution exacte):
 $$
-  \normH{u-u\_h}\leq C h^k\norm{u}\_{H^{k+1}(\Omega)},
+\left\\{
+\begin{array}{r l}
+  \normH{u-u\_h} &\leq C h\norm{u}\_{H^{2}(\Omega)},\\\\\\
+  \normL{u-u\_h} &\leq C h^{2}\norm{u}\_{H^{2}(\Omega)},
+\end{array}
+\right.
 $$
 où $C>0$ est indépendante de $h$ et de $u$. 
 {{% /thm %}}
 
-Pour un problème donné, nous  pouvons étudierons préférentiellement l'estimation suivante en norme $\Lo$ de l'erreur :
-$$
-\normL{u-u\_h}\leq C h^{k+1},
-$$
-où la constante $C$, dépend ici de $u$. Cette relation est intéressante à étudier puisque l'on constate que plus l'ordre des polynômes augmente, plus l'estimation sera fine. La norme $\Lo$ est en générale plus facile à calculer numériquement que la norme sur $\Ho$.
+Autrement dit, la méthode des éléments finis $\Pun$ est une méthode **d'ordre un** : pour diviser l'erreur par 10, il faut mailler 10 fois plus finement (et donc multiplier par 10 le nombre d'éléments).
 
+## Ordre elevé 
 
+Nous introduisons l'espace éléments finis d'ordre k suivant :
+$$
+\Vhz^k = \enstq{u\in\Cscr^0(\overline{\Omega})}{\forall \tri{p}\in\Tscr\_h, u\restrict\_{\tri{p}}\in\Pk(\tri{p}) \text{ et } u\restrict\_{\partial\Omega}= 0}.
+$$
+L'opérateur d'interpolation reste un opérateur d'échantillonage mais sur tous les degrés de liberté et non uniquement les sommets du maillage (par ex. les milieux des arêtes pour $\Pdeux$). Le résultat est alors le suivant : si $u\in H^{k+1}(\Omega)$ (la solution exacte) :
+$$
+\left\\{
+  \begin{array}{r l}
+  \normH{u-u\_h} &\leq C h^k\norm{u}\_{H^{k+1}(\Omega)},\\\\\\
+  \normL{u-u\_h} &\leq C h^{k+1}\norm{u}\_{H^{k+1}(\Omega)},
+  \end{array}
+  \right.
+$$
+où $C>0$ est indépendante de $h$ et de $u$. Retenons que :
+
+- L'erreur d'interpolation d'une fonction régulière dépend de la régularité de la fonction
+- Plus k augmente, plus l'interpolation est précise et par suite l'estimation aussi
+
+{{% alert warning %}}
+Ceci ne vaut que pour un domaine $\Omega$ polygonal ! Autrement, l'approximation géométrique rendra les éléments finis $\Pk$ pour $k>1$ sous-optimaux.
+{{% /alert %}}
