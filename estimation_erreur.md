@@ -72,6 +72,7 @@ $\newcommand{\Cinfc}{\Cscr^{\infty}\_c}$
 $\newcommand{\CinfcO}{\Cinfc(\Omega)}$
 $\newcommand{\hme}[1]{#1_h}$
 $\newcommand{\vh}{v\_h}$
+$\newcommand{\wh}{w\_h}$
 $\newcommand{\Vh}{V\_h}$
 $\newcommand{\uh}{u\_h}$
 $\newcommand{\Nh}{N\_h}$
@@ -188,32 +189,37 @@ Le Lemme de Céa nous a déjà donné première estimation de l'erreur :
 \label{eq:cea}
 \normH{u-\uh} \leq \frac{M}{\alpha} \inf\_{\vh\in\Vh}\normH{u-\vh},
 \end{equation}
-où $M$ et $\alpha$ sont respectivement la constante de continuité et de coercivité de la forme $a(\cdot,\cdot)$. Ces constantes dépendent du problème physique uniquement (de l'EDP) et non de la méthode de résolution : nous ne pouvons pas agir sur ces paramètres. Le troisième terme en revanche fait intervenir l'espace $\Vh$ et en particulier $\inf\_{\vh\in\Vh}\normH{u-\vh}$ correspond en quelque sorte à la "meilleur approximation possible de $u$ dans $\Vh$" au sens de $\Ho$. Nous en revenons au point de départ : nous n'approchons en quelque sorte pas $u$ mais son espace $V$ par un sous espace $\Vh$. 
+où $M$ et $\alpha$ sont respectivement la constante de continuité et de coercivité de la forme $a(\cdot,\cdot)$. Ces constantes dépendent du problème physique uniquement (de l'EDP) et non de la méthode de résolution : nous ne pouvons pas agir sur ces paramètres. Le troisième terme en revanche fait intervenir l'espace $\Vh$ et en particulier $\inf\_{\vh\in\Vh}\normH{u-\vh}$ correspond en quelque sorte à la "meilleure approximation possible de $u$ dans $\Vh$" au sens de $\Ho$. Nous en revenons au point de départ : nous n'approchons pas $u$ mais son espace $V$ par un sous espace $\Vh$. 
 
-Si nous utilisons des éléments finis $\Pun$, notre paramètre est la finesse de maillage (ou le nombre de sommets). Nous cherchons à savoir "à quelle vitesse" $\Vh$ se "rapproche" de $V$, et donc $\uh$ et de $u$.
+Si nous utilisons des éléments finis $\Pun$, notre paramètre h est la finesse de maillage (ou le nombre de sommets). Nous cherchons à savoir "à quelle vitesse" $\Vh$ se "rapproche" de $V$, et donc $\uh$ et de $u$.
+
+Nous cherchons à obtenir une estimation ou une majoration de $\inf\_{\vh\in\Vh}\normH{u-\vh}$ puisque, pour tout $\wh$ de $\Vh$, nous avons :
+$$
+\normH{u-\uh} \leq \frac{M}{\alpha} \inf\_{\vh\in\Vh}\normH{u-\vh} \leq \frac{M}{\alpha} \normH{u-\wh}
+$$
+Nous ne trouverons probablement pas "Le" $\vh$ qui réalise $\inf\_{\vh\in\Vh}\normH{u-\vh}$, cependant nous utilisons un $\wh$ qui tende vers $u$ quand h tend vers 0 : l'interpolé de $u$ sur $\Vh$.
 
 ## Opérateur d'interpolation
 
-On introduit un opérateur d'interpolation $\Pi\_h$ dont on peut majorer la distance à une fonction $v\in V$ donnée :
+Pour les éléments finis $\Pun$, un opérateur d'interpolation naturel est le suivant :
 $$
 \begin{array}{r c c l}
-  \Pi\_h^K \colon  & \Cscr^0(\overline{\Omega}) & \to & \Pun(\Omega)\\\\\\
-                & v & \mapsto & \dsp \Pi\_h(v) = \sum\_{j=1}^{\Nh} v(\ssb\_j)\varphi\_j
+  \Pi\_h \colon  & \Cscr^0(\overline{\Omega}) & \to & \Pun(\Omega)\\\\\\
+                & v & \mapsto & \dsp \Pi\_h(v) = \sum\_{I=1}^{\Nh} v(\ssb\_I)\varphi\_I
 \end{array}
 $$
-
 Autrement dit, $\Pi\_h(v)$ est l'échantillonnage de $v$ sur tous les noeuds du maillage. D'après \eqref{eq:cea}, nous pouvons choisir une fonction quelconque $w$ continue sur $\overline{\Omega}$ et nous avons :
 $$
-\normH{u-\uh} \leq C \normH{u-\Pi\_h(w)}.
+\normH{u-\uh} \leq \frac{M}{\alpha} \normH{u-\Pi\_h(w)}.
 $$
-Plutôt qu'une fonction quelconque, on a (très) envie de prendre $w=u$. Le peut-on ? Oui, si $u$ est suffisamment régulière (=continue)... Ce qui est en réalité très souvent le cas (rappellons que $u$ est la solution exacte d'un problème physique comme la température, le (petit) déplacement, ...) ! Prenons un peu de liberté et supposons que cela soit vérifié, nous avons alors :
+Plutôt qu'une fonction $w$ quelconque, on a (très) envie de prendre $w=u$. Le peut-on ? Oui, si $u$ est suffisamment régulière (=continue)... Ce qui est en réalité très souvent le cas (rappellons que $u$ est la solution exacte d'un problème physique comme la température, le (petit) déplacement, ...) ! Prenons un peu de liberté et supposons que cela soit vérifié, nous avons alors :
 $$
-\normH{u-\uh} \leq C \normH{u-\Pi\_h(u)}.
+\normH{u-\uh} \leq \frac{M}{\alpha} \normH{u-\Pi\_h(u)}.
 $$
 L'erreur commise par la méthode des éléments finis est donc majoré par **l'erreur d'interpolation de la solution sur $\Pun$**.
 
 {{% alert warning %}}
-Il n'y a aucune raison pour que $\uh = \Pi\_h u$ !
+Il n'y a aucune raison pour que $\uh = \Pi\_h u$ ! Rappelon-nous que $\uh$ est "proche" de $u$ au sens de la norme de l'énergie (intégrale) et non "point à point".
 {{% /alert %}}
 
 <!-- On s'intéresse maintenant à $\normH{u-\Pi\_h(u)}^2$ qui a le bon goût de pouvoir se décomposer triangle par triangle :
@@ -239,7 +245,7 @@ $$ -->
 ## Estimation de l'erreur
 
 
-{{% thm proposition %}}
+{{% thm proposition admis %}}
 Pour tout $v\in H^{2}(\Omega)$, l'interpolée $\Pi\_hv$ est bien définie et il existe une constance $C>0$ indépendante de $h$ et $v$ telle que :
 $$
   \normH{v - \Pi\_h v}\leq C h\norm{v}\_{H^{2}(\Omega)}.
@@ -247,7 +253,7 @@ $$
 {{% /thm  %}}
 
 Cette proposition implique le théorème suivant
-{{% thm theorem %}}
+{{% thm theorem admis %}}
 Soit $u\in\Hoz$, la solution du problème de Dirichlet \eqref{pb:diri}, et soit $\uh\in \Vhz$ la solution (exacte) du problème approchée \eqref{pb:dirih} par la méthode des éléments finis $\Pun$. La méthode des éléments finis converge :
 $$
   \lim\_{h\to 0}\normH{u-\uh} = 0,
@@ -264,15 +270,28 @@ $$
 où $C>0$ est indépendante de $h$ et de $u$. 
 {{% /thm %}}
 
-Autrement dit, la méthode des éléments finis $\Pun$ est une méthode **d'ordre un** : pour diviser l'erreur par 10, il faut mailler 10 fois plus finement (et donc multiplier par 10 le nombre d'éléments).
+
 
 ## Ordre elevé 
+
+### Pourquoi faire ?
+
+La méthode des éléments finis $\Pun$ est une méthode **d'ordre un** : pour diviser l'erreur par 10, il faut mailler 10 fois plus finement (et donc multiplier par 10 le nombre d'éléments). Plutôt que de mailler (très) finement, il peut être intéressant d'utiliser des polynômes d'ordre supérieur à 1.
+
+### Résultats
 
 Nous introduisons l'espace éléments finis d'ordre k suivant :
 $$
 \Vhz^k = \enstq{u\in\Cscr^0(\overline{\Omega})}{\forall \tri{p}\in\Tscr\_h, u\restrict\_{\tri{p}}\in\Pk(\tri{p}) \text{ et } u\restrict\_{\partial\Omega}= 0}.
 $$
-L'opérateur d'interpolation reste un opérateur d'échantillonage mais sur tous les degrés de liberté et non uniquement les sommets du maillage (par ex. les milieux des arêtes pour $\Pdeux$). Le résultat est alors le suivant : si $u\in H^{k+1}(\Omega)$ (la solution exacte) :
+L'opérateur d'interpolation reste un opérateur d'échantillonage mais sur **tous les degrés de liberté** et non uniquement les sommets du maillage (par ex. les milieux des arêtes pour $\Pdeux$) :
+$$
+\begin{array}{r c c l}
+  \Pi\_h^k \colon  & \Cscr^0(\overline{\Omega}) & \to & \Pk(\Omega)\\\\\\
+                & v & \mapsto & \dsp \Pi\_h^k(v) = \sum\_{I=1}^{N\_{\text{ddl}}} v(\mathbf{q}\_I)\Phi\_I
+\end{array}
+$$
+Le résultat est alors le suivant pour $u\in H^{k+1}(\Omega)$ (la solution exacte) :
 $$
 \left\\{
   \begin{array}{r l}
@@ -281,11 +300,14 @@ $$
   \end{array}
   \right.
 $$
-où $C>0$ est indépendante de $h$ et de $u$. Retenons que :
+où $C>0$ est indépendante de $h$ et de $u$. 
+
+### À retenir :
 
 - L'erreur d'interpolation d'une fonction régulière dépend de la régularité de la fonction
-- Plus k augmente, plus l'interpolation est précise et par suite l'estimation aussi
+- Plus k augmente, plus l'interpolation de $u$ est précise et, par suite, plus l'approximation $\uh$ l'est de $u$
+- La constante $C$ dépend aussi du problème physique car elle dépend de $\frac{M}{\alpha}$ (où $\alpha$ est la constante de coercivité de $a(\cdot,\cdot)$ et $M$ de continuité de $\ell(\cdot)$)
 
 {{% alert warning %}}
-Ceci ne vaut que pour un domaine $\Omega$ polygonal ! Autrement, l'approximation géométrique rendra les éléments finis $\Pk$ pour $k>1$ sous-optimaux.
+Ces estimations ne valent que pour un domaine $\Omega$ polygonal ! Autrement, l'approximation géométrique rendra les éléments finis $\Pk$ pour $k>1$ sous-optimaux.
 {{% /alert %}}
