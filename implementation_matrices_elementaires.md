@@ -388,7 +388,7 @@ $$
      -\int\_{\Kh} \diff(\xi,\eta) = -\frac{1}{2}.
   $$
   $$\hat{D}\_{1,3} =
-    \int\_{\Kh}\nabla\varphih\_1\cdot\overline{\nabla\varphih\_2} \diff (\xi,\eta) =
+    \int\_{\Kh}\nabla\varphih\_1\cdot\overline{\nabla\varphih\_3} \diff (\xi,\eta) =
     \int\_{\Kh} (-1,-1)\left(\begin{array}{l}0\\\\\\ 1\end{array}\right) \diff (\xi,\eta) =
      -\int\_{\Kh} \diff(\xi,\eta) = -\frac{1}{2}.
   $$
