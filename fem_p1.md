@@ -279,7 +279,7 @@ Autrement dit, les deux polynômes $p\_K$ et $p\_K'$ sont égaux sur l'arête $\
 
 ## Fonctions de forme
 
-Au vu de ce qui précède, deux fonctions de $\Vh$ sont identiques si et seulement si elles possèdent la même valeur sur chaque sommet de $\Tscrh$. En notant $\hme{N} = \mathrm{card}(\Sscrh)$, introduisons l'ensemble des fonctions de forme $(\mphi{j})\_{1\leq j \leq \hme{N}}$ de $\Vh$ défini par
+Au vu de ce qui précède, deux fonctions de $\Vh$ sont identiques si et seulement si elles possèdent la même valeur sur chaque sommet de $\Tscr$. En notant $\hme{N} = \mathrm{card}(\Sscrh)$, introduisons l'ensemble des fonctions de forme $(\mphi{j})\_{1\leq j \leq \hme{N}}$ de $\Vh$ défini par
 $$
 \forall i,j =1,..., \hme{N},\quad
 \mphi{j}(\ssb\_i) =
@@ -293,7 +293,7 @@ $$
 $$
 Ces fonctions sont la généralisation en 2D des *fonctions chapeau* unidimensionnelles (elles ressemblent d'ailleurs encore plus à un "chapeau").
 {{% thm proposition %}}
-  L'espace $\Vh$ est un sous-espace de $H^1(\Omega)$ de dimension $\hme{N}$, le nombre de sommets de la triangulation $\Tscrh$. De plus, la famille $(\mphi{j})_{1\leq j \leq \hme{N}}$ est une base de $\Vh$
+  L'espace $\Vh$ est un sous-espace de $H^1(\Omega)$ de dimension $\hme{N}$, le nombre de sommets de la triangulation $\Tscr$. De plus, la famille $(\mphi{j})_{1\leq j \leq \hme{N}}$ est une base de $\Vh$
 \{{% /thm %}}
 {{% thm proof %}}
   La première partie a déjà été démontrée, il ne reste plus qu'à montrer le fait que la famille de fonction $(\mphi{i})$ est une base de $\Vh$. Cette famille est libre puisque, pour une famille de données complexes $(\alpha\_i)_{1\leq i\leq \hme{N}}$,
