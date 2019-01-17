@@ -116,7 +116,7 @@ $\newcommand{\tri}[1]{K\_{#1}}$
 Nous étudions ici à "quel point" la solution numérique est "proche" de la solution exacte, en fonction du raffinement de maillage. Les résultats sont très techniques, nous ne donnerons aucune démonstration. Cependant, il est important de retenir de ce qui suit que la méthode des éléments fonctionne d'autant mieux que :
 
 1. La solution recherchée est régulière
-2. Le maillage est régulier (pas de triangle "applati")
+2. Le maillage est régulier (pas de triangle "aplati")
 
 ## Contexte de l'étude
 
@@ -159,7 +159,7 @@ $$
 
 ### Maillages réguliers
 
-Nous introduisons  trois définitions pour un triangle $K$ :
+Nous introduisons trois définitions pour un triangle $K$ :
 
 1. **Le diamètre** $\diam(K)$ : la plus grande distance entre deux points de $K$
 2. **La rondeur** $\rho(K)$  : le diamètre du plus grand cercle inscrit dans $K$
@@ -171,7 +171,7 @@ Nous pouvons maintenant définir une suite de maillages réguliers :
 Soit $(\Tscr\_h)\_{h>0}$ une suite de maillages de $\Omega$. On dit qu'il s'agit d'une suite de maillages réguliers si :
 
 1. La suite $h=\max\_{K\in\Tscr\_h}\diam(K)$ tend vers $0$
-2. L'applatissement de tous les triangles est borné par une constante indépendamment de la finesse de maillage :
+2. L'aplatissement de tous les triangles est borné par une constante indépendamment de la finesse de maillage :
   $$
   \exists C>0 | \forall h>, \forall K\in\Tscr\_h,\quad    \frac{\diam(K)}{\rho(K)} \leq C.
   $$
@@ -191,13 +191,13 @@ Le Lemme de Céa nous a déjà donné première estimation de l'erreur :
 \end{equation}
 où $M$ et $\alpha$ sont respectivement la constante de continuité et de coercivité de la forme $a(\cdot,\cdot)$. Ces constantes dépendent du problème physique uniquement (de l'EDP) et non de la méthode de résolution : nous ne pouvons pas agir sur ces paramètres. Le troisième terme en revanche fait intervenir l'espace $\Vh$ et en particulier $\inf\_{\vh\in\Vh}\normH{u-\vh}$ correspond en quelque sorte à la "meilleure approximation possible de $u$ dans $\Vh$" au sens de $\Ho$. Nous en revenons au point de départ : nous n'approchons pas $u$ mais son espace $V$ par un sous espace $\Vh$. 
 
-Si nous utilisons des éléments finis $\Pun$, notre paramètre h est la finesse de maillage (ou le nombre de sommets). Nous cherchons à savoir "à quelle vitesse" $\Vh$ se "rapproche" de $V$, et donc $\uh$ et de $u$.
+Si nous utilisons des éléments finis $\Pun$, notre paramètre $h$ est la finesse de maillage (ou le nombre de sommets). Nous cherchons à savoir "à quelle vitesse" $\Vh$ se "rapproche" de $V$, et donc $\uh$ et de $u$.
 
 Nous cherchons à obtenir une estimation ou une majoration de $\inf\_{\vh\in\Vh}\normH{u-\vh}$ puisque, pour tout $\wh$ de $\Vh$, nous avons :
 $$
 \normH{u-\uh} \leq \frac{M}{\alpha} \inf\_{\vh\in\Vh}\normH{u-\vh} \leq \frac{M}{\alpha} \normH{u-\wh}
 $$
-Nous ne trouverons probablement pas "Le" $\vh$ qui réalise $\inf\_{\vh\in\Vh}\normH{u-\vh}$, cependant nous utilisons un $\wh$ qui tende vers $u$ quand h tend vers 0 : l'interpolé de $u$ sur $\Vh$.
+Nous ne trouverons probablement pas "Le" $\vh$ qui réalise $\inf\_{\vh\in\Vh}\normH{u-\vh}$, cependant nous utilisons un $\wh$ qui tende vers $u$ quand h tend vers 0 : l'interpolée de $u$ sur $\Vh$.
 
 ## Opérateur d'interpolation
 
@@ -216,10 +216,10 @@ Plutôt qu'une fonction $w$ quelconque, on a (très) envie de prendre $w=u$. Le 
 $$
 \normH{u-\uh} \leq \frac{M}{\alpha} \normH{u-\Pi\_h(u)}.
 $$
-L'erreur commise par la méthode des éléments finis est donc majoré par **l'erreur d'interpolation de la solution sur $\Pun$**.
+L'erreur commise par la méthode des éléments finis est donc majorée par **l'erreur d'interpolation de la solution sur $\Pun$**.
 
 {{% alert warning %}}
-Il n'y a aucune raison pour que $\uh = \Pi\_h u$ ! Rappelon-nous que $\uh$ est "proche" de $u$ au sens de la norme de l'énergie (intégrale) et non "point à point".
+Il n'y a aucune raison pour que $\uh = \Pi\_h u$ ! Rappelons-nous que $\uh$ est "proche" de $u$ au sens de la norme de l'énergie (intégrale) et non "point à point".
 {{% /alert %}}
 
 <!-- On s'intéresse maintenant à $\normH{u-\Pi\_h(u)}^2$ qui a le bon goût de pouvoir se décomposer triangle par triangle :
@@ -246,7 +246,7 @@ $$ -->
 
 
 {{% thm proposition admis %}}
-Pour tout $v\in H^{2}(\Omega)$, l'interpolée $\Pi\_hv$ est bien définie et il existe une constance $C>0$ indépendante de $h$ et $v$ telle que :
+Pour tout $v\in H^{2}(\Omega)$, l'interpolée $\Pi\_hv$ est bien définie et il existe une constante $C>0$ indépendante de $h$ et $v$ telle que :
 $$
   \normH{v - \Pi\_h v}\leq C h\norm{v}\_{H^{2}(\Omega)}.
 $$
@@ -254,7 +254,7 @@ $$
 
 Cette proposition implique le théorème suivant
 {{% thm theorem admis %}}
-Soit $u\in\Hoz$, la solution du problème de Dirichlet \eqref{pb:diri}, et soit $\uh\in \Vhz$ la solution (exacte) du problème approchée \eqref{pb:dirih} par la méthode des éléments finis $\Pun$. La méthode des éléments finis converge :
+Soit $u\in\Hoz$, la solution du problème de Dirichlet \eqref{pb:diri}, et soit $\uh\in \Vhz$ la solution (exacte) du problème approché \eqref{pb:dirih} par la méthode des éléments finis $\Pun$. La méthode des éléments finis converge :
 $$
   \lim\_{h\to 0}\normH{u-\uh} = 0,
 $$
@@ -272,7 +272,7 @@ où $C>0$ est indépendante de $h$ et de $u$.
 
 
 
-## Ordre elevé 
+## Ordre élevé 
 
 ### Pourquoi faire ?
 
@@ -284,7 +284,7 @@ Nous introduisons l'espace éléments finis d'ordre k suivant :
 $$
 \Vhz^k = \enstq{u\in\Cscr^0(\overline{\Omega})}{\forall \tri{p}\in\Tscr\_h, u\restrict\_{\tri{p}}\in\Pk(\tri{p}) \text{ et } u\restrict\_{\partial\Omega}= 0}.
 $$
-L'opérateur d'interpolation reste un opérateur d'échantillonage mais sur **tous les degrés de liberté** et non uniquement les sommets du maillage (par ex. les milieux des arêtes pour $\Pdeux$) :
+L'opérateur d'interpolation reste un opérateur d'échantillonnage mais sur **tous les degrés de liberté** et non uniquement les sommets du maillage (par ex. les milieux des arêtes pour $\Pdeux$) :
 $$
 \begin{array}{r c c l}
   \Pi\_h^k \colon  & \Cscr^0(\overline{\Omega}) & \to & \Pk(\Omega)\\\\\\
