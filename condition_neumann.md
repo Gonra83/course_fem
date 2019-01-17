@@ -132,7 +132,7 @@ ce qui implique que $- \Delta u + u -f = 0$ presque partout. Ceci implique par a
 $$
 En particulier, comme $\dn u$ et $g$ sont continues sont $\partial\Omega$, nous pouvons prendre $v\in\Cscr^1(\overline{\Omega})$ tel que $v|_{\partial\Omega} = g - \dn u$. Nous obtenons alors
   $$
-\int\_{\partial\Omega} \abs{g - \dn u}^2\diff s = 0 = \normL{g-\dn u}^2,
+\int\_{\partial\Omega} \abs{g - \dn u}^2\diff s = 0 = \norm{g-\dn u}\_{L^2(\partial\Omega)}^2,
 $$
   soit donc $g = \dn u$ presque partout sur $\partial\Omega$.
 {{% /thm %}}

@@ -135,7 +135,7 @@ Nous nous focalisons sur la matrice de masse, le principe est similaire pour la 
 Pour construire la matrice $M$, nous avons vu qu'il était préférable de parcourir les triangles plutôt que les sommets, autrement dit, plutôt que de calculer $M(I,J)$ directement, mieux vaut calculer, pour tout triangle $p$, la *contribution élémentaire* $\Mep(i,j)$ pour $i,j = 1,2,3$, définie par :
 \begin{equation}
 \label{eq:matelem}
-\Mep(i,j) = \int\_{\tri{p}} \mphiK{p}{i} \overline{\mphiK{p}{j}}.
+\Mep(i,j) = \int\_{\tri{p}} \mphiK{p}{j} \overline{\mphiK{p}{i}}.
 \end{equation}
 Chaque contribution élémentaire $\Mep(i,j)$ est ensuite ajoutée à $M(I,J)$, avec $I=\loctoglob(p,i)$ et $J=\loctoglob(p,j)$, de sorte qu'une fois toutes les contributions calculées, nous retrouvons bien la matrice de masse. 
 Nous nous focalisons ainsi maintenant sur le calcul de \eqref{eq:matelem}.
