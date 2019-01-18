@@ -243,7 +243,7 @@ $$
 \left\\{
   \begin{array}{r l}
     a(u,v) &=\dsp \int\_{\Omega}\nabla u(\xx)\cdot\conj{\nabla v(\xx)} \diff\xx \\\\\\
-    \ell(v) &= \dsp \int\_{\Omega}f(\xx)\conj{v(\xx)}\diff\xx + \int\_{\Gamma\_N}w(\xx)\conj{v(\xx)}\diff\xx.
+    \ell(v) &= \dsp \int\_{\Omega}f(\xx)\conj{v(\xx)}\diff\xx + \int\_{\Gamma\_N}w(\xx)\conj{v(\xx)}\diff s(\xx).
   \end{array}
 \right.
 $$
