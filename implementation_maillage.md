@@ -117,6 +117,22 @@ $$
 {{< figure src="../loc2glob.svg" title="Numérotation globale (gauche) et numérotation locale (droite) des sommets d'un triangle particulier." numbered="true" >}}
 
 
+{{% alert note %}} 
+
+Développée par [Mina Pêcheux](http://minapecheux.com), cette [application web]({{<relref "loc2glob/index.html">}}) permet de mieux comprendre les numérotations locales et globales. 
+
+[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "loc2glob/index.html">}})
+
+<!-- <iframe class="d-none d-lg-block" 
+    id="Loc2Glob"
+    title="Loc2Glob"
+    width="100%"
+    height="600"
+    src="../loc2glob/index.html"
+    allowfullscreen = true> -->
+
+{{% /alert %}}
+
 ## Numérotation des fonctions de forme
 
 Pour un sommet $\sumit{I}$, nous continuons de noter $\mphi{I}$ la fonction de forme associée à ce sommet. Cependant et sachant que ce même sommet $\sumit{I}$ dispose d'une numérotation locale $i$ dans un triangle $\tri{p}$, c'est-à-dire $\sumitK{p}{i} = \sumit{I}$, nous noterons également :

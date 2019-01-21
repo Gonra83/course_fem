@@ -328,3 +328,24 @@ Prenons une fonction de forme $\mphi{j}$ associée au sommet $\ssb\_j$, et un tr
 Une illustration du support des fonctions de forme est présentée sur la figure suivante :
 
 {{< figure src="../forme.svg" title="Support des fonctions de forme pour le maillage d'un carré." numbered="true" >}}
+
+
+{{% alert note %}} 
+
+Mieux qu'un dessin, [Mina Pêcheux](http://minapecheux.com) a développé une [application web]({{<relref "basefunc/index.html">}}) pour visualiser les fonctions de base sur un maillage simple. Cliquez sur un sommet pour voir s'afficher la fonction de forme $\Pun$ associée. Vous pouvez également charger un maillage au format GMSH 2.2. Attention, sur mobile/tablette, [utilisez sur la version plein écran]({{<relref "basefunc/index.html">}}). 
+
+[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>
+]({{<relref "basefunc/index.html">}})
+
+
+{{% /alert %}}
+
+<!--
+<iframe class="d-none d-lg-block" 
+    id="basefunc"
+    title="Fonctions de base"
+    width="100%"
+    height="600"
+    src="../basefunc/index.html"
+    allowfullscreen = true>
+    -->

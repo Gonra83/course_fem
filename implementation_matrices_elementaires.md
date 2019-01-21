@@ -288,6 +288,22 @@ $$
 En valeur absolue, cela correspond à 2 fois l'aire du triangle $\tri{p}$. Le déterminant est donc non nul puisque le triangle n'est pas dégénéré et la transformation $\TK{p}$ est donc bien inversible.
 
 
+{{% alert note %}} 
+Développée par [Mina Pêcheux](http://minapecheux.com), cette [application web]({{<relref "ref2tri/index.html">}}) vous pemret de modifier le triangle $\tri{p}$ et obtenir directement l'expression de la Jacobienne.
+
+[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "ref2tri/index.html">}})
+
+{{% /alert %}}
+<!--
+<iframe class="d-none d-lg-block" 
+    id="ref2tri"
+    title="Transformation du triangle de référence"
+    width="100%"
+    height="600"
+    src="../ref2tri/index.html">
+    -->
+
+
 ### Expression finale de la matrice élémentaire
 
 {{% thm lemma %}}
