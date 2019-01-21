@@ -29,4 +29,4 @@ math = true
 
 Développée par [Mina Pêcheux](http://minapecheux.com), cette [application web]({{<relref "matrix-assembly/index.html">}}) présente l'assemblage pas à pas d'une matrice. En cliquant sur un triangle, les contributions de ce dernier seront ajoutées dans la grande matrice de masse. La matrice de masse élémentaire associée au triangle est également affichée.
 
-[A<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "matrix-assembly/index.html">}}) 
+[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "matrix-assembly/index.html">}}) 
