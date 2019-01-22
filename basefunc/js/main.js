@@ -380,9 +380,9 @@ function default_mesh() {
     reorder_connections();
 
     // add descriptions to some elements
-    var desc = 'Descriptions are <i>html content</i>. The description position can be changed around the screen to other anchored points :';
+/*    var desc = 'Descriptions are <i>html content</i>. The description position can be changed around the screen to other anchored points :';
     desc += '<ul><li>left, middle-left, middle-right, right for x</li><li>top, middle-top, middle-bottom, bottom for y</li></ul>Default is left, top.';
-    set_description(_points[0], desc);
+    set_description(_points[0], desc);*/
 
     // set camera correctly
     set_camera();
