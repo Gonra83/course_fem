@@ -289,9 +289,9 @@ En valeur absolue, cela correspond à 2 fois l'aire du triangle $\tri{p}$. Le d�
 
 
 {{% alert note %}} 
-Développée par [Mina Pêcheux](http://minapecheux.com), cette [application web]({{<relref "ref2tri/index.html">}}) vous pemret de modifier le triangle $\tri{p}$ et obtenir directement l'expression de la Jacobienne.
+Développée par [Mina Pêcheux](http://minapecheux.com), une application web vous pemret de modifier le triangle $\tri{p}$ et obtenir directement l'expression de la Jacobienne :
 
-[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "ref2tri/index.html">}})
+[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "app/ref2tri/index.html">}})
 
 {{% /alert %}}
 <!--

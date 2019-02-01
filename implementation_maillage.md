@@ -119,9 +119,9 @@ $$
 
 {{% alert note %}} 
 
-Développée par [Mina Pêcheux](http://minapecheux.com), cette [application web]({{<relref "loc2glob/index.html">}}) permet de mieux comprendre les numérotations locales et globales. 
+Développée par [Mina Pêcheux](http://minapecheux.com), une application web permet de mieux comprendre les numérotations locales et globales :
 
-[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "loc2glob/index.html">}})
+[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "app/loc2glob/index.html">}})
 
 <!-- <iframe class="d-none d-lg-block" 
     id="Loc2Glob"

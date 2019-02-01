@@ -332,10 +332,10 @@ Une illustration du support des fonctions de forme est présentée sur la figure
 
 {{% alert note %}} 
 
-Mieux qu'un dessin, [Mina Pêcheux](http://minapecheux.com) a développé une [application web]({{<relref "basefunc/index.html">}}) pour visualiser les fonctions de base sur un maillage simple. Cliquez sur un sommet pour voir s'afficher la fonction de forme $\Pun$ associée. Vous pouvez également charger un maillage au format GMSH 2.2. Attention, sur mobile/tablette, [utilisez sur la version plein écran]({{<relref "basefunc/index.html">}}). 
+Mieux qu'un dessin, [Mina Pêcheux](http://minapecheux.com) a développé une [application web]({{<relref "app/basefunc/index.html">}}) pour visualiser les fonctions de base sur un maillage simple. Cliquez sur un sommet pour voir s'afficher la fonction de forme $\Pun$ associée. Vous pouvez également charger un maillage au format GMSH 2.2. Attention, sur mobile/tablette, [utilisez sur la version plein écran]({{<relref "app/basefunc/index.html">}}). 
 
 [<button type="button" class="btn btn-outline-primary">Accès à l'application</button>
-]({{<relref "basefunc/index.html">}})
+]({{<relref "app/basefunc/index.html">}})
 
 
 {{% /alert %}}
