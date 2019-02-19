@@ -1,3 +1,6 @@
 [submodule "app"]
 	path = app
 	url = git@bitbucket.org:minapecheux/fem.git
+[submodule "femjs"]
+	path = femjs
+	url = git@bitbucket.org:minapecheux/femjs.git
