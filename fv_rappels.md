@@ -56,13 +56,13 @@ $$
 \PS{x}{\alpha y} = \overline{\alpha}\PS{x}{y}.
 $$ 
 
-{{% thm definition %}}
+{{< thm definition >}}
   Soit $V$ un $\mathbb{C}-$espace vectoriel, alors l'application $\norm{\cdot}\colon V \to \Rb$ est une norme si et seulement si elle vérifie, pour tout $\xx,\yy\in V$ et tout scalaire $\alpha\in\mathbb{C}$:
 
 1. Séparation : $\norm{\xx} = 0 \Longrightarrow x = 0$
 2. Absolue homogénéité  : $\norm{\alpha \xx} = \abs{\alpha}\norm{\xx}$
 3. Inégalité triangulaire : $\norm{\xx + \yy} \leq \norm{\xx} + \norm{\yy}$
-{{% /thm %}}
+{{< /thm >}}
 
 Un produit scalaire induit une norme sur un espace de Hilbert :
 

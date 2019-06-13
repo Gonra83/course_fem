@@ -75,9 +75,8 @@ Parfois, vous rencontrerez des remarques indiquées comme ceci...
 ## Remarques importantes
 
 1. Une typo ? Une erreur de math ? Un lien mort ? [Faites moi remonter l'info]({{< ref "/#contact" >}}) !
-2. Le cours peut être mis à jour à tout moment de ma part. N'en soyez pas étonné. C'est pratique : vous êtes sûrs de visualiser la dernière version.
-3. Le moteur "TeX" est [MathJax](https://www.mathjax.org), connu pour être très lent par rapport par exemple à [KaTeX](https://katex.org/). Ne m'en voulez donc pas, plaignez vous plutôt auprès des développeurs (bénévoles) de [Hugo](http://gohugo.io/)...
-4. Je suis preneur de toute critique / remarque de la part des utilisatrices et utilisateurs que vous êtes.
+2. Le cours peut être mis à jour à tout moment de ma part. N'en soyez pas étonné. C'est pratique : vous êtes sûrs de visualiser la dernière version (warning, en pied de page n'est pas indiqué la date de la dernière version).
+3. Je suis preneur de toute critique / remarque de la part des utilisatrices et utilisateurs que vous êtes.
 
 ## C'est parti !
 
