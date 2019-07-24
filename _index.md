@@ -84,4 +84,4 @@ Parfois, vous rencontrerez des remarques indiquées comme ceci...
 
 ## C'est parti !
 
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/DqgYlVp1DsLp6" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+{{< video src="eagle.webm"  >}}
