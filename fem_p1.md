@@ -9,6 +9,10 @@ toc = true  # Show table of contents? true/false
 type = "docs"  # Do not modify.
 
 math = true
+weight = 90
+diagram = false
+#markup = "mmark"
+
 
 edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "master", submodule_dir="content/course/fem/"}
 
