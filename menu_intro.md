@@ -11,8 +11,7 @@ type = "docs"  # Do not modify.
 [git]
   icon = "github"
   repo = "https://github.com/Bertbk/course_fem"
-  issue = "https://github.com/Bertbk/course_fem/issues"
-  prose = "https://prose.io/#Bertbk/course_fem/edit/master/"
+  submodule_dir = "content/course/fem/"
 
 
 # Add menu entry to sidebar.
