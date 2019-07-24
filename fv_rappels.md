@@ -13,7 +13,6 @@ math = true
 weight = 30
 diagram = false
 #markup = "mmark"
-math = true
 
 edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "master", submodule_dir="content/course/fem/"}
 
