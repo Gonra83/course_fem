@@ -10,6 +10,8 @@ type = "docs"  # Do not modify.
 
 math = true
 
+edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "master", submodule_dir="content/course/fem/"}
+
 [git]
   icon = "github"
   repo = "https://github.com/Bertbk/course_fem"
