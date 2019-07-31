@@ -83,7 +83,7 @@ L'ensemble $\Cscr^{\infty}_c(\Omega)$ est dense dans $L^2(\Omega)$.
 {{% /thm %}}
 
 Autrement dit, pour tout élément $f$ de $L^2(\Omega)$, il existe une suite $(f\_n)\_n$ de fonctions de $\Cscr^{\infty}_c$ qui converge vers $f$ pour la norme de $L^2(\Omega)$. Cette proposition est extrêmement importante : pour démontrer des propriétés de $L^2(\Omega)$, nous utiliserons des propriétés de $\Cscr^{\infty}_c$ et passerons à la limite dans $L^2(\Omega)$, comme par exemple pour le Corollaire suivant
-{{% thm corollary %}}
+{{% thm type="corollary" label="corollary-f-zero" %}}
 Soit $f$ une fonction de $L^2(\Omega)$ telle que
 $$
 \forall v \in \Cscr^{\infty}_c(\Omega),\qquad \int\_{\Omega} f(x)\overline{v(x)} \diff x= 0,
@@ -107,7 +107,7 @@ Une fonction de $L^2(\Omega)$ est dérivable au sens faible par rapport à la di
 $$
 \forall v \in \Cscr^{\infty}\_c(\Omega),\quad \int\_{\Omega} f(x) \partial\_{x\_i} v(x)\diff x =- \int\_{\Omega} g\_i(x) v(x)\diff x.
 $$
-Nous notons alors $g\_i = \partial\_{x\_i}f =\partial\_{_i}f$, qui est unique en vertu du Corollaire précédent.
+Nous notons alors $g\_i = \partial\_{x\_i}f =\partial\_{_i}f$, qui est unique en vertu du {{% thmref "corollary-f-zero" %}}Corollaire précédent{{% /thmref %}}.
 {{% /thm %}}
 
 Nous noterons maintenant $\dxi f \in L^2(\Omega)$ ou $\di f \in L^2(\Omega)$ pour signifier que $f$ est dérivable au sens faible par rapport à $x\_i$. De la même manière, nous pouvons définir le gradient faible :
@@ -140,7 +140,7 @@ Nous avons donc
 $$
 \forall v \in \Cscr^{\infty}_c(\Omega), \qquad \int\_{\Omega} (\di u - \widetilde{\di} u)(x) \overline{v(x)}\diff x = 0,
 $$
-et nous concluons grâce au Corollaire précédent.
+et nous concluons grâce au {{% thmref "corollary-f-zero" %}}Corollaire précédent{{% /thmref %}}.
 {{% /thm %}}
 
 {{% alert warning %}}
