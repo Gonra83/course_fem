@@ -33,5 +33,5 @@ Développée par [Mina Pêcheux](http://minapecheux.com), cette application perm
 
 [<button type="button" class="btn btn-outline-primary">Application plein écran</button>]({{<relref "app/weak-formulation/v2/index.html">}})
 
-{{< app src="app/weak-formulation/v2/index.html" >}}
+{{< app src="../app/weak-formulation/v2/index.html" >}}
 
