@@ -302,7 +302,7 @@ Ces fonctions sont la généralisation en 2D des *fonctions chapeau* unidimensio
   L'espace $\Vh$ est un sous-espace de $H^1(\Omega)$ de dimension $\hme{N}$, le nombre de sommets de la triangulation $\Tscrh$. De plus, la famille $(\mphi{j})_{1\leq j \leq \hme{N}}$ est une base de $\Vh$
 \{{% /thm %}}
 {{% thm proof %}}
-  La première partie a déjà été démontrée, il ne reste plus qu'à montrer le fait que la famille de fonction $(\mphi{i})$ est une base de $\Vh$. Cette famille est libre puisque, pour une famille de données complexes $(\alpha\_i)_{1\leq i\leq \hme{N}}$,
+La première partie a déjà été démontrée, il ne reste plus qu'à montrer le fait que la famille de fonction $(\mphi{i})$ est une base de $\Vh$. Cette famille est libre puisque, pour une famille de données complexes $(\alpha\_i)_{1\leq i\leq \hme{N}}$,
 $$
 \begin{array}{r l}
   \dsp \sum\_{i=1}^{\hme{N}} \alpha\_i \mphi{i} = 0 &\iff \dsp \forall j=1,\ldots, \hme{N},\quad \sum\_{i=1}^{\hme{N}} \alpha\_i\mphi{i}(\ssb_j) = 0\\\\\\

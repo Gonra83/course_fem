@@ -232,8 +232,7 @@ L'espace $\Cscr^{\infty}_c(\Omega)$ est dense dans $H^1(\Omega)$ pour la norme $
 {{% /thm %}}
 En particulier, l'espace $\Cscr^{1}(\Omega)$, qui contient $\Cscr^{\infty}_c(\Omega)$, est dense dans $H^1(\Omega)$ pour la norme $\normH{\cdot}$. Ce résultat nous dit que $H^1(\Omega)$ est le "plus petit" espace complet contenant $\Cscr^{1}(\Omega)$ : c'est ce que nous cherchions !
 
-
-![Taste like victory](https://media1.tenor.com/images/377369f2a6c278dd72fba07fba2f446c/tenor.gif?itemid=4512955)
+{{< video src="../victory.webm">}}
 
 ## Formulations faibles dans les espaces de Sobolev
 

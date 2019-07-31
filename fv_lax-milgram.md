@@ -247,11 +247,11 @@ En remarquant que $a(\cdot,\cdot) = \PSH{\cdot}{\cdot}$, nous avons donc :
 :ballot_box_with_check: $a(\cdot,\cdot)$ continue sur $\Cscr^1(\overline{\Omega})\times \Cscr^1(\overline{\Omega})$ <br/>
 :ballot_box_with_check: $a(\cdot,\cdot)$ coercive sur $\Cscr^1(\overline{\Omega})\times\Cscr^1(\overline{\Omega})$<br/>
 
-Nous sommes tentés de crier victoire et d'appliquer le Théorème de Lax-Milgram...
+Nous sommes tentés de crier victoire et d'appliquer le Théorème de Lax-Milgram :
 
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/nKN7E76a27Uek" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+{{< video src="../casting.webm">}}
 
-...Sauf que nous ne sommes pas dupes : $\Cscr^1(\overline{\Omega})$ **n'est pas un espace de Hilbert pour la norme $\normH{\cdot}$** car l'espace n'est pas complet (voir exercice) ! 
+Sauf que, contrairement à ce jeune homme, nous évitons un joli fail car $\Cscr^1(\overline{\Omega})$ **n'est pas un espace de Hilbert pour la norme $\normH{\cdot}$** car l'espace n'est pas complet (voir exercice) ! 
 
 {{% alert note %}}
 Nous pourrions trouver une norme pour lequel $\Cscr^1(\overline{\Omega})$ devient complet, toutefois le problème vient en réalité de la régularité demandée à la solution $u$. 
