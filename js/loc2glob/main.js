@@ -31,6 +31,10 @@ var div = d3.select('figure.app-local-to-global')
             .attr('style', 'text-align:center')
             ;
 
+var title=div.insert('p', ":first-child")
+            .text('Numérotation Globale')
+            .attr('style', 'margin:auto; font-size:1.5em;font-weight:bold;color:darkblue;');
+
 var svg = div.insert('svg', ":first-child")
                 .attr('viewBox', parseFloat(min_x - 1.5*r) + " " + parseFloat(min_y - 1.5*r)+ " " + parseFloat(size_x)  + " " +  parseFloat(size_y))
                 .attr('preserveAspectRatio', "xMidYMid meet")
@@ -87,6 +91,9 @@ var all_pts_txt = all_pts.append('text')
     .attr('fill', txt_color.global)
     ;
 
+// FUNCTIONS
+//============
+
 // Hide every points
 function disable_vertices(){
     all_pts_circle.attr('stroke-opacity', '0.1').attr('fill', 'none');
@@ -100,6 +107,7 @@ function global_numbering(){
                 .attr('fill', txt_color.global)
                 ;
     all_pts_circle.attr('stroke-opacity', '1').attr('fill', point_color.global);
+    title.text('Numérotation Globale');
 }
 
 // compute the local vertices indices of the current triangle (d = data attached to polygon)
@@ -117,6 +125,7 @@ function local_numbering(d){
                                     .attr('fill', point_color.local)
         ;
     }
+    title.text('Numérotation Locale');
 }
 
 
