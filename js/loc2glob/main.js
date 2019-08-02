@@ -7,7 +7,7 @@ var triangle_color = {
 };
 var point_color = {
     "global": "GhostWhite",
-    "local" : "#2196f3"
+    "local" : "darkblue"
 };
 var txt_color = {
     "global": "black",
