@@ -57,10 +57,12 @@ var all_triangles = svg.append('g')
     .attr('fill', 'none')
     .attr('pointer-events', 'fill')
     .attr('stroke', 'black')
-    .attr('style', 'cursor:pointer')
+    .attr('style', 'cursor:pointer;')
     .on('click', function(d,i){
         activate(this, d);
         })
+    .on("mouseover", handleMouseOver)
+    .on("mouseout", handleMouseOut)
     ;
 
 // Build all vertices
@@ -157,3 +159,19 @@ function activate(t, d){
         local_numbering(d);
     }
 }
+
+function handleMouseOver(d,i){
+    let active = parseInt(d3.select(this).attr('active'));
+    if( active == 0)
+    {
+        d3.select(this).attr('fill', triangle_color.active);
+    }
+}
+
+function handleMouseOut(d,i){
+    let active = parseInt(d3.select(this).attr('active'));
+    if( active == 0)
+    {
+        d3.select(this).attr('fill', triangle_color.inactive);
+    }
+}       
