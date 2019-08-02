@@ -121,21 +121,7 @@ $$
 {{< figure src="../loc2glob.svg" title="Numérotation globale (gauche) et numérotation locale (droite) des sommets d'un triangle particulier." numbered="true" >}}
 
 
-{{% alert note %}} 
-
-Développée par [Mina Pêcheux](http://minapecheux.com), une application web permet de mieux comprendre les numérotations locales et globales :
-
-[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "app/loc2glob/index.html">}})
-
-<!-- <iframe class="d-none d-lg-block" 
-    id="Loc2Glob"
-    title="Loc2Glob"
-    width="100%"
-    height="600"
-    src="../loc2glob/index.html"
-    allowfullscreen = true> -->
-
-{{% /alert %}}
+{{< figure class="app-local-to-global" title="<i class='fas fa-play-circle'></i> **Time To Play!**<br> **Cliquez sur un triangle** pour faire apparaitre la **numérotation locale** des sommets du triangle. Recliquez dessus pour revenir en **numérotation global**" numbered="true" >}}
 
 ## Numérotation des fonctions de forme
 
@@ -161,6 +147,7 @@ Il ne faut pas oublier que le bord du domaine, $\partial\Omega$, est lui aussi m
 {{% alert warning %}}
 Nous nous restreignons ici au format de fichier v2 et non v4 (plus récent).
 {{% /alert %}}
+
 
 Pour `GMSH`, les fichiers de maillage ont la structure du tableau ci-dessous ($\Ns=$nombre de sommets, $\Ne=$nombre d'éléments). Le type d'élément est un entier, 1 pour un élément segment et 2 pour un élément triangulaire. Par exemple, pour un triangle numéro 10 reliant les points 100, 101 et 102 et disposant de deux tags 3 et 4, cela donne
 
@@ -211,3 +198,7 @@ $EndElements
 
 - [Script GMSH](https://github.com/Bertbk/geogmsh/blob/master/teapot.geo)
 - [Plein écran]({{<relref "teapot.html">}})
+
+
+{{< js src="https://d3js.org/d3.v5.min.js" >}}
+{{< js src="../js/loc2glob/main.js" >}}
