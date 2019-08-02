@@ -121,7 +121,7 @@ $$
 {{< figure src="../loc2glob.svg" title="Numérotation globale (gauche) et numérotation locale (droite) des sommets d'un triangle particulier." numbered="true" >}}
 
 
-{{< figure class="app-local-to-global" title="<i class='fas fa-play-circle'></i> **Time To Play!**<br> **Cliquez sur un triangle** pour faire apparaitre la **numérotation locale** des sommets du triangle. Recliquez dessus pour revenir en **numérotation global**" numbered="true" >}}
+{{< figure class="app-local-to-global" title="<i class='fas fa-play-circle'></i> **Time To Play!**<br> **Cliquez sur un triangle** pour faire apparaitre la **numérotation locale** des sommets du triangle. Recliquez dessus pour revenir en **numérotation globale**" numbered="true" >}}
 
 ## Numérotation des fonctions de forme
 
