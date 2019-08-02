@@ -1,7 +1,19 @@
-var mesh_pts = [[0,0], [140,10], [90,100], [0,120],[45,50]];
-var mesh_triangles= [[0,1,4], [4,1,2], [3, 4, 2], [3,0,4]];
+var mesh_pts = [[0,0], [140,10], [100,80], [0,120],[45,50], [140,120]];
+var mesh_triangles= [[0,1,4], [4,1,2], [3, 4, 2], [3,0,4], [2,3,5], [1,2,5]];
 
-var triangle_color = ["none", "Crimson"];
+var triangle_color = {
+    "inactive": "none", 
+    "active": "GhostWhite"
+};
+var point_color = {
+    "global": "GhostWhite",
+    "local" : "#2196f3"
+};
+var txt_color = {
+    "global": "black",
+    "local" : "white"
+};
+
 var r = 10.0; // radius of vert
 var max_x =0.0, max_y=0.0;
 var min_x =10000.0, min_y=1000.0;
@@ -36,7 +48,8 @@ var all_triangles = svg.append('g')
     .append('polygon')
     .attr('points', function(d){return mesh_pts[d[0]][0] + " " + mesh_pts[d[0]][1] + ", " + mesh_pts[d[1]][0] + " " + mesh_pts[d[1]][1] + ", " + mesh_pts[d[2]][0] + " " + mesh_pts[d[2]][1];})
     .attr('class', 'd3_triangle')
-    .attr('active', 0)
+    .attr('active', '0')
+    .attr('element-number', function(d,i){return i})
     .attr('fill', 'none')
     .attr('pointer-events', 'fill')
     .attr('stroke', 'black')
@@ -60,7 +73,7 @@ var all_pts_circle = all_pts.append('circle')
     .attr('cx', function(d){return d[0]})
     .attr('cy', function(d){return d[1]})
     .attr('r', r)
-    .attr('fill', 'GhostWhite')
+    .attr('fill', point_color.global)
     .attr('stroke', 'black')
     ;
 // Add the text value of points
@@ -71,29 +84,37 @@ var all_pts_txt = all_pts.append('text')
     .attr('dy',  "0.3em")
     .text(function(d,i){return i;})
     .attr('font-size', '0.5em')
+    .attr('fill', txt_color.global)
     ;
 
+// Hide every points
 function disable_vertices(){
     all_pts_circle.attr('stroke-opacity', '0.1').attr('fill', 'none');
     all_pts_txt.attr('style', 'display:none;');
 }
 
-function re_enable_vertices(t, d){
-    all_pts_txt.attr('style', 'display:true;');
-    all_pts_circle.attr('stroke-opacity', '1').attr('fill', 'GhostWhite');
-    //redo the local vertices
-    for (let i = 0; i < d.length; i++){
-        d3.selectAll('.vertex-'+ d[i]).selectAll('text').attr('style', 'display:true;').text(d[i]);
-    }
+// Recompute the GLOBAL vertices indices of the current triangle (d = data attached to polygon)
+function global_numbering(){
+    all_pts_txt.attr('style', 'display:true;')
+                .text(function(d,i){return i;})
+                .attr('fill', txt_color.global)
+                ;
+    all_pts_circle.attr('stroke-opacity', '1').attr('fill', point_color.global);
 }
 
-function enable_local_vertices(t, d){
+// compute the local vertices indices of the current triangle (d = data attached to polygon)
+function local_numbering(d){
     for (let i = 0; i < d.length; i++){
-        d3.selectAll('.vertex-'+ d[i]).selectAll('text').attr('style', 'display:true;').text(i);
+        d3.selectAll('.vertex-'+ d[i])
+                .selectAll('text')
+                .attr('style', 'display:true;')
+                .text(i)
+                .attr('fill', txt_color.local)
+            ;
         d3.selectAll('.vertex-'+ d[i]).selectAll('circle')
                                     .attr('style', 'display:true;')
                                     .attr('stroke-opacity', '1')
-                                    .attr('fill', 'Silver')
+                                    .attr('fill', point_color.local)
         ;
     }
 }
@@ -102,23 +123,28 @@ function enable_local_vertices(t, d){
 function activate(t, d){
     let new_status = (1+parseInt(d3.select(t).attr('active')))%2;
     if(new_status == 0) {
-        // No triangle is active
-        svg.selectAll('.d3_triangle').attr('active', 0)
-                    .attr('fill', triangle_color[0])
-                    .attr('stroke-opacity', '1');
-        re_enable_vertices(t,d);
+        // Triangle t becomes inactive and every triangle is visible
+        svg.selectAll('.d3_triangle')
+            .attr('active', '0')
+            .attr('fill', triangle_color.inactive)
+            .attr('stroke-opacity', '1')
+        ;
+        global_numbering();
     }
     else{
-        //This (and only this) triangle is active
-        svg.selectAll('.d3_triangle').attr('active', 0)
-                    .attr('fill', triangle_color[0])
-                    .attr('stroke-opacity', '0.1')
+        //Disable the (eventually) other triangle
+        svg.selectAll('.d3_triangle[active="1"]').attr('active', "0");
+        svg.selectAll('.d3_triangle[active="0"]')
+                    .attr('fill', triangle_color.inactive)
+                    .attr('stroke-opacity', '0.1')                    
         ;
-        d3.select(t).attr('active', new_status)
-                    .attr('fill', triangle_color[new_status])
+        global_numbering();
+        //Activate this triangle t
+        d3.select(t).attr('active', '1')
+                    .attr('fill', triangle_color.active)
                     .attr('stroke-opacity', '1')
         ;
         disable_vertices();
-        enable_local_vertices(t, d);
+        local_numbering(d);
     }
 }
