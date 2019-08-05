@@ -292,6 +292,9 @@ $$
 En valeur absolue, cela correspond à 2 fois l'aire du triangle $\tri{p}$. Le déterminant est donc non nul puisque le triangle n'est pas dégénéré et la transformation $\TK{p}$ est donc bien inversible.
 
 
+{{< figure class="app-jacobi" title="<i class='fas fa-play-circle'></i> **Time To Play!**" numbered="true" >}}
+
+
 {{% alert note %}} 
 Développée par [Mina Pêcheux](http://minapecheux.com), une application web vous pemret de modifier le triangle $\tri{p}$ et obtenir directement l'expression de la Jacobienne :
 
@@ -546,3 +549,7 @@ Voici quelques formules de quadrature sur un segment $[\sumitK{p}{1}, \sumitK{p}
 {{% alert note %}}
 Les formules de quadrature ont évidemment un impact sur la qualité de l'approximation, toutefois, elles jouent un rôle relativement mineur par rapport aux autres approximations (et l'on peut choisir plus de points d'intégration !).
 {{% /alert %}}
+
+
+{{< js src="https://d3js.org/d3.v5.min.js" >}}
+{{< js src="../js/jacobi/main.js" >}}

@@ -16,8 +16,6 @@ mesh_triangles.forEach(function(t, i) {
 });
 
 
-console.log(data_pts)
-
 var triangle_color = {
     "inactive": "none", 
     "active": "GhostWhite"
