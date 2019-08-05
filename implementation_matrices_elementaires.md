@@ -292,15 +292,18 @@ $$
 En valeur absolue, cela correspond à 2 fois l'aire du triangle $\tri{p}$. Le déterminant est donc non nul puisque le triangle n'est pas dégénéré et la transformation $\TK{p}$ est donc bien inversible.
 
 
-{{< figure class="app-jacobi" title="<i class='fas fa-play-circle'></i> **Time To Play!**" numbered="true" >}}
+{{< figure class="app-jacobi" title="<i class='fas fa-play-circle'></i> **Time To Play!**<br>**Déplacez les sommets du triangle** pour modifier la valeur du **Jacobien** et les coefficients de la **matrice de masse élémentaire**." numbered="true" >}}
 
-
+<!--
+{{/*
 {{% alert note %}} 
 Développée par [Mina Pêcheux](http://minapecheux.com), une application web vous pemret de modifier le triangle $\tri{p}$ et obtenir directement l'expression de la Jacobienne :
 
 [<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "app/ref2tri/index.html">}})
 
 {{% /alert %}}
+*/}}
+!--
 <!--
 <iframe class="d-none d-lg-block" 
     id="ref2tri"
