@@ -85,7 +85,7 @@ var all_pts = svg.append('g')
     .attr('class', function(d,i){return 'd3-vertex d3-vertex-'+i;})
     .attr('style', 'cursor:pointer;')
     .on('click', function(d,i){
-        activate(this, d);
+        activate(this, d, i );
         })
     .attr('active', '0')
     ;
@@ -157,14 +157,17 @@ function desactivate_triangles(){
 }
 
 
-function activate(t, d){
+function activate(t, d, i){
     let new_status = (1+parseInt(d3.select(t).attr('active')))%2;
     desactivate_triangles();
     desactivate_vertices();
     if(new_status == 1)
     {
-
         activate_vertex(t, d);
         activate_triangles(t,d);
+        title.text('Support de la fonction de forme du sommet ' + i);
+    }
+    else{
+        title.text('Maillage');
     }
 }

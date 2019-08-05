@@ -356,7 +356,7 @@ Mieux qu'un dessin, [Mina Pêcheux](http://minapecheux.com) a développé une [a
     -->
 
 
-{{< figure class="app-basis-function" title="<i class='fas fa-play-circle'></i> **Time To Play!**<br>" numbered="true" >}}
+{{< figure class="app-basis-function" title="<i class='fas fa-play-circle'></i> **Time To Play!**<br>**Cliquez sur un sommet** pour faire apparaitre le **support de la fonction de forme P1 associé**, c'est à dire les **triangles sur lesquels la fonction n'est pas nulle**." numbered="true" >}}
 
 {{< js src="https://d3js.org/d3.v5.min.js" >}}
 {{< js src="../js/basis_function/main.js" >}}
