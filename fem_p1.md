@@ -354,3 +354,9 @@ Mieux qu'un dessin, [Mina Pêcheux](http://minapecheux.com) a développé une [a
     src="../basefunc/index.html"
     allowfullscreen = true>
     -->
+
+
+{{< figure class="app-basis-function" title="<i class='fas fa-play-circle'></i> **Time To Play!**<br>" numbered="true" >}}
+
+{{< js src="https://d3js.org/d3.v5.min.js" >}}
+{{< js src="../js/basis_function/main.js" >}}
