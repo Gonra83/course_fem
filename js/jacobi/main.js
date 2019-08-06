@@ -31,8 +31,7 @@ var title=divtitle.insert('p', ":first-child")
 
 var resetbutton=divtitle.insert('button')
             .text('Reset')
-            .attr('class', 'btn btn-lg btn-outline-primary')
-            .attr('type', "button")
+            .attr('class', 'btn-lg btn-outline-primary')
             .on('click', function(){resetjac();})
 ;
 
