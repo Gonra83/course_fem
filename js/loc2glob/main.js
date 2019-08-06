@@ -29,7 +29,13 @@ var size_y = (max_y - min_y) + 3*r;
 
 var div = d3.select('figure.app-local-to-global')
             .attr('style', 'text-align:center')
-            ;
+;
+
+var tooltipstyle = "position: absolute; text-align: center; width: auto;height: auto; overflow:hidden;padding: 4px;font: 0.5rem;background: lightsteelblue;border: 0px;border-radius: 8px;pointer-events: none;";
+var tooltip = d3.select('body').append('div')
+        .attr('style', tooltipstyle + ' opacity:0;')
+        .attr("class", "tooltip")
+;
 
 var title=div.insert('p', ":first-child")
             .text('Numérotation Globale')
@@ -72,7 +78,10 @@ var all_pts = svg.append('g')
     .data(mesh_pts)
     .enter()
     .append('g')
+    .attr('indexing', 'global')
     .attr('class', function(d,i){return 'd3_point vertex-' +  i;})
+    .on("mouseover", pointHover)
+    .on("mouseout", pointHoverOut)
     ;
 // Add the circle
 var all_pts_circle = all_pts.append('circle')
@@ -91,6 +100,7 @@ var all_pts_txt = all_pts.append('text')
     .text(function(d,i){return i;})
     .attr('font-size', '0.5em')
     .attr('fill', txt_color.global)
+    .attr('cursor', 'unset')
     ;
 
 // FUNCTIONS
@@ -104,6 +114,7 @@ function disable_vertices(){
 
 // Recompute the GLOBAL vertices indices of the current triangle (d = data attached to polygon)
 function global_numbering(){
+    all_pts.attr('indexing', 'global');
     all_pts_txt.attr('style', 'display:true;')
                 .text(function(d,i){return i;})
                 .attr('fill', txt_color.global)
@@ -115,6 +126,7 @@ function global_numbering(){
 // compute the local vertices indices of the current triangle (d = data attached to polygon)
 function local_numbering(d){
     for (let i = 0; i < d.length; i++){
+        d3.selectAll('.vertex-'+ d[i]).attr('indexing', 'local');
         d3.selectAll('.vertex-'+ d[i])
                 .selectAll('text')
                 .attr('style', 'display:true;')
@@ -174,4 +186,24 @@ function handleMouseOut(d,i){
     {
         d3.select(this).attr('fill', triangle_color.inactive);
     }
-}       
+}
+
+function pointHover(d,i){
+    let indexing = d3.select(this).attr('indexing');
+    if(indexing == "local")
+    {
+        let x = d3.event.pageX + 20;
+        tooltip.transition()
+        .duration(200)
+        .attr('style', tooltipstyle + " opacity :.9; left :" + x + "px; top: "+d3.event.pageY + "px;")
+        ;
+        tooltip.html("Numéro Global <br/>" + i)
+        ;
+    }
+}
+
+function pointHoverOut(d,i){
+    tooltip.transition()
+      .duration(500)
+      .attr('style', tooltipstyle + " opacity :0;");
+};
