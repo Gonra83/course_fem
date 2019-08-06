@@ -7,18 +7,8 @@ var mesh_pts = [
 
 mesh_triangles = [[0,1,2]];
 
-var triangle_color = {
-    "inactive": "none", 
-    "active": "GhostWhite"
-};
-var point_color = {
-    "global": "GhostWhite",
-    "local" : "darkblue"
-};
-var txt_color = {
-    "global": "black",
-    "local" : "white"
-};
+var point_color = "darkblue";
+var txt_color = "white";
 
 var r = 10.0; // radius of vert
 var max_x =150.0, max_y=120.0;
@@ -45,7 +35,7 @@ var triangle = svg.selectAll('polygon')
     .join('polygon')
     .attr('points', function(d){return mesh_pts[d[0]].x + " " + mesh_pts[d[0]].y + ", " + mesh_pts[d[1]].x + " " + mesh_pts[d[1]].y + ", " + mesh_pts[d[2]].x + " " + mesh_pts[d[2]].y;})
     .attr('class', 'd3_triangle')
-    .attr('fill', 'none')
+    .attr('fill', 'GhostWhite')
     .attr('stroke', 'black')
     ;
 
@@ -63,7 +53,7 @@ var all_pts_circle = all_pts.append('circle')
     .attr('cx', function(d){return d.x})
     .attr('cy', function(d){return d.y})
     .attr('r', r)
-    .attr('fill', point_color.global)
+    .attr('fill', point_color)
     .attr('stroke', 'black')
     ;
 // Add the text value of points
@@ -74,7 +64,7 @@ var all_pts_txt = all_pts.append('text')
     .attr('dy',  "0.3em")
     .text(function(d,i){return i;})
     .attr('font-size', '0.5em')
-    .attr('fill', txt_color.global)
+    .attr('fill', txt_color)
     ;
 
 // FUNCTIONS
@@ -84,6 +74,7 @@ var drag_handler = d3.drag()
     .on("end", function(d){
     })
     .on("drag", function(d) {
+        var tol = 0.005;
         d3.select(this).select('circle')
             .attr("cx", d.x = d3.event.x  )
             .attr("cy", d.y = d3.event.y  )
@@ -92,13 +83,18 @@ var drag_handler = d3.drag()
             .attr("x", d.x = d3.event.x  )
             .attr("y", d.y = d3.event.y  )
             ;
-        let jac = compute_jacobian(scale);
+        let jac = Math.round(compute_jacobian(scale)*100)/100;
         svg.selectAll('polygon')
             .attr('points', function(d){return mesh_pts[0].x + " " + mesh_pts[0].y + ", " + mesh_pts[1].x + " " + mesh_pts[1].y + ", " + mesh_pts[2].x + " " + mesh_pts[2].y;})
-            .attr('fill', jac > 0 ? 'none':'red')
+            .attr('fill', jac > tol?'GhostWhite':(jac < -tol?'#ffbd33':'none'))
             ;
-        title.text('Jacobien = ' + Math.round(jac*100)/100)
-             .attr('style', 'margin:auto; font-size:1.5em;font-weight:bold;color:' + (jac>0?'darkblue;':'red;'));
+        let subtitle = "";
+        if(jac >= -tol && jac <= tol)
+            {subtitle = " (Triangle plat (dégénéré))";}
+        else if (jac < -tol)
+            {subtitle = " (Triangle retourné)";}
+        title.text('Jacobien = ' + jac + subtitle)
+             .attr('style', 'margin:auto; font-size:1.5em;font-weight:bold;color:' + (jac > tol?'darkblue;':(jac < -tol?'#ffbd33;':'red;')));
             ;
 
     });
