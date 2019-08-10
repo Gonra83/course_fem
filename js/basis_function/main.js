@@ -1,10 +1,10 @@
 var data_pts = [
-    {'coord':[0,0],    'tri':[]},
-    {'coord':[140,10], 'tri':[]},
-    {'coord':[100,80], 'tri':[]},
-    {'coord':[-10,120],'tri':[]},
-    {'coord':[45,50],  'tri':[]},
-    {'coord':[150,130],'tri':[]} 
+    {'x':0,   'y': 0,  'tri':[]},
+    {'x':140, 'y': 10, 'tri':[]},
+    {'x':100, 'y': 80, 'tri':[]},
+    {'x':-10, 'y': 120,'tri':[]},
+    {'x':45,  'y': 50, 'tri':[]},
+    {'x':150, 'y': 130,'tri':[]} 
 ];
 var mesh_triangles= [[0,1,4], [4,1,2], [3, 4, 2], [3,0,4], [2,3,5], [1,2,5]];
 
@@ -34,10 +34,10 @@ var max_x =0.0, max_y=0.0;
 var min_x =10000.0, min_y=1000.0;
 for (let i = 0; i < data_pts.length; i++)
 {
-    min_x = Math.min(parseFloat(data_pts[i].coord[0]), min_x);
-    min_y = Math.min(parseFloat(data_pts[i].coord[1]), min_y);
-    max_x = Math.max(parseFloat(data_pts[i].coord[0]), max_x);
-    max_y = Math.max(parseFloat(data_pts[i].coord[1]), max_y);
+    min_x = Math.min(parseFloat(data_pts[i].x), min_x);
+    min_y = Math.min(parseFloat(data_pts[i].y), min_y);
+    max_x = Math.max(parseFloat(data_pts[i].x), max_x);
+    max_y = Math.max(parseFloat(data_pts[i].y), max_y);
 }
 var size_x = (max_x - min_x) + 3*r;
 var size_y = (max_y - min_y) + 3*r;
@@ -65,7 +65,7 @@ var all_triangles = svg.append('g')
     .data(mesh_triangles)
     .enter()
     .append('polygon')
-    .attr('points', function(d){return data_pts[d[0]].coord[0] + " " + data_pts[d[0]].coord[1] + ", " + data_pts[d[1]].coord[0] + " " + data_pts[d[1]].coord[1] + ", " + data_pts[d[2]].coord[0] + " " + data_pts[d[2]].coord[1];})
+    .attr('points', function(d){return data_pts[d[0]].x + " " + data_pts[d[0]].y + ", " + data_pts[d[1]].x + " " + data_pts[d[1]].y + ", " + data_pts[d[2]].x + " " + data_pts[d[2]].y;})
     .attr('class', function(d,i){ return 'd3-triangle d3-triangle-' + i;})
     .attr('fill', 'none')
     .attr('pointer-events', 'fill')
@@ -89,16 +89,16 @@ var all_pts = svg.append('g')
     ;
 // Add the circle
 var all_pts_circle = all_pts.append('circle')
-    .attr('cx', function(d){return d.coord[0]})
-    .attr('cy', function(d){return d.coord[1]})
+    .attr('cx', function(d){return d.x})
+    .attr('cy', function(d){return d.y})
     .attr('r', r)
     .attr('fill', point_color.inactive)
     .attr('stroke', 'black')
     ;
 // Add the text value of points
 var all_pts_txt = all_pts.append('text')
-    .attr('x', function(d){return d.coord[0]})
-    .attr('y', function(d){return d.coord[1]})
+    .attr('x', function(d){return d.x})
+    .attr('y', function(d){return d.y})
     .attr('text-anchor', 'middle')
     .attr('dy',  "0.3em")
     .text(function(d,i){return i;})
