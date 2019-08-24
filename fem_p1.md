@@ -361,7 +361,7 @@ Mieux qu'un dessin, [Mina Pêcheux](http://minapecheux.com) a développé une [a
     allowfullscreen = true>
     -->
 
-## Support & Fonctions de Forme : Illustration interactive
+## Fonctions de Forme : Illustration interactive
 
 {{< figure class="app-basis-function" title="<i class='fas fa-play-circle'></i> **Time To Play!**<br>**Cliquez sur un sommet** pour faire apparaitre le **support de la fonction de forme P1 associé**, c'est à dire les **triangles sur lesquels la fonction n'est pas nulle**." numbered="true" >}}
 
