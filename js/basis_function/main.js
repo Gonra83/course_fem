@@ -1,3 +1,8 @@
+// Include <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> in your code!
+var colormap_step = 10;
+var viridis = d3.scaleSequential().domain([0,colormap_step])
+  .interpolator(d3.interpolateViridis);
+
 var data_pts = [
     {'x':0,   'y': 0,  'tri':[], 'local':[]},
     {'x':140, 'y': 10, 'tri':[], 'local':[]},
@@ -29,21 +34,20 @@ var middle_pts = [
 var ref_triangle = [0,1,2];
 
 var triangle_color = {
-    "inactive": "none", 
-    "active": "GhostWhite",
-    "zero": "green",
-    "one": "gold"
+    "inactive": "none"
 };
 var point_color = {
-    "active": "darkblue",
+    "one": viridis(colormap_step),
+    "zero": viridis(0),
     "inactive" : "GhostWhite"
 };
 var txt_color = {
-    "active": "white",
-    "inactive" : "black"
+    "inactive" : "black",
+    "one": "black",
+    "zero": "white"
 };
 
-var r = 10.0; // radius of vert
+var r = 4.0; // radius of vert
 var max_x =0.0, max_y=0.0;
 var min_x =10000.0, min_y=1000.0;
 for (let i = 0; i < data_pts.length; i++)
@@ -53,8 +57,10 @@ for (let i = 0; i < data_pts.length; i++)
     max_x = Math.max(parseFloat(data_pts[i].x), max_x);
     max_y = Math.max(parseFloat(data_pts[i].y), max_y);
 }
+var padding_colormap = 10;
+var colormap_y = 10;
 var size_x = (max_x - min_x) + 3*r;
-var size_y = (max_y - min_y) + 3*r;
+var size_y = (max_y - min_y) + 3*r + 2*padding_colormap + colormap_y;
 
 var div = d3.select('figure.app-basis-function')
             .attr('style', 'text-align:center')
@@ -72,8 +78,8 @@ var svg = div.insert('svg', ":first-child")
                 .attr('style', 'width:75%; height:auto;')
 ;
 // Color Gradient
-var grad = svg.append('defs')
-            .selectAll('linearGradient')
+var defs = svg.append('defs');
+var grad = defs.selectAll('linearGradient')
             .data(ref_triangle)
             .enter()
             .append('linearGradient')
@@ -83,8 +89,47 @@ var grad = svg.append('defs')
             .attr('y1', d=>middle_pts[d].y)
             .attr('y2', d=>ref_pts[d].y)
 ;
-svg.selectAll('linearGradient').append('stop').attr('offset', "0%").attr('stop-color', triangle_color.zero);
-svg.selectAll('linearGradient').append('stop').attr('offset', "95%").attr('stop-color', triangle_color.one);
+
+// Colormap
+var colormap = defs.append('linearGradient')
+            .attr('id', "colormap")
+            .attr('x', '0%')
+            .attr('x2', '100%')
+            .attr('y1', '0%')
+            .attr('y2', '0%')
+    ;
+
+for (var i = 0; i < colormap_step+1; i++){
+    var p = i*100/colormap_step;
+    if(i==colormap_step)
+    { p = 96;}
+    svg.selectAll('linearGradient')
+        .append('stop')
+        .attr('offset', p + "%")
+        .attr('stop-color', viridis(i));
+}
+
+var colormap_group = svg.append('g');
+var colormap_rect = colormap_group.append('rect')
+                  .attr('x', min_x)
+                  .attr('y', (parseFloat(max_y) + padding_colormap))
+                  .attr('width', size_x)
+                  .attr('height', colormap_y)
+                  .attr('fill', 'url(#colormap)')
+;
+
+for (var i = 0; i < 3; i ++)
+{
+var colormap_text = colormap_group.append('text')
+                  .attr('x', min_x + i*(max_x - min_x)/2)
+                  .attr('y', (parseFloat(max_y) + 1.75*padding_colormap + colormap_y))
+                  .attr('width', size_x)
+                  .attr('height', colormap_y)
+                  .text(parseFloat(i)/2)
+                  .attr('font-size', '0.4em')
+;
+}
+
 
 var all_triangles = svg.append('g')
     .attr('class','all_triangles')
@@ -133,7 +178,7 @@ var all_pts_circle = all_pts.append('circle')
     .attr('stroke', 'black')
     ;
 // Add the text value of points
-var all_pts_txt = all_pts.append('text')
+/*var all_pts_txt = all_pts.append('text')
     .attr('x', function(d){return d.x})
     .attr('y', function(d){return d.y})
     .attr('text-anchor', 'middle')
@@ -142,7 +187,7 @@ var all_pts_txt = all_pts.append('text')
     .attr('font-size', '0.5em')
     .attr('fill', txt_color.inactive)
     ;
-
+*/
 
 
 // FUNCTIONS
@@ -162,18 +207,27 @@ function desactivate_vertices(){
 }
 
 function activate_vertex(t){
+    d3.selectAll(".d3-vertex")
+            .select('circle')
+            .attr('fill', point_color.zero)
+            .attr('stroke', 'black')
+    ;
+    d3.selectAll(".d3-vertex")
+            .select('text')
+            .attr('fill', txt_color.zero)
+    ;
     d3.select(t).attr('active', '1');
     d3.select(t).select('circle')
-    .attr('fill', point_color.active)
+    .attr('fill', point_color.one)
     .attr('stroke', 'black')
     d3.select(t).select('text')
-    .attr('fill', txt_color.active)
+    .attr('fill', txt_color.one)
     ;
 }
 
 function activate_triangles(t, d){
     svg.selectAll('.d3-triangle')
-        .attr('fill', triangle_color.zero)
+        .attr('fill', viridis(0))
     ;
     d.tri.forEach(function(i, index) {
         svg.select('.d3-triangle-'+i)
