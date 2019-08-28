@@ -1,4 +1,7 @@
 // Include <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> in your code!
+// These code will create a simple mesh where every sumit is clickable to display the P1 form function
+// The figure will be created and displayed in <figure id="app-basis-function"></figure>
+
 var colormap_step = 10;
 var viridis = d3.scaleSequential().domain([0,colormap_step])
   .interpolator(d3.interpolateViridis);
