@@ -1,5 +1,5 @@
 +++
-title = "Espaces de Hilbert : Rappels"
+title = "1. Espaces de Hilbert : Rappels"
 
 date = 2018-09-09T00:00:00
 # lastmod = 2018-09-09T00:00:00
@@ -24,8 +24,8 @@ edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "m
 
 # Add menu entry to sidebar.
 [menu.fem]
-  parent = "menu_fv"
-  name = "Espaces de Hilbert : Rappels"
+  parent = "II. Formulations Variationnelles"
+  name = "1. Espaces de Hilbert : Rappels"
   weight = 10
 
 +++

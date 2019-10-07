@@ -1,5 +1,5 @@
 +++
-title = "Estimation d'Erreur"
+title = "2. Estimation d'Erreur"
 
 date = 2018-09-09T00:00:00
 # lastmod = 2018-09-09T00:00:00
@@ -9,7 +9,7 @@ toc = true  # Show table of contents? true/false
 type = "docs"  # Do not modify.
 
 math = true
-weight = 210
+weight = 320
 diagram = false
 #markup = "mmark"
 
@@ -23,8 +23,9 @@ edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "m
 
 # Add menu entry to sidebar.
 [menu.fem]
-  name = "Estimation d'Erreur"
-  weight = 60
+  parent = "VI. Aller plus loin"
+  name = "2. Estimation d'Erreur"
+  weight = 50
 
 +++
 $\newcommand{\Cb}{\mathbb{C}}$

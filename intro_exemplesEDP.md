@@ -1,5 +1,5 @@
 +++
-title = "Quelques EDP elliptiques du second ordre"
+title = "2. Quelques EDP elliptiques du second ordre"
 
 date = 2018-09-09T00:00:00
 # lastmod = 2018-09-09T00:00:00
@@ -23,8 +23,8 @@ edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "m
 
 # Add menu entry to sidebar.
 [menu.fem]
-  parent = "introduction"
-  name = "Quelques EDP"
+  parent = "I. Introduction"
+  name = "2. Quelques EDP"
   weight = 10
 
 

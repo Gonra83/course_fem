@@ -1,5 +1,5 @@
 +++
-title = "Éléments Finis P1-Lagrange"
+title = "2. Éléments Finis P1-Lagrange"
 
 date = 2018-09-09T00:00:00
 # lastmod = 2018-24-11T00:00:00
@@ -24,8 +24,8 @@ edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "m
 
 # Add menu entry to sidebar.
 [menu.fem]
-  parent = "menu_fem"
-  name = "P1-Lagrange"
+  parent = "III. Méthode des Éléments Finis"
+  name = "2. P1-Lagrange"
   weight = 20
 
 +++

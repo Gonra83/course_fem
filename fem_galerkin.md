@@ -1,5 +1,5 @@
 +++
-title = "Méthode de Galerkin"
+title = "1. Méthode de Galerkin"
 
 date = 2018-09-09T00:00:00
 # lastmod = 2018-09-09T00:00:00
@@ -23,8 +23,8 @@ edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "m
 
 # Add menu entry to sidebar.
 [menu.fem]
-  parent = "menu_fem"
-  name = "Méthode de Galerkin"
+  parent = "III. Méthode des Éléments Finis"
+  name = "1. Méthode de Galerkin"
   weight = 10
 
 +++

@@ -1,5 +1,5 @@
 +++
-title = "Formules d'intégration"
+title = "2. Formules d'intégration"
 
 date = 2018-09-09T00:00:00
 # lastmod = 2018-09-09T00:00:00
@@ -23,8 +23,8 @@ edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "m
 
 # Add menu entry to sidebar.
 [menu.fem]
-  parent = "menu_fv"
-  name = "Formules d'intégration"
+  parent = "II. Formulations Variationnelles"
+  name = "2. Formules d'intégration"
   weight = 20
 
 

@@ -1,5 +1,5 @@
 +++
-title = "Assemblage des Matrices"
+title = "3. Assemblage des Matrices"
 
 date = 2018-09-09T00:00:00
 # lastmod = 2018-09-09T00:00:00
@@ -23,8 +23,8 @@ edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "m
 
 # Add menu entry to sidebar.
 [menu.fem]
-  parent = "menu_mise_en_oeuvre"
-  name = "Assemblage des Matrices"
+  parent = "IV. Mise en Œuvre de la Méthode des Éléments Finis"
+  name = "3. Assemblage des Matrices"
   weight = 20
 
 +++

@@ -1,5 +1,5 @@
 +++
-title = "Conditions de Dirichlet"
+title = "2. Conditions de Dirichlet"
 
 date = 2018-09-09T00:00:00
 # lastmod = 2018-09-09T00:00:00
@@ -23,8 +23,8 @@ edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "m
 
 # Add menu entry to sidebar.
 [menu.fem]
-  parent = "menu_conditions"
-  name = "Dirichlet"
+  parent = "V. Conditions Aux Limites"
+  name = "2. Dirichlet"
   weight = 20
 
 +++
