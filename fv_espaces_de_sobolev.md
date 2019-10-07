@@ -78,54 +78,54 @@ Il est important de remarquer qu'une fonction de $L^2(\Omega)$ est définie *pre
 
 Rappelons que l'espace $\Cscr^{\infty}_c(\Omega)$ des fonctions $\Cscr^{\infty}$ sur $\Omega$ à support compact dans $\Omega$ est dense dans $L^2(\Omega)$. Ces fonctions (et toutes leurs dérivées) s'annulent sur le bord de $\Omega$. 
 
-{{% thm proposition "Densité dans L2" %}}
+{{< thm/thm proposition "Densité dans L2"  >}}
 L'ensemble $\Cscr^{\infty}_c(\Omega)$ est dense dans $L^2(\Omega)$.
-{{% /thm %}}
+{{< /thm/thm >}}
 
 Autrement dit, pour tout élément $f$ de $L^2(\Omega)$, il existe une suite $(f\_n)\_n$ de fonctions de $\Cscr^{\infty}_c$ qui converge vers $f$ pour la norme de $L^2(\Omega)$. Cette proposition est extrêmement importante : pour démontrer des propriétés de $L^2(\Omega)$, nous utiliserons des propriétés de $\Cscr^{\infty}_c$ et passerons à la limite dans $L^2(\Omega)$, comme par exemple pour le Corollaire suivant
-{{% thm type="corollary" label="corollary-f-zero" %}}
+{{< thm/thm type="corollary" label="corollary-f-zero" >}}
 Soit $f$ une fonction de $L^2(\Omega)$ telle que
 $$
 \forall v \in \Cscr^{\infty}_c(\Omega),\qquad \int\_{\Omega} f(x)\overline{v(x)} \diff x= 0,
 $$
 alors $f(x)=0$ presque partout dans $\Omega$.
-{{% /thm %}}
-{{% thm proof %}}
+{{< /thm/thm >}}
+{{< thm/thm proof >}}
 Soit $(f_n)_n$ une suite de $\Cscr^{\infty}_c(\Omega)$ qui converge vers $f$ (Proposition de Densité dans $L^2$). Nous avons alors
 $$
 0 = \lim\_{n\to \infty}\int\_{\Omega} f(x)\overline{f_n(x)} \diff x= \int\_{\Omega}\abs{f(x)}^2\diff x = \normL{f}^2,
 $$
 d'où $f$ est nulle "au sens de" $L^2(\Omega)$, c'est-à-dire que $f(x)=0$ presque partout.
-{{% /thm %}}
+{{< /thm/thm >}}
 
 L'espace $L^2(\Omega)$ est un "petit" espace de Hilbert qui contient $\Cscr^1(\Omega)$. Nous nous rapprochons du but... Cependant les fonctions de $L^2(\Omega)$ ne sont pas dérivables ! Elles ne sont donc pas utilisables en pratique dans les formulations faibles. C'est tout l'objet de la section suivante : proposer une nouvelle forme de dérivation *plus faible*, c'est-à-dire ici, qui ne requiert pas de continuité.
 
 ## Dérivée faible
 
-{{% thm definition %}}
+{{< thm/thm definition >}}
 Une fonction de $L^2(\Omega)$ est dérivable au sens faible par rapport à la direction $x_i$ si et seulement si il existe un élément $g\_i$ de $L^2(\Omega)$ tel que
 $$
 \forall v \in \Cscr^{\infty}\_c(\Omega),\quad \int\_{\Omega} f(x) \partial\_{x\_i} v(x)\diff x =- \int\_{\Omega} g\_i(x) v(x)\diff x.
 $$
-Nous notons alors $g\_i = \partial\_{x\_i}f =\partial\_{_i}f$, qui est unique en vertu du {{% thmref "corollary-f-zero" %}}Corollaire précédent{{% /thmref %}}.
-{{% /thm %}}
+Nous notons alors $g\_i = \partial\_{x\_i}f =\partial\_{_i}f$, qui est unique en vertu du {{< thm/ref "corollary-f-zero" >}}Corollaire précédent{{< /thm/ref >}}.
+{{< /thm/thm >}}
 
 Nous noterons maintenant $\dxi f \in L^2(\Omega)$ ou $\di f \in L^2(\Omega)$ pour signifier que $f$ est dérivable au sens faible par rapport à $x\_i$. De la même manière, nous pouvons définir le gradient faible :
 
-{{% thm definition%}}
+{{< thm/thm definition >}}
 Une fonction $f\in L^2(\Omega)$ admet un gradient faible, noté $\nabla f$, si et seulement si $f$ est dérivable au sens faible par rapport à toutes ses variables, et nous avons alors
 $$
 \nabla f = \left(\partial\_{x\_1}f, \partial\_{x\_2}f, \ldots, \partial\_{x\_d}f\right)^T.
 $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
 Le lien entre *dérivée faible* et *dérivée forte* (ou *classique*) est maintenant présenté :
 
-{{% thm proposition %}}
+{{< thm/thm proposition >}}
 Soit $u\in\Cscr^1(\Omega)$ tel que son gradient, au sens classique, $\nabla u$ soit dans $\Cscr^0(\overline{\Omega})$, alors $u$ admet un gradient au sens faible $\widetilde{\nabla} u$ et l'on a $\nabla u = \widetilde{\nabla} u$.
-{{% /thm %}}
+{{< /thm/thm >}}
 
-{{% thm proof %}}
+{{< thm/thm proof >}}
 Il suffit de montrer ce résultat pour une direction uniquement, c'est-à-dire montrer que $\widetilde{\di}u = \di u$, si $\widetilde{\di}$ est la dérivée partielle au sens faible. Par intégration par partie, nous avons :
 $$
 \forall v \in \Cscr^{\infty}_c(\Omega), \qquad \int\_{\Omega} \di u(x) \overline{v(x)} \diff x= -\int\_{\Omega} u(x) \overline{\di v(x)}\diff x,
@@ -140,8 +140,8 @@ Nous avons donc
 $$
 \forall v \in \Cscr^{\infty}_c(\Omega), \qquad \int\_{\Omega} (\di u - \widetilde{\di} u)(x) \overline{v(x)}\diff x = 0,
 $$
-et nous concluons grâce au {{% thmref "corollary-f-zero" %}}Corollaire précédent{{% /thmref %}}.
-{{% /thm %}}
+et nous concluons grâce au {{< thm/ref "corollary-f-zero" >}}Corollaire précédent{{< /thm/ref >}}.
+{{< /thm/thm >}}
 
 {{% alert warning %}}
 Dans la suite, puisque nous ne travaillerons qu'avec des dérivées partielles faibles, nous **omettrons le tilde**.
@@ -184,10 +184,10 @@ et donc les inégalités suivantes :
 
 Nous montrons maintenant que $\Ho$ muni de cette norme est complet.
 
-{{% thm lemma "Complétude de H1"%}}
+{{< thm/thm lemma "Complétude de H1" >}}
 L'espace $H^1(\Omega)$ est complet pour la norme $\normH{\cdot}$.
-{{% /thm %}}
-{{% thm proof %}}
+{{< /thm/thm >}}
+{{< thm/thm proof >}}
 Prenons une suite de Cauchy $(u_n)_n$ de $H^1(\Omega)$ et montrons qu'elle converge dans $H^1(\Omega)$. Par définition de la suite de Cauchy, nous avons
 $$
 \forall \varepsilon > 0,\exists N>0\text{ tel que }\forall n > N, \forall p>N, \quad \normH{u_n-u_p}\leq \varepsilon.
@@ -220,16 +220,16 @@ $$
 \normH{u_n - u}^2 = \normL{u_n - u}^2 + \sum\_{j=1}^d \normL{\dj u_n - \dj u}^2 \to 0 (n \to +\infty).
 $$
 La suite de Cauchy $(u_n)_n$ est donc convergente dans $H^1(\Omega)$, ce dernier est donc complet.
-{{% /thm %}}
+{{< /thm/thm >}}
 
 Nous en déduisons le corollaire suivant:
-{{% thm corollary %}}
+{{< thm/thm corollary >}}
 $H^1(\Omega)$ est un espace de Hilbert pour le produit scalaire $\PSH{\cdot}{\cdot}$.
-{{% /thm %}}
+{{< /thm/thm >}}
 Nous avons également le résultat de densité suivant
-{{% thm proposition %}}
+{{< thm/thm proposition >}}
 L'espace $\Cscr^{\infty}_c(\Omega)$ est dense dans $H^1(\Omega)$ pour la norme $\normH{\cdot}$.
-{{% /thm %}}
+{{< /thm/thm >}}
 En particulier, l'espace $\Cscr^{1}(\Omega)$, qui contient $\Cscr^{\infty}_c(\Omega)$, est dense dans $H^1(\Omega)$ pour la norme $\normH{\cdot}$. Ce résultat nous dit que $H^1(\Omega)$ est le "plus petit" espace complet contenant $\Cscr^{1}(\Omega)$ : c'est ce que nous cherchions !
 
 {{< video src="../victory.webm">}}

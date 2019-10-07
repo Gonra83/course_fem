@@ -97,42 +97,42 @@ Un des grands intérêts de l'expression \eqref{eq:FVpbmodel} est que **seules l
 
 ## Fonctions infiniment dérivables et à support compact
 
-{{% thm definition %}}
+{{< thm/thm definition >}}
 Soit une fonction $w\colon\Omega\to\Cb$, son **support** $\supp$ est alors défini par :
 $$
 \supp(w) := \overline\{\enstq\{x\in \Omega\}\{w(x) \neq 0\}\}.
 $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
-{{% thm definition %}}
+{{< thm/thm definition >}}
 L'espace $\Cscr^{\infty}\_c(\Omega)$ est celui des fonctions $\Cscr^{\infty}$ sur $\Omega$ à support compact dans $\Omega$. 
-{{% /thm %}}
+{{< /thm/thm >}}
 {{% alert note %}}
 Remarquons que pour une fonction $\Cscr^{\infty}\_c(\Omega)$, son support est alors un fermé borné de $\Omega$ et que, par continuité, elle est nulle sur le bord de $\Omega$.
 {{% /alert %}}
 
 
-{{% thm lemma %}}
+{{< thm/thm lemma >}}
 Soit $\Omega$ un ouvert de $\Rb^d$, g une fonction continue dans $\Omega$. Si pour toute fonction $\varphi$ de $\Cscr^{\infty}(\Omega)$ à support compact dans $\Omega$, on a
 $$
 \int\_{\Omega}g(x)\varphi(x)\;\diff x = 0,
 $$
 alors $g$ est nulle dans $\Omega$.
-{{% /thm %}}
-{{% thm proof %}}
+{{< /thm/thm >}}
+{{< thm/thm proof >}}
 Montrons ce Lemme par l'absurde. Prenons $x_0 \in \Omega$ tel que $g(x_0) \neq 0$. Quitte à multiplier par $-1$, prenons $g(x_0) >0$. Par continuité, il existe un voisinage ouvert $U\_x$ autours de $x$ tel que $g(x)>0$ pour tout $x$ de $U\_{x\_0}$. Prenons maintenant une fonction test positive $\phi$ à support inclus dans $U\_x$ ($\phi > 0$ sur $U\_x$):
 $$
 0 = \int\_{\Omega}g(x) \phi(x)\diff x = \int\_{U\_x} g(x)\phi(x) \diff x > 0,
 $$
 ce qui est en contradiction avec l'hypothèse sur $g(x_0)\neq 0$.
-{{% /thm %}}
+{{< /thm/thm >}}
 
 ## L'équivalence des formulations
 
-{{% thm proposition %}}
+{{< thm/thm proposition >}}
 Soit $u\in\Cscr^2(\overline{\Omega})$, alors $u$ vérifie \eqref{eq:pbmodel} si et seulement si $u$ satisfait \eqref{eq:FVpbmodel}.
-{{% /thm %}}
-{{% thm proof %}}
+{{< /thm/thm >}}
+{{< thm/thm proof >}}
 Rappelons que le sens $\Rightarrow$ est évident. Remarquons maintenant que $\Cscr^{\infty}\_c(\Omega)\subset\Cscr^1(\Omega)$ et donc, en utilisant la formule de Green "à l'envers" dans \eqref{eq:FVpbmodel}, il vient que, pour tout $v$ de $\Cscr^{\infty}\_c(\Omega)$,
 $$
   \begin{array}{r r c l}
@@ -149,7 +149,7 @@ $$
 \forall v \in \Cscr^\infty\_c(\Omega), \qquad \int\_{\Omega} (-\Delta u + u - f)\conj{v}\;\diff x = 0
 $$
 Pour conclure, nous pouvons utiliser le lemme précédent.
-{{% /thm %}}
+{{< /thm/thm >}}
 
 ## Formulation variationnelle ou faible
 

@@ -41,7 +41,7 @@ $\newcommand{\zz}{\mathbf{z}}$
 $\newcommand{\nn}{\mathbf{n}}$
 
 
-{{% thm definition %}}
+{{< thm/thm definition >}}
 Soit $V$ un $\mathbb{C}-$espace vectoriel, alors l'application $\PS{\cdot}{\cdot}\colon V\times V \to \mathbb{C}$ est un produit scalaire si et seulement si elle vérifie, pour tout $\xx,\yy,\zz\in V$ et tout scalaire $\alpha\in\mathbb{C}$:
 
 1. $\PS{\xx}{\yy} = \overline{\PS{\yy}{\xx}}$
@@ -49,25 +49,25 @@ Soit $V$ un $\mathbb{C}-$espace vectoriel, alors l'application $\PS{\cdot}{\cdot
 3. $\PS{\alpha \xx}{\yy} = \alpha\PS{\xx}{\yy}$
 4. $\PS{\xx}{\xx} \in \Rb^+$
 5. $\PS{\xx}{\xx} = 0 \Longrightarrow \xx = 0$
-{{% /thm %}}
+{{< /thm/thm >}}
 
 
-{{% thm definition %}}
+{{< thm/thm definition >}}
 Un $\mathbb{C}-$espace vectoriel $V$ est dit pré-Hilbertien si il est muni d'un produit scalaire.
-{{% /thm %}}
+{{% /thm/thm %}}
 
 Le produit scalaire est donc anti-linéaire (ou semi-linéaire) en $y$ puisque :
 $$
 \PS{x}{\alpha y} = \overline{\alpha}\PS{x}{y}.
 $$ 
 
-{{< thm definition >}}
+{{< thm/thm definition >}}
   Soit $V$ un $\mathbb{C}-$espace vectoriel, alors l'application $\norm{\cdot}\colon V \to \Rb$ est une norme si et seulement si elle vérifie, pour tout $\xx,\yy\in V$ et tout scalaire $\alpha\in\mathbb{C}$:
 
 1. Séparation : $\norm{\xx} = 0 \Longrightarrow x = 0$
 2. Absolue homogénéité  : $\norm{\alpha \xx} = \abs{\alpha}\norm{\xx}$
 3. Inégalité triangulaire : $\norm{\xx + \yy} \leq \norm{\xx} + \norm{\yy}$
-{{< /thm >}}
+{{< /thm/thm >}}
 
 Un produit scalaire induit une norme sur un espace de Hilbert :
 
@@ -76,21 +76,21 @@ $$
 $$
 
 Nous rappelons l'inégalité de Cauchy Schwarz:
-{{% thm proposition "Inégalité de Cauchy Schwarz"%}}
+{{< thm/thm proposition "Inégalité de Cauchy Schwarz" >}}
 Pour tout $\xx$ et $\yy$ appartenant à un espace pré-Hilbertien $V$ :
 $$
 \abs{\PS{\xx}{\yy}} \leq \norm{\xx}\norm{\yy}.
 $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
-{{% thm definition %}}
+{{< thm/thm definition >}}
 Un espace pré-Hilbertien $V$ est un espace de Hilbert si et seulement si il est complet pour la norme $\norm{\cdot}$ induite par son produit scalaire.
-{{% /thm %}}
+{{< /thm/thm >}}
 
 
-{{% thm definition %}}
+{{< thm/thm definition >}}
 Soit $V$ un espace de Hilbert. L'application $f:V\times V \to \mathbb{C}$ est une forme sesquilinéaire sur $V$ si et seulement si, pour tout $\xx,\yy, \zz$ de $V$ et $\alpha$ de $\mathbb{C}$:
 
 1. $f(\xx, \yy + \alpha \zz) = f(\xx,\yy) + \overline{\alpha}f(\xx,\zz)$
 2. $f(\alpha \xx + \yy, \zz) = \alpha f(\xx,\zz) + f(\yy,\zz)$
-{{% /thm %}}
+{{< /thm/thm >}}

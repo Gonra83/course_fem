@@ -53,7 +53,7 @@ $\newcommand{\yN}{y\_N}$
 
 Dans ce cours, les domaines $\Omega$ seront des ouverts *réguliers* de $\Rb^d$, au moins de classe $\Cscr^1$. La quantité $d= 2,3$ est la dimension du problème considéré. Nous pouvons ainsi définir le vecteur unitaire normale $\nn$ sortant à $\Omega$.
 
-{{% thm definition %}}
+{{< thm/thm definition >}}
 Un ouvert $\Omega$ de $\Rb^d$ est régulier de classe $\Cscr^k$ ($k\geq 1$) s'il existe un nombre fini d'ouverts $(\omegai)\_{0\leq i\leq I}$ tels que
 $$
 \overline{\omega\_0}\subset\Omega, \qquad \overline{\Omega}\subset \bigcup\_{i=1}^I\omega\_i, \qquad \partial\Omega \subset \bigcup\_{i=1}^I \omega\_i,
@@ -69,7 +69,7 @@ $$
 \phii(\omegai\cap\partial\Omega) = Q \cap \\{y = (y', \yN)\in\Rb^{N-1}\times\Rb,  \yN = 0\\}.
 \end{array}
 $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
 Remarquons que nombreux résultats d'intégration que nous énoncerons restent vrais pour un domaine à bord polygonal, et retenons surtout que les domaines considérés ne comportent ni "fissure" ni point de rebroussement, et leur frontière est "régulière", comme illustré sur la figure ci-dessous.
 
@@ -80,30 +80,30 @@ Remarquons que nombreux résultats d'intégration que nous énoncerons restent v
 
 Nous admettrons le théorème suivant, résultat central dans l'analyse des EDP.
 
-{{% thm theorem "de Green" %}}
+{{< thm/thm theorem "de Green" >}}
 Soit $\Omega$ un ouvert borné, régulier de classe $\Cscr^1$ de $\Rb^d$. Si $w$ est une fonction de $\Cscr^1(\overline{\Omega})$ alors elle vérifie la formule de Green
 $$
 \int\_{\Omega}\frac{\partial w}{\partial x\_i}(x)\diff x = \int\_{\partial \Omega}w(x)n\_i(x)\diff s,
 $$
 où $n\_i$ est la $n^{ème}$ composante de la normale extérieure $\nn$ à $\Omega$.
-{{% /thm %}}
+{{< /thm/thm >}}
 
 {{< figure src="../normal.svg" title="Normale unitaire $\nn$ extérieure sortante à $\Omega$" numbered="true" >}}
 
 De ce Théorème fondamental découlent des Corollaires qui nous seront pratiques. Par exemple, si l'on prend $w=uv$ dans la formule précédente, il vient :
 
-{{% thm corollary "Formule d'intégration par parties" %}}
+{{< thm/thm corollary "Formule d'intégration par parties" >}}
 Soit $\Omega$ un ouvert borné, régulier de classe $\Cscr^1$. Soit $u$ et $v$ deux fonctions de $\Cscr^1(\overline{\Omega})$, alors elles vérifient la formule d'intégration par parties
 $$
 \int\_{\Omega}\frac{\partial u}{\partial x\_i}(x)v(x)\diff x =
 -\int\_{\Omega}u(x)\frac{\partial v}{\partial x\_i}(x)\diff x
 + \int\_{\partial\Omega}u(x)v(x)n\_i(x)\diff s.
 $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
 En supposant $u\in\Cscr^2(\overline{\Omega})$, soit à peine plus régulier, nous pouvons appliquer le corollaire précédent pour obtenir :
 
-{{% thm corollary "Formule de Green" %}}
+{{< thm/thm corollary "Formule de Green" >}}
 Soit $\Omega$ un ouvert borné, régulier de classe $\Cscr^1$. Deux fonctions $u\in\Cscr^2(\overline{\Omega})$ et $v\in\Cscr^1(\overline{\Omega})$ vérifient la Formule de Green :
 $$
 \int\_{\Omega}\Delta u(x)v(x)\diff x =
@@ -111,7 +111,7 @@ $$
 + \int\_{\partial\Omega}\frac{\partial u}{\partial \nn}(x)v(x)\diff s,
 $$
 où $\nabla u = \left(\frac{\partial u}{\partial x\_i}\right)\_{1\leq i \leq d}$ est le vecteur gradient de $u$, et $\frac{\partial u}{\partial \nn} = \nabla u \cdot \nn$.
-{{% /thm %}}
+{{< /thm/thm >}}
 
 
 ## Autres formules d'intégration

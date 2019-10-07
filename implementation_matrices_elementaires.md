@@ -174,7 +174,7 @@ $$
 \right.
 $$
 Par suite, nous en déduisons les valeurs de $\Meh(i,j)$ pour $i,j=1,2,3$ : 
-{{% thm lemma %}}
+{{< thm/thm lemma >}}
 Pour $i,j=1,2,3$, avec $i=j$ :
 $$
 \int\_{\Kh} \varphih\_j\overline{\varphih\_j} \diff(x,y)  =\frac{1}{12},
@@ -183,8 +183,8 @@ et pour $j\neq i$:
 $$
 \int\_{\Kh} \varphih\_j\overline{\varphih\_i} \diff(x,y)  =\frac{1}{24}.
 $$
-{{% /thm %}}
-{{% thm proof %}}
+{{< /thm/thm >}}
+{{< thm/thm proof >}}
 Prenons tout d'abord le cas $i=j=2$, soit $\overline{\varphih\_i} = \varphih\_j = \varphih\_2(\xi,\eta) = \xi$. Dans ce cas :
 $$
 \int\_{\Kh} \xi^2 \diff (\xi,\eta) = \int\_0^1\int\_0^{1-\xi} \xi^2 \diff\eta\diff\xi = \int\_0^1(1-\xi)\xi^2\diff\xi =
@@ -199,7 +199,7 @@ $$
   =  \frac{1}{2}\left[ \frac{1}{2} - \frac{2}{3} +\frac{1}{4}\right] =\frac{1}{24}.
 $$
 Les calculs sont similaires avec $i=1$ et $j=2,3$.
-{{% /thm %}}
+{{< /thm/thm >}}
 La matrice de masse élémentaire $\Meh$ du triangle de référence $\Kh$ est donc donnée par
 $$
 \Meh = \frac{1}{24}\left(
@@ -316,7 +316,7 @@ Développée par [Mina Pêcheux](http://minapecheux.com), une application web vo
 
 ### Expression finale de la matrice élémentaire
 
-{{% thm lemma %}}
+{{< thm/thm lemma >}}
 Pour $i,j=1,2,3$ :
 $$
 \Mep(i,j) = \begin{cases}
@@ -335,7 +335,7 @@ $$
    \end{array}
   \right).
 $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
 ## Matrice de rigidité élémentaire
 
@@ -383,7 +383,7 @@ La matrice de rigidité élémentaire $\hat{D}^e$ du triangle de référence $\K
 $$
 \hat{D}^e(i,j) = \int\_{\Kh}\nabla \varphih\_{j}\cdot \overline{\nabla\varphih\_{i}}.
 $$
-{{% thm lemma %}}
+{{< thm/thm lemma >}}
 Dans le triangle de référence, la matrice de rigidité élémentaire $\hat{D}^e$ vaut
 $$
 \hat{D}^e =  \frac{1}{2}
@@ -395,8 +395,8 @@ $$
     \end{array}
   \right)
 $$
-{{% /thm %}}
-{{% thm proof %}}
+{{< /thm/thm >}}
+{{< thm/thm proof >}}
   Clairement, la matrice est symétrique. Nous avons :
   $$\hat{D}\_{1,1} =
     \int\_{\Kh}\nabla\varphih\_1\cdot\overline{\nabla\varphih\_1} \diff (\xi,\eta) =
@@ -423,7 +423,7 @@ $$
     \int\_{\Kh} (1,0)\left(\begin{array}{l}0\\\\\\ 1\end{array}\right) \diff (\xi,\eta) =
     0.
   $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
 ### Triangle quelconque
 

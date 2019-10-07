@@ -171,7 +171,7 @@ Nous introduisons trois définitions pour un triangle $K$ :
 
 
 Nous pouvons maintenant définir une suite de maillages réguliers :
-{{% thm definition %}}
+{{< thm/thm definition >}}
 Soit $(\Tscr\_h)\_{h>0}$ une suite de maillages de $\Omega$. On dit qu'il s'agit d'une suite de maillages réguliers si :
 
 1. La suite $h=\max\_{K\in\Tscr\_h}\diam(K)$ tend vers $0$
@@ -179,7 +179,7 @@ Soit $(\Tscr\_h)\_{h>0}$ une suite de maillages de $\Omega$. On dit qu'il s'agit
   $$
   \exists C>0 | \forall h>, \forall K\in\Tscr\_h,\quad    \frac{\diam(K)}{\rho(K)} \leq C.
   $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
 {{% alert note %}}
 La dernière condition signifie qu'il existe un angle $\theta\_0$ qui minimise tous les angles de tous les triangles du maillage.
@@ -249,15 +249,15 @@ $$ -->
 ## Estimation de l'erreur
 
 
-{{% thm proposition admis %}}
+{{< thm/thm proposition admis >}}
 Pour tout $v\in H^{2}(\Omega)$, l'interpolée $\Pi\_hv$ est bien définie et il existe une constante $C>0$ indépendante de $h$ et $v$ telle que :
 $$
   \normH{v - \Pi\_h v}\leq C h\norm{v}\_{H^{2}(\Omega)}.
 $$
-{{% /thm  %}}
+{{< /thm/thm >}}
 
 Cette proposition implique le théorème suivant
-{{% thm theorem admis %}}
+{{< thm/thm theorem admis >}}
 Soit $u\in\Hoz$, la solution du problème de Dirichlet \eqref{pb:diri}, et soit $\uh\in \Vhz$ la solution (exacte) du problème approché \eqref{pb:dirih} par la méthode des éléments finis $\Pun$. La méthode des éléments finis converge :
 $$
   \lim\_{h\to 0}\normH{u-\uh} = 0,
@@ -272,7 +272,7 @@ $$
 \right.
 $$
 où $C>0$ est indépendante de $h$ et de $u$. 
-{{% /thm %}}
+{{< /thm/thm >}}
 
 
 

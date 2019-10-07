@@ -95,10 +95,10 @@ $$
 \end{array}
 $$
 Nous avons alors la proposition suivante
-{{% thm proposition %}}
+{{< thm/thm proposition >}}
 Soit $u\in \Cscr^2(\overline{\Omega})$. Alors $u$ est solution de \eqref{eq:dnNonH} si et seulement si $u$ est solution de la formulation variationnelle \eqref{fv:dnNonH}
-{{% /thm %}}
-{{% thm proof %}}
+{{< /thm/thm >}}
+{{< thm/thm proof >}}
   Le sens $\implies$ est évident. Montrons l'autre sens, c'est-à-dire prenons $u$ une fonction $\Cscr^2(\overline{\Omega})$ solution de \eqref{fv:dnNonH} :
   $$
     \forall v \in \Cscr^1(\overline{\Omega}),\qquad 
@@ -139,7 +139,7 @@ En particulier, comme $\dn u$ et $g$ sont continues sont $\partial\Omega$, nous 
 \int\_{\partial\Omega} \abs{g - \dn u}^2\diff s = 0 = \norm{g-\dn u}\_{L^2(\partial\Omega)}^2,
 $$
   soit donc $g = \dn u$ presque partout sur $\partial\Omega$.
-{{% /thm %}}
+{{< /thm/thm >}}
 
 
 Pour pouvoir appliquer le Théorème de Lax-Milgram, nous devons basculer dans l'espace de Sobolev, plutôt que celui des fonctions dérivables (fortement). La formulation faible \eqref{fv:dnNonH} s'écrirait alors
@@ -155,7 +155,7 @@ $$
 $$
 En effet, rien ne prouve que la deuxième quantité existe et soit continue : nous n'avons pas donné de sens à la trace sur $\partial\Omega$ d'une fonction de $\Ho$, c'est-à-dire à $v|\_{\partial\Omega}$. C'est l'objet du théorème ci-dessous (admis).
 
-{{% thm theorem "Continuité de la Trace" %}}
+{{< thm/thm theorem "Continuité de la Trace"  >}}
   Soit $\Gamma\subset\partial\Omega$ une partie du bord de mesure non nulle au sens de la mesure de surface. Alors il existe une unique application $\gamma\_{\Gamma}\colon\Ho\to L^2(\Gamma)$ qui est continue au sens de $\normH{\cdot}$ :
   $$
 \exists C>0 \text{ tel que } \forall v \in\Ho, \; \norm{\gamma\_{\Gamma}(v)}\_{L^2(\partial\Omega)} \leq C\normH{v}.
@@ -164,7 +164,7 @@ En effet, rien ne prouve que la deuxième quantité existe et soit continue : no
   $$
 \forall\varphi\in \Cscr^1(\overline{\Omega}),\qquad \gamma\_{\Gamma}(\varphi) = \varphi|_{\Gamma}.
   $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
 Ce théorème nous permet de montrer que la forme $\ell$ a un sens (chaque quantité existe) et est bien continue puisque, pour tout $v$ de $\Ho$ :
 $$

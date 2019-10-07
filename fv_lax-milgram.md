@@ -60,7 +60,7 @@ Nous entrons maintenant dans le cœur de l'analyse variationnelle des EDP. Dans 
 
 ## Rappel : théorème de représentation
 
-{{% thm theorem "Représentation de Riesz" %}}
+{{< thm/thm theorem "Représentation de Riesz"  >}}
 Soit $V$ un espace de Hilbert de produit scalaire $\PS{\cdot}{\cdot}$ et de norme induite $\norm{\cdot}$. Pour toute forme anti-linéaire continue $\ell$, il existe un unique $w\in V$ tel que
 $$
 \ell(v) = \PS{w}{v}, \quad \forall v\in V.
@@ -69,7 +69,7 @@ De plus, nous avons
 $$
 \norm{w} = \sup_{v\in V\setminus\{0\}}\frac{\abs{\ell(v)}}{\norm{v}}.
 $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
 {{% alert note%}}
 Ce théorème montre que la forme $\ell$ peut être **représentée** par un vecteur $w$ qui est unique. Autrement dit, peu importe $v$, la quantité $\ell(v)$ peut se calculer par la seule connaissance du vecteur $w$ et d'un "simple" produit scalaire.
@@ -80,7 +80,7 @@ Ce théorème montre que la forme $\ell$ peut être **représentée** par un vec
 
 Nous pouvons maintenant énoncer le théorème de Lax-Milgram (**à connaître par cœur**).
 
-{{% thm theorem "de Lax-Milgram" %}}
+{{< thm/thm theorem "de Lax-Milgram" >}}
 Soit $V$ un espace de Hilbert de produit scalaire $\PS{\cdot}{\cdot}$ et de norme $\norm{\cdot}$, et soit la formulation faible suivante
 \begin{equation}\label{eq:fvlax}
 \left\\{
@@ -110,9 +110,9 @@ Alors la formulation faible \eqref{eq:fvlax} admet une unique solution. De plus 
 $$
 \norm{u} \leq \frac{M}{\alpha}C
 $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
-{{% thm proof %}}
+{{< thm/thm proof >}}
 Comme il est question de forme linéaire, nous allons utiliser le Théorème de représentation de Riesz. En effet, pour tout $w$ de $V$, l'application $v\to a(w,v)$ est anti-linéaire et continue de $V$ dans $\Rb$. Il existe donc un unique élément de $V$, noté $A(w)$ (Théorème de Riesz), tel que
 $$
 \forall v\in V, \quad a(w,v) = \PS{A(w)}{v}.
@@ -169,7 +169,7 @@ $$
 \forall w\in V, \qquad \norm{A^{-1}(w)}\leq \frac{1}{\alpha}\norm{w}.
 $$
 Ceci prouve que $u$ dépend continûment du membre de droite $f$ (qui dépend de $\ell$). 
-{{% /thm %}}
+{{< /thm/thm >}}
 
 
 {{% alert note %}}
@@ -197,14 +197,14 @@ a \colon & \Cscr^1(\overline{\Omega}) \times \Cscr^1(\overline{\Omega}) & \to & 
 \end{array}
 $$
 et tentons d'appliquer le Théorème de Lax-Milgram, pour démontrer qu'il admet une unique solution (spoiler alert : ça ne va pas marcher). Nous montrons tout d'abord le résultat intermédiaire suivant:
-{{% thm lemma %}}
+{{< thm/thm lemma >}}
 La fonction $\PSH{\cdot}{\cdot}:\Cscr^1(\overline{\Omega}) \times\Cscr^1(\overline{\Omega})$ définie par
 $$
 \PSH{u}{v} = \int\_{\Omega} \nabla u(x)\cdot\nabla v(x) \diff x+ \int\_{\Omega} u(x)v(x)\diff x,
 $$
 réalise un produit scalaire sur $\Cscr^1(\overline{\Omega})$.
-{{% /thm %}}
-{{% thm proof %}}
+{{< /thm/thm >}}
+{{< thm/thm proof >}}
 La forme $\PSH{\cdot}{\cdot}$ est clairement sesquilinéaire du fait de la linéarité de l'intégrale. Pour tout $u$ de $\Cscr^1(\overline{\Omega})$, nous avons
 $$
 \PSH{u}{u} = \int\_{\Omega} \abs{\nabla u(x)}^2 \diff x+ \int\_{\Omega} \abs{u(x)}^2\diff x \geq 0.
@@ -221,7 +221,7 @@ $$
 \int\_{\Omega} \abs{u}^2 \;\diff x \geq  \int\_{U_0} \abs{u}^2 \;\diff x > 0,
   $$
 ce qui est absurde, donc $u(x)= 0$ pour tout $x$ de $\Omega$. 
-{{% /thm %}}
+{{< /thm/thm >}}
 
 
 Notons $\normH{\cdot}$ la norme induite par $\PSH{\cdot}{\cdot}$, dans ce cas l'application est clairement coercive puisque 

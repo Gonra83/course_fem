@@ -130,58 +130,14 @@ $$
 \mphiK{p}{i} = \mphi{I} = \mphi{I\_{p,i}} = \mphi{I(p,i)}= \mphi{\loctoglob(p,i)}.
 $$
 
-## Structure d'un fichier
-
-### Cas général
+## Structure d'un fichier de maillage
 
 En général, un fichier de maillage contient plusieurs informations :
 
 1. Le **numéro global** et les **coordonnées** des sommets
 2. La **connectivité** des éléments
 
-Il ne faut pas oublier que le bord du domaine, $\partial\Omega$, est lui aussi maillé par des éléments de type segment. Notons qu'un fichier de maillage est souvent écrit en ASCII et non en binaire. 
-
-
-### Cas de `GMSH`
-
-{{% alert warning %}}
-Nous nous restreignons ici au format de fichier v2 et non v4 (plus récent).
-{{% /alert %}}
-
-
-Pour `GMSH`, les fichiers de maillage ont la structure du tableau ci-dessous ($\Ns=$nombre de sommets, $\Ne=$nombre d'éléments). Le type d'élément est un entier, 1 pour un élément segment et 2 pour un élément triangulaire. Par exemple, pour un triangle numéro 10 reliant les points 100, 101 et 102 et disposant de deux tags 3 et 4, cela donne
-
-| Indice | Type | N. tags |tag 1 | tag 2 | Noeud 1 | Noeud 2 | Noeud 3 |
-| --- | --- | --- |---|--- | ---| ---| --- |
-|  10 |2 |2| 3 | 4 | 100 | 101 | 102|
-
-Dans `GMSH`, les `Tags` sont par défaut au nombre de 2, le premier étant le `Physical`, défini par l'utilisateur, et le deuxième le numéro de partition, utile notamment pour la méthode de décomposition de domaines, mais cela dépasse le cadre de notre cours. Le numéro `Physical` permet de faire le lien avec le solveur éléments finis, qui ne dispose plus de la géométrie mais uniquement du maillage : ce numéro permet alors de savoir à quel portion géométrique l'élement considéré appartient (*e.g* : l'élément triangulaire 200 est un élément de $\Omega\_1$ tandis que l'élément 432 appartient à $\Omega\_2$).
-
-TODO: image avec deux domaines et des numéros physical
-
-Le format de fichier de `GMSH` (`.msh`) suit la forme suivante (dans sa version 2). La partie entre `$MeshFormat` et `$EndMeshFormat` permet à `GMSH` de connaître la version en cours d'utilisation. Le nombre de noeuds est `N_s` et le nombre d'éléments `N_e`. Un élément peut être un triangle, bien entendu, mais aussi un segment, un quadrangle, un tétraèdre, ...
-
-```
-$MeshFormat
-2.2 0 8
-$EndMeshFormat
-$Nodes
-N_s
-1 x_1 y_1 z_1
-2 x_2 y_2 z_2
-3 x_3 y_3 z_3
-... ... ... ...
-i x_i y_i z_i
-... ... ... ...
-Ns x_{N_s} y_{N_s} z_{N_s}
-$EndNodes
-$Elements
-N_e
-... ... ... ...
-i Type n_tags tag_1 tag_2 ... tag_{n_tags} I_{i,1} I_{i,2} ... I_{i,N}
-... ... ... ...
-$EndElements
-```
+Autrement dit, il est facile de retrouver les numéros de noeuds composant un élément, mais il est plus coûteux de retrouver les éléments associés à un noeud.
 
 ## Exemples
 

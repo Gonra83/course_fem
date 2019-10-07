@@ -154,12 +154,12 @@ $$
 \Hoz = \enstq{u\in\Ho}{\gamma\_{\partial\Omega} u = 0},
 $$
 où $\gamma\_{\partial\Omega}:\Ho\to L^2(\partial\Omega)$ est l'application trace sur $\partial\Omega$.
-{{% thm lemma %}}
+{{< thm/thm lemma >}}
 L'espace $\Hoz$ est un espace de Hilbert.
-{{% /thm  %}}
-{{% thm proof %}}
+{{< /thm/thm >}}
+{{< thm/thm proof >}}
 Par la définition de l'espace, nous avons $\Hoz = \ker(\gamma\_{\partial\Omega})$. Nous avons vu que l'application trace est continue, son noyau est alors fermé. L'espace $\Hoz$ est un sous-espace fermé de $\Ho$ qui est un Hilbert : $\Hoz$ est donc également un espace de Hilbert.
-{{% /thm  %}}
+{{< /thm/thm >}}
 La formulation faible que nous étudions finalement est :
 $$
 \left\\{
@@ -203,12 +203,12 @@ et fort heureusement c'est le cas, grâce à l'inégalité de Poincaré.
 
 Nous admettrons le théorème suivant, qui nous permet d'obtenir la coercivité de $a(\cdot,\cdot)$. Au final, toutes les hypothèses du théorème de Lax-Milgram sont respectées et le problème admet une unique solution.
 
-{{% thm theorem "Inégalité de Poincaré" %}}
+{{< thm/thm theorem "Inégalité de Poincaré"  >}}
 Il existe une constante $C>0$ telle que, pour tout $u\in\Hoz$, nous avons :
 $$
   \normL{\nabla u}^2 \geq C \normH{u}^2.
 $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
 {{% alert note %}}
 L'inégalité de Poincaré est aussi valable si la condition de Dirichlet n'est posée que sur une partie du bord $\partial\Omega$, comme montré ci-après.
@@ -253,12 +253,12 @@ $$
 $$
 
 Nous vérifions maintenant les hypothèses du théorème de Lax-Milgram. La continuité de $a$ et de $\ell$ ont déjà été démontrées précédemment. Seule nous intéresse ici la coercivité de $a$, donnée par une autre version de l'inégalité de Poincaré (plus complète) :
-{{% thm theorem "Inégalité de Poincaré générale" %}}
+{{< thm/thm theorem "Inégalité de Poincaré générale"  >}}
 Soit $\Gamma\_D\subset\partial\Omega$ une partie du bord de mesure non nulle au sens de la mesure de surface. Il existe une constante $C>0$ telle que :
 $$
   \forall u\in\HoD,\quad \normL{\nabla u}^2 \geq C \normH{u}^2.
 $$
-{{% /thm %}}
+{{< /thm/thm >}}
 
 
 

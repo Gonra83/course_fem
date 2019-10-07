@@ -39,24 +39,24 @@ Comme pour un fichier pdf, avec quelques babioles en plus.
 
 
 Les théorèmes, définitions, corollaires, lemmes et démonstrations ressemblent à ce qu'on trouve en pdf :
-{{% thm definition %}}
+{{< thm/thm definition >}}
 ... je suis une définition ...
-{{% /thm %}}
-{{% thm theorem %}}
+{{< /thm/thm >}}
+{{< thm/thm theorem >}}
 ... je suis un théorème ...
-{{% /thm %}}
-{{% thm proposition %}}
+{{< /thm/thm >}}
+{{< thm/thm proposition >}}
 ... je suis une proposition ...
-{{% /thm %}}
-{{% thm corollary %}}
+{{< /thm/thm >}}
+{{< thm/thm corollary >}}
 ... je suis un corollaire ...
-{{% /thm %}}
-{{% thm lemma %}}
+{{< /thm/thm >}}
+{{< thm/thm lemma >}}
 ... je suis un lemme ...
-{{% /thm %}}
-{{% thm proof %}}
+{{< /thm/thm >}}
+{{< thm/thm proof >}}
 ... se termine par un "point" en bas à droite...
-{{% /thm %}}
+{{< /thm/thm >}}
 
 ### Encards
 
