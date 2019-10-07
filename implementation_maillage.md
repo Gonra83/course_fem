@@ -72,7 +72,7 @@ $\newcommand{\mphi}[1]{\varphi\_{#1}}$
 $\newcommand{\mphiK}[2]{\mphi{#2}^{#1}}$
 
 
-Le maillage du domaine est une étape que nous ne détaillerons pas (ou alors plus tard). Sachons cependant que cette étape est à la fois compliquée, du point de vue mathématique et algorithmique, et très coûteuse, surtout en 3D ! Pour des géométries complexes, le temps de création du maillage peut dépasser celui de la résolution du système linéaire. Nous utiliserons le logiciel libre [GMSH](https://GMSH.info) et un [tutoriel]({{< ref "course/gmsh">}}) pour mailler et dessiner les domaines.
+Le maillage du domaine est une étape que nous ne détaillerons pas (ou alors plus tard). Sachons cependant que cette étape est à la fois compliquée, du point de vue mathématique et algorithmique, et très coûteuse, surtout en 3D ! Pour des géométries complexes, le temps de création du maillage peut dépasser celui de la résolution du système linéaire. Nous utiliserons le logiciel libre [GMSH](https://GMSH.info) et un [tutoriel]({{< ref "tutorial/gmsh">}}) pour mailler et dessiner les domaines.
 
 
 {{% alert note %}}
