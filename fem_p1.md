@@ -155,7 +155,7 @@ Une fonction de $\hme{V}$ **n'est pas affine** mais affine **par morceaux**. Il 
 {{< thm/thm lemma >}}
 L'ensemble $\hme{V}$ est inclus dans $\Ho$.
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 Soit $v\in \hme{V}$ alors $v$ est continue sur $\overline{\Omega}$ (qui est borné) et appartient donc à $\Lo$. Il nous faut montrer que $v$ admet des dérivées faibles dans $\Lo$. Sur chaque triangle $K$ de $\hme{\Tscr}$, la fonction $v$ est $\Cscr^{\infty}$ et admet donc une dérivée forte, et donc faible. Par la formule de Green, pour $\varphi\in \CinfcO$ :
 $$
   \int\_{\Omega} v(x) \frac{\partial \varphi}{\dxi}\diff x =
@@ -191,7 +191,7 @@ $$
 \forall K\in\hme{\Tscr},\qquad \left.\frac{\partial v}{\dxi}\right|_K = \frac{\partial v\restrict\_K}{\dxi}
 $$
 Les fonctions $v$ de $\hme{V}$ admettent donc des dérivées au sens faible et qui sont dans $\Lo$, autrement dit, nous avons bien $v\in\Ho$.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 Il ne nous reste plus qu'à caractériser l'espace $\hme{V}$.
 
 ## Caractérisation des fonctions de V<sub>h</sub>
@@ -199,7 +199,7 @@ Il ne nous reste plus qu'à caractériser l'espace $\hme{V}$.
 {{< thm/thm proposition >}}
 Soit $K$ un triangle non dégénéré de $\Rb^2$ de sommets $\ssb\_1,\ssb\_2,\ssb\_3$. Alors, pour tout jeu de données $\alpha\_1,\alpha\_2,\alpha\_3 \in \Cb$, il existe un unique polynôme de $p\in\Pun(\Rb^2)$ tels que $p(\ssb\_i)=\alpha\_i$.
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 En notant $\ssb\_i = (x_i,y_i)$ et $p(x,y) = ax + by + c$  avec $a,b,c\in\Cb$, alors le problème revient à résoudre le système linéaire
 $$
 \left\\{
@@ -244,20 +244,20 @@ $$
 \right| = 2\mathrm{Aire}(K) \neq 0
 $$
 car le triangle K n'est pas dégénéré. Donc le système est inversible et admet une unique solution $(a,b,c)$.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 Le résultat qui suit montre que deux fonctions de $\hme{V}$ sont égales si et seulement si elles coïncident sur tous les sommets de la triangulation $\hme{\Tscr}$.
 {{< thm/thm lemma >}}
 Si $\uh,\vh \in \hme{V}$ vérifient $\uh(\ssb) = \vh(\ssb)$ pour tout sommet $\ssb$ de $\hme{\Tscr}$, alors $\uh=\vh$ sur $\Omega$.
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 En se plaçant sur le triangle $K = (\ssb\_1,\ssb\_2,\ssb\_3)$ de $\hme{\Tscr}$, nous avons $\uh(\ssb\_i) = \vh(\ssb\_i)$ pour $i=1,2,3$. Le Lemme précédent implique alors que $\uh\restrict\_{K}=\vh\restrict\_{K}$. Le triangle $K$ étant arbitraire, cette relation vaut sur tous les éléments de la triangulation et donc sur $\Omega$ tout entier.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 {{< thm/thm proposition >}}
 Pour tout jeu de données complexes $(\alpha\_\ssb)_{\ssb\in\hme{\Sscr}}$, il existe une unique fonction $\uh\in \hme{V}$ vérifiant $\uh(\ssb) = \alpha\_{\ssb}$ pour tout sommet $\ssb$ de $\hme{\Tscr}$.
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 L'unicité est démontrée précédemment, il manque donc l'existence. Quitte à renuméroter, prenons un triangle $K=(\ssb\_1,\ssb\_2,\ssb\_3)$ de $\hme{\Tscr}$ et le jeu de valeurs associé $(\alpha\_1,\alpha\_2,\alpha\_3) \in \Cb$. La proposition précédente montre qu'il existe un (unique) polynôme $p\_K$ de $\Pun(K)$ tel que $p\_K(\ssb\_i)=\alpha\_i$ pour $i=1,2,3$. Nous pouvons répéter cette opération pour tous les triangles $K$ et nous introduisons $\uh$ tel que
 $$
 \forall K\in\hme{\Tscr},\quad \uh \restrict\_{K} = p\_K.
@@ -281,7 +281,7 @@ $$
 \end{array}
 $$
 Autrement dit, les deux polynômes $p\_K$ et $p\_K'$ sont égaux sur l'arête $\Sigma$ et $\uh$ est bien continue sur toutes les arêtes de $\hme{\Tscr}$ en plus de l'être sur tous les triangles et tous les sommets : $\uh$ est donc bien **continue** sur tout $\overline{\Omega}$.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 ## Fonctions de forme
 
@@ -301,7 +301,7 @@ Ces fonctions sont la généralisation en 2D des *fonctions chapeau* unidimensio
 {{< thm/thm proposition >}}
   L'espace $\Vh$ est un sous-espace de $H^1(\Omega)$ de dimension $\hme{N}$, le nombre de sommets de la triangulation $\Tscrh$. De plus, la famille $(\mphi{j})_{1\leq j \leq \hme{N}}$ est une base de $\Vh$
 \{{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 La première partie a déjà été démontrée, il ne reste plus qu'à montrer le fait que la famille de fonction $(\mphi{i})$ est une base de $\Vh$. Cette famille est libre puisque, pour une famille de données complexes $(\alpha\_i)_{1\leq i\leq \hme{N}}$,
 $$
 \begin{array}{r l}
@@ -316,7 +316,7 @@ $$
 \uh\restrict\_K = \sum\_{i=1}^3(\uh(\ssb\_i)\mphi{i}\restrict\_{K}).
 $$
 Cette relation étant valable sur un triangle arbitraire, elle est vraie sur $\Omega$. La famille de fonctions $(\mphi{i})\_i$ est donc une base de $\Vh$.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 {{< thm/thm lemma >}}
 Le support d'une fonction de forme $\mphi{j}$ est l'union des triangles ayant pour sommet $\ssb\_j$ :
@@ -326,9 +326,9 @@ $$
 Autrement dit, en dehors de ces triangles, la fonction $\mphi{j}$ est nulle.
 {{< /thm/thm >}}
 
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 Prenons une fonction de forme $\mphi{j}$ associée au sommet $\ssb\_j$, et un triangle $K$ dont aucun sommet n'est $\ssb\_j$. Alors dans ce cas, $\mphi{j}$ est nulle sur les trois sommets de $K$, et est donc nulle sur le triangle tout entier.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 <!--
 

@@ -98,7 +98,7 @@ Nous avons alors la proposition suivante
 {{< thm/thm proposition >}}
 Soit $u\in \Cscr^2(\overline{\Omega})$. Alors $u$ est solution de \eqref{eq:dnNonH} si et seulement si $u$ est solution de la formulation variationnelle \eqref{fv:dnNonH}
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
   Le sens $\implies$ est évident. Montrons l'autre sens, c'est-à-dire prenons $u$ une fonction $\Cscr^2(\overline{\Omega})$ solution de \eqref{fv:dnNonH} :
   $$
     \forall v \in \Cscr^1(\overline{\Omega}),\qquad 
@@ -139,7 +139,7 @@ En particulier, comme $\dn u$ et $g$ sont continues sont $\partial\Omega$, nous 
 \int\_{\partial\Omega} \abs{g - \dn u}^2\diff s = 0 = \norm{g-\dn u}\_{L^2(\partial\Omega)}^2,
 $$
   soit donc $g = \dn u$ presque partout sur $\partial\Omega$.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 
 Pour pouvoir appliquer le Théorème de Lax-Milgram, nous devons basculer dans l'espace de Sobolev, plutôt que celui des fonctions dérivables (fortement). La formulation faible \eqref{fv:dnNonH} s'écrirait alors

@@ -112,13 +112,11 @@ $$
 $$
 {{< /thm/thm >}}
 
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 Comme il est question de forme linéaire, nous allons utiliser le Théorème de représentation de Riesz. En effet, pour tout $w$ de $V$, l'application $v\to a(w,v)$ est anti-linéaire et continue de $V$ dans $\Rb$. Il existe donc un unique élément de $V$, noté $A(w)$ (Théorème de Riesz), tel que
 $$
 \forall v\in V, \quad a(w,v) = \PS{A(w)}{v}.
 $$
-
-
 Nous allons montrer que l'opérateur $A\colon V\to V$ est continu, inversible et d'inverse continu. L'opérateur $A$ est clairement linéaire. En prenant $v=A(w)$ et en utilisant la continuité de $a(\cdot,\cdot)$, nous obtenons :
 $$
 \|A(w)\|^2  = \PS{A(w)}{A(w)}= a(w,A(w)) \leq M\|w\|\|A(w)\|.
@@ -169,7 +167,7 @@ $$
 \forall w\in V, \qquad \norm{A^{-1}(w)}\leq \frac{1}{\alpha}\norm{w}.
 $$
 Ceci prouve que $u$ dépend continûment du membre de droite $f$ (qui dépend de $\ell$). 
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 
 {{% alert note %}}
@@ -204,7 +202,7 @@ $$
 $$
 réalise un produit scalaire sur $\Cscr^1(\overline{\Omega})$.
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 La forme $\PSH{\cdot}{\cdot}$ est clairement sesquilinéaire du fait de la linéarité de l'intégrale. Pour tout $u$ de $\Cscr^1(\overline{\Omega})$, nous avons
 $$
 \PSH{u}{u} = \int\_{\Omega} \abs{\nabla u(x)}^2 \diff x+ \int\_{\Omega} \abs{u(x)}^2\diff x \geq 0.
@@ -221,7 +219,7 @@ $$
 \int\_{\Omega} \abs{u}^2 \;\diff x \geq  \int\_{U_0} \abs{u}^2 \;\diff x > 0,
   $$
 ce qui est absurde, donc $u(x)= 0$ pour tout $x$ de $\Omega$. 
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 
 Notons $\normH{\cdot}$ la norme induite par $\PSH{\cdot}{\cdot}$, dans ce cas l'application est clairement coercive puisque 

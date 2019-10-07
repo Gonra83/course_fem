@@ -157,9 +157,9 @@ où $\gamma\_{\partial\Omega}:\Ho\to L^2(\partial\Omega)$ est l'application trac
 {{< thm/thm lemma >}}
 L'espace $\Hoz$ est un espace de Hilbert.
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 Par la définition de l'espace, nous avons $\Hoz = \ker(\gamma\_{\partial\Omega})$. Nous avons vu que l'application trace est continue, son noyau est alors fermé. L'espace $\Hoz$ est un sous-espace fermé de $\Ho$ qui est un Hilbert : $\Hoz$ est donc également un espace de Hilbert.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 La formulation faible que nous étudions finalement est :
 $$
 \left\\{

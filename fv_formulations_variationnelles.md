@@ -119,20 +119,20 @@ $$
 $$
 alors $g$ est nulle dans $\Omega$.
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 Montrons ce Lemme par l'absurde. Prenons $x_0 \in \Omega$ tel que $g(x_0) \neq 0$. Quitte à multiplier par $-1$, prenons $g(x_0) >0$. Par continuité, il existe un voisinage ouvert $U\_x$ autours de $x$ tel que $g(x)>0$ pour tout $x$ de $U\_{x\_0}$. Prenons maintenant une fonction test positive $\phi$ à support inclus dans $U\_x$ ($\phi > 0$ sur $U\_x$):
 $$
 0 = \int\_{\Omega}g(x) \phi(x)\diff x = \int\_{U\_x} g(x)\phi(x) \diff x > 0,
 $$
 ce qui est en contradiction avec l'hypothèse sur $g(x_0)\neq 0$.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 ## L'équivalence des formulations
 
 {{< thm/thm proposition >}}
 Soit $u\in\Cscr^2(\overline{\Omega})$, alors $u$ vérifie \eqref{eq:pbmodel} si et seulement si $u$ satisfait \eqref{eq:FVpbmodel}.
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 Rappelons que le sens $\Rightarrow$ est évident. Remarquons maintenant que $\Cscr^{\infty}\_c(\Omega)\subset\Cscr^1(\Omega)$ et donc, en utilisant la formule de Green "à l'envers" dans \eqref{eq:FVpbmodel}, il vient que, pour tout $v$ de $\Cscr^{\infty}\_c(\Omega)$,
 $$
   \begin{array}{r r c l}
@@ -149,7 +149,7 @@ $$
 \forall v \in \Cscr^\infty\_c(\Omega), \qquad \int\_{\Omega} (-\Delta u + u - f)\conj{v}\;\diff x = 0
 $$
 Pour conclure, nous pouvons utiliser le lemme précédent.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 ## Formulation variationnelle ou faible
 

@@ -184,7 +184,7 @@ $$
 \int\_{\Kh} \varphih\_j\overline{\varphih\_i} \diff(x,y)  =\frac{1}{24}.
 $$
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 Prenons tout d'abord le cas $i=j=2$, soit $\overline{\varphih\_i} = \varphih\_j = \varphih\_2(\xi,\eta) = \xi$. Dans ce cas :
 $$
 \int\_{\Kh} \xi^2 \diff (\xi,\eta) = \int\_0^1\int\_0^{1-\xi} \xi^2 \diff\eta\diff\xi = \int\_0^1(1-\xi)\xi^2\diff\xi =
@@ -199,7 +199,7 @@ $$
   =  \frac{1}{2}\left[ \frac{1}{2} - \frac{2}{3} +\frac{1}{4}\right] =\frac{1}{24}.
 $$
 Les calculs sont similaires avec $i=1$ et $j=2,3$.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 La matrice de masse élémentaire $\Meh$ du triangle de référence $\Kh$ est donc donnée par
 $$
 \Meh = \frac{1}{24}\left(
@@ -396,7 +396,7 @@ $$
   \right)
 $$
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
   Clairement, la matrice est symétrique. Nous avons :
   $$\hat{D}\_{1,1} =
     \int\_{\Kh}\nabla\varphih\_1\cdot\overline{\nabla\varphih\_1} \diff (\xi,\eta) =
@@ -423,7 +423,7 @@ $$
     \int\_{\Kh} (1,0)\left(\begin{array}{l}0\\\\\\ 1\end{array}\right) \diff (\xi,\eta) =
     0.
   $$
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 ### Triangle quelconque
 

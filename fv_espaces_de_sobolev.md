@@ -90,13 +90,13 @@ $$
 $$
 alors $f(x)=0$ presque partout dans $\Omega$.
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 Soit $(f_n)_n$ une suite de $\Cscr^{\infty}_c(\Omega)$ qui converge vers $f$ (Proposition de Densité dans $L^2$). Nous avons alors
 $$
 0 = \lim\_{n\to \infty}\int\_{\Omega} f(x)\overline{f_n(x)} \diff x= \int\_{\Omega}\abs{f(x)}^2\diff x = \normL{f}^2,
 $$
 d'où $f$ est nulle "au sens de" $L^2(\Omega)$, c'est-à-dire que $f(x)=0$ presque partout.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 L'espace $L^2(\Omega)$ est un "petit" espace de Hilbert qui contient $\Cscr^1(\Omega)$. Nous nous rapprochons du but... Cependant les fonctions de $L^2(\Omega)$ ne sont pas dérivables ! Elles ne sont donc pas utilisables en pratique dans les formulations faibles. C'est tout l'objet de la section suivante : proposer une nouvelle forme de dérivation *plus faible*, c'est-à-dire ici, qui ne requiert pas de continuité.
 
@@ -125,7 +125,7 @@ Le lien entre *dérivée faible* et *dérivée forte* (ou *classique*) est maint
 Soit $u\in\Cscr^1(\Omega)$ tel que son gradient, au sens classique, $\nabla u$ soit dans $\Cscr^0(\overline{\Omega})$, alors $u$ admet un gradient au sens faible $\widetilde{\nabla} u$ et l'on a $\nabla u = \widetilde{\nabla} u$.
 {{< /thm/thm >}}
 
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 Il suffit de montrer ce résultat pour une direction uniquement, c'est-à-dire montrer que $\widetilde{\di}u = \di u$, si $\widetilde{\di}$ est la dérivée partielle au sens faible. Par intégration par partie, nous avons :
 $$
 \forall v \in \Cscr^{\infty}_c(\Omega), \qquad \int\_{\Omega} \di u(x) \overline{v(x)} \diff x= -\int\_{\Omega} u(x) \overline{\di v(x)}\diff x,
@@ -141,7 +141,7 @@ $$
 \forall v \in \Cscr^{\infty}_c(\Omega), \qquad \int\_{\Omega} (\di u - \widetilde{\di} u)(x) \overline{v(x)}\diff x = 0,
 $$
 et nous concluons grâce au {{< thm/ref "corollary-f-zero" >}}Corollaire précédent{{< /thm/ref >}}.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 {{% alert warning %}}
 Dans la suite, puisque nous ne travaillerons qu'avec des dérivées partielles faibles, nous **omettrons le tilde**.
@@ -187,7 +187,7 @@ Nous montrons maintenant que $\Ho$ muni de cette norme est complet.
 {{< thm/thm lemma "Complétude de H1" >}}
 L'espace $H^1(\Omega)$ est complet pour la norme $\normH{\cdot}$.
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 Prenons une suite de Cauchy $(u_n)_n$ de $H^1(\Omega)$ et montrons qu'elle converge dans $H^1(\Omega)$. Par définition de la suite de Cauchy, nous avons
 $$
 \forall \varepsilon > 0,\exists N>0\text{ tel que }\forall n > N, \forall p>N, \quad \normH{u_n-u_p}\leq \varepsilon.
@@ -220,7 +220,7 @@ $$
 \normH{u_n - u}^2 = \normL{u_n - u}^2 + \sum\_{j=1}^d \normL{\dj u_n - \dj u}^2 \to 0 (n \to +\infty).
 $$
 La suite de Cauchy $(u_n)_n$ est donc convergente dans $H^1(\Omega)$, ce dernier est donc complet.
-{{< /thm/thm >}}
+{{< /thm/proof >}}
 
 Nous en déduisons le corollaire suivant:
 {{< thm/thm corollary >}}

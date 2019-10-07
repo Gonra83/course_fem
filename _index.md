@@ -54,7 +54,7 @@ Les théorèmes, définitions, corollaires, lemmes et démonstrations ressemblen
 {{< thm/thm lemma >}}
 ... je suis un lemme ...
 {{< /thm/thm >}}
-{{< thm/thm proof >}}
+{{< thm/proof >}}
 ... se termine par un "point" en bas à droite...
 {{< /thm/thm >}}
 
