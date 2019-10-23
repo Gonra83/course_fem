@@ -247,7 +247,7 @@ En remarquant que $a(\cdot,\cdot) = \PSH{\cdot}{\cdot}$, nous avons donc :
 
 Nous sommes tentés de crier victoire et d'appliquer le Théorème de Lax-Milgram :
 
-{{< video src="../casting.webm">}}
+{{< video src="../video/casting.webm">}}
 
 Sauf que, contrairement à ce jeune homme, nous évitons un joli fail car $\Cscr^1(\overline{\Omega})$ **n'est pas un espace de Hilbert pour la norme $\normH{\cdot}$** car l'espace n'est pas complet (voir exercice) ! 
 

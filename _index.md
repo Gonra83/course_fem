@@ -84,4 +84,4 @@ Parfois, vous rencontrerez des remarques indiquées comme ceci...
 
 ## C'est parti !
 
-{{< video src="eagle.webm"  >}}
+{{< video src="video/eagle.webm"  >}}
