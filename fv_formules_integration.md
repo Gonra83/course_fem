@@ -49,31 +49,48 @@ $\newcommand{\rot}{\mathbf{rot}}$
 $\newcommand{\phii}{\phi\_i}$
 $\newcommand{\yN}{y\_N}$
 
-## Régularité du domaine
+## Domaines
 
-Dans ce cours, les domaines $\Omega$ seront des ouverts *réguliers* de $\Rb^d$, au moins de classe $\Cscr^1$. La quantité $d= 2,3$ est la dimension du problème considéré. Nous pouvons ainsi définir le vecteur unitaire normale $\nn$ sortant à $\Omega$.
+Dans ce cours, les domaines $\Omega$ seront des ouverts **bornés** de $\Rb^d$ et **réguliers**, c'est-à-dire au moins de classe $\Cscr^1$. La quantité $d= 2,3$ est la dimension du problème considéré.  Remarquons que nombreux résultats d'intégration que nous énoncerons restent vrais pour un domaine à bord polygonal, et retenons surtout que les domaines considérés ne comportent ni "fissure" ni point de rebroussement, et leur frontière est "régulière", comme illustré sur les figures ci-dessous.
 
-{{< thm/thm definition >}}
-Un ouvert $\Omega$ de $\Rb^d$ est régulier de classe $\Cscr^k$ ($k\geq 1$) s'il existe un nombre fini d'ouverts $(\omegai)\_{0\leq i\leq I}$ tels que
+
+### Régularité
+
+{{< thm/thm type="definition" label="def:ouvert_regulier" >}}
+Un ouvert borné $\Omega$ de $\Rb^d$ est régulier de classe $\Cscr^k$ ($k\geq 1$) si en chaque point $\xx$ de $\partial\Omega$, il existe un repère orthonormé $\mathcal{R}$ de $\Rb^d$ $\xx$ (dans lequel un point est noté $\yy = (\yy',y\_d) \in\Rb^{d-1}\times\Rb$), un cylindre ouvert $Q(\delta, \delta_d)$ contenant $\xx$ :
 $$
-\overline{\omega\_0}\subset\Omega, \qquad \overline{\Omega}\subset \bigcup\_{i=1}^I\omega\_i, \qquad \partial\Omega \subset \bigcup\_{i=1}^I \omega\_i,
+Q(\delta, \delta_d) = \left\\{(\yy',y\_d)\in\Rb^d \text{ tel que } \\|\yy'\\|<\delta \text{ et } y\_d < \delta\_d\right\\}
 $$
-et que, pour chaque $i\in\{1,\ldots,I\}$, il existe une application bijective $\phii$ de classe $\Ccal^k$, de $\omega\_i$ dans l'ensemble
-$$
-Q = \left\\{ y = (y', \yN)\in\Rb^{N-1}\times\Rb, \abs{y'}< 1, \abs{\yN}<1 \right\},
-$$
-dont l'inverse est aussi de classe $\Ccal^k$, et telle que
-$$
-\begin{array}{l}
-\phii(\omegai\cap\Omega) = Q \cap \{y = (y', \yN)\in\Rb^{N-1}\times\Rb,  \yN > 0 \\} = Q^+, \\\\\\
-\phii(\omegai\cap\partial\Omega) = Q \cap \\{y = (y', \yN)\in\Rb^{N-1}\times\Rb,  \yN = 0\\}.
-\end{array}
-$$
+et une fonction $\phi\colon B(\mathbf{O}, \delta)\subset\Rb^{d-1}\to\Rb^d$ de classe $\Cscr^k$, tel que :
+
+1. $Q(\delta, \delta_d)\cap\Omega = \left\\{(\yy',y\_d)\in Q(\delta,\delta_d) \text{ tel que } y\_d>\phi(\yy')\right\\}$
+2. $Q(\delta, \delta_d)\cap\partial\Omega = \left\\{(\yy',y\_d)\in Q(\delta,\delta_d) \text{ tel que } y\_d = \phi(\yy')\right\\}$
 {{< /thm/thm >}}
 
-Remarquons que nombreux résultats d'intégration que nous énoncerons restent vrais pour un domaine à bord polygonal, et retenons surtout que les domaines considérés ne comportent ni "fissure" ni point de rebroussement, et leur frontière est "régulière", comme illustré sur la figure ci-dessous.
+Cela signifie que $\Omega$ est localement [l'épigraphe](https://fr.wikipedia.org/wiki/%C3%89pigraphe\_\(math%C3%A9matiques\)) d’une fonction de classe $\Cscr^k$ : $\Omega$ est (localement) toujours situé du "même côté" que le graphe de $\phi$ :
 
-{{< figure src="../regulier.svg" title="Ouvert régulier (à gauche), avec point de rebroussement (milieu) et \"fissure\" (à droite). Les deux derniers ouverts ne sont pas réguliers" numbered="true" >}}
+
+{{< figure src="../img/def_ouvert.svg" title="Illustration de la définition d'un ouvert régulier." numbered="true" >}}
+
+
+Cette définition implique, par exemple, que les points de rebroussement ne sont pas autorisés ainsi que les fissures ($\Omega$ n'est pas toujours du même côté que son bord).
+
+
+
+{{< figure src="../img/regulier.svg" title="Ouvert régulier (à gauche), avec point de rebroussement (milieu) et \"fissure\" (à droite). Les deux derniers ouverts ne sont pas réguliers" numbered="true" >}}
+
+
+### Normale unitaire sortante $\nn$
+
+La frontière de $\Omega$ étant toujours supposée au moins de classe $\Cscr^1$, nous pouvons définir le vecteur unitaire normale $\nn=[n_1,\ldots,n_d]^T$ en tout point du bord. Par convention, $\nn$ pointe toujours en dehors de $\Omega$ (on dit que $\nn$ est *sortante*).
+
+Avec {{< thm/ref "def:ouvert_regulier" >}}la définition des ouverts réguliers{{< /thm/ref>}}, nous disposons de l'expression explicite de $\nn(\yy', \phi(y_d))$ dans le repère local par la formule suivante :
+
+$$
+\nn(\yy',\phi(y_d)) = \frac{(\nabla \phi(\yy'), -1)^T}{\\|(\nabla \phi(\yy'), -1)^T\\|}.
+$$
+
+{{< figure src="../img/normal.svg" title="Normale unitaire $\nn$ extérieure sortante à $\Omega$" numbered="true" >}}
 
 
 ## Formules de Green
@@ -87,8 +104,6 @@ $$
 $$
 où $n\_i$ est la $n^{ème}$ composante de la normale extérieure $\nn$ à $\Omega$.
 {{< /thm/thm >}}
-
-{{< figure src="../normal.svg" title="Normale unitaire $\nn$ extérieure sortante à $\Omega$" numbered="true" >}}
 
 De ce Théorème fondamental découlent des Corollaires qui nous seront pratiques. Par exemple, si l'on prend $w=uv$ dans la formule précédente, il vient :
 
@@ -104,66 +119,59 @@ $$
 En supposant $u\in\Cscr^2(\overline{\Omega})$, soit à peine plus régulier, nous pouvons appliquer le corollaire précédent pour obtenir :
 
 {{< thm/thm corollary "Formule de Green" >}}
-Soit $\Omega$ un ouvert borné, régulier de classe $\Cscr^1$. Deux fonctions $u\in\Cscr^2(\overline{\Omega})$ et $v\in\Cscr^1(\overline{\Omega})$ vérifient la Formule de Green :
+Soit $\Omega$ un ouvert borné, régulier de classe $\Cscr^1$ et soient deux fonctions $u\in\Cscr^2(\overline{\Omega})$ et $v\in\Cscr^1(\overline{\Omega})$. Elles vérifient alors la Formule de Green :
 $$
 \int\_{\Omega}\Delta u(x)v(x)\diff x =
 -\int\_{\Omega}\nabla u(x)\cdot \nabla v(x) \diff x
 + \int\_{\partial\Omega}\frac{\partial u}{\partial \nn}(x)v(x)\diff s,
 $$
-où $\nabla u = \left(\frac{\partial u}{\partial x\_i}\right)\_{1\leq i \leq d}$ est le vecteur gradient de $u$, et $\frac{\partial u}{\partial \nn} = \nabla u \cdot \nn$.
+où $\displaystyle\nabla u = \left(\frac{\partial u}{\partial x\_i}\right)\_{1\leq i \leq d}$ est le vecteur gradient de $u$, et $\displaystyle\frac{\partial u}{\partial \nn} = \nabla u \cdot \nn$ est la **dérivée normale** de $u$ sur le bord $\partial\Omega$.
 {{< /thm/thm >}}
 
 
 ## Autres formules d'intégration
 
-Nous considérons ici $\Omega$ un ouvert borné et régulier de classe $\Cscr^1$. On supposera $u,v, \phi, \psi$ et $\sigma$
-sont suffisamment dérivables à chaque fois.  Nous rappelons les opérateurs suivants :
-
-- La divergence d'un vecteur $\sigma$
+Nous considérons ici $\Omega$ un ouvert borné et régulier de classe $\Cscr^1$. On supposera $u,v$ deux fonctions scalaires et $\boldsymbol{\phi}=(\phi\_1, \phi\_2, \phi\_3)^T$ et $\boldsymbol{\psi}=(\psi\_1, \psi\_2, \psi\_3)^T$ deux fonctions vectorielles, toutes suffisamment dérivables à chaque fois. Nous rappelons les opérateurs de divergence $\divv$, du rotationnel $\rot$ et le produit vectoriel $\times$ :
 $$
-\divv(\sigma) = \sum\_{i=1}^d \frac{\partial \sigma}{\partial x\_i}.
+\divv(\boldsymbol{\phi}) = \sum\_{i=1}^d \frac{\partial \phi\_i}{\partial x\_i},
 $$
-- Le rotationnel d'un vecteur $\phi$
 $$
-\rot \phi = \left(\frac{\partial \phi\_3}{\partial x\_2} - \frac{\partial \phi\_2}{\partial x\_3},
-\frac{\partial \phi\_1}{\partial x\_3} - \frac{\partial \phi\_3}{\partial x\_1},
-\frac{\partial \phi\_2}{\partial x\_1} - \frac{\partial \phi\_1}{\partial x\_2}
-\right)
-$$
-- Le produit vectoriel $\times$ entre deux vecteurs $\phi$ et $\psi$
-$$
-\phi\times \psi = 
-\\left(
+\rot \boldsymbol{\phi} = \left(
+  \begin{array}{c}
+  \displaystyle\frac{\partial \phi\_3}{\partial x\_2} - \frac{\partial \phi\_2}{\partial x\_3}\\\\\\
+  \displaystyle\frac{\partial \phi\_1}{\partial x\_3} - \frac{\partial \phi\_3}{\partial x\_1}\\\\\\
+  \displaystyle\frac{\partial \phi\_2}{\partial x\_1} - \frac{\partial \phi\_1}{\partial x\_2}
+  \end{array}
+\right),\qquad
+\boldsymbol{\phi}\times \boldsymbol{\psi} = 
+\left(
   \begin{array}{l}
   \phi\_2\psi\_3 - \phi\_3\psi\_2\\\\\\
   \phi\_3\psi\_1 - \phi\_1\psi\_3\\\\\\
   \phi\_1\psi\_2 - \phi\_2\psi\_1\\\\\\
   \end{array}
-\right)
+\right).
 $$
 
 
 {{% alert exercise %}}
-À l'aide de la formule de Green, montrez les formules suivantes (vous pouvez développer les expressions...):
+À l'aide de la formule de Green, montrez les formules suivantes (vous pouvez développer les expressions...) :
 
-1. **La formule du Laplacien :**
+
+- **La formule de Stokes :**
+
 $$
-\int\_{\Omega}\Delta u(x)v(x)\diff x = -
-\int\_{\Omega}\nabla u(x)\cdot \nabla v(x) \diff x +
-\int\_{\partial\Omega}\frac{\partial u}{\partial \nn}(x)v(x)\diff s,
+\int\_{\Omega}\divv \boldsymbol{\phi}. v\;\diff x = -
+\int\_{\Omega}\boldsymbol{\phi}\cdot\nabla v\;\diff x +
+\int\_{\partial\Omega}(\boldsymbol{\phi}\cdot\nn)v\;\diff s
 $$
-où $\nabla u = \left(\frac{\partial u}{\partial x\_i}\right)\_{1\leq i \leq d}$ est le vecteur gradient de $u$, et $\frac{\partial u}{\partial \nn} = \nabla u \cdot \nn$.
-2. **La formule de Stokes :**
+
+- **La formule du rotationnel :**
+
 $$
-\int\_{\Omega}\divv \sigma(x) \phi(x)\diff x = -
-\int\_{\Omega} \sigma(x)\cdot\nabla \phi(x)\diff x +
-\int\_{\partial\Omega}\sigma(x)\cdot\nn(x)\phi(x)\diff s.
-$$
-3. **La formule du rotationnel :**
-$$
-\int\_{\Omega}\rot \phi \cdot \psi\diff x -
-\int\_{\Omega} \phi\cdot\rot \psi \diff x =-
-\int\_{\partial\Omega}(\phi\times\nn)\cdot \psi \diff s,
+\int\_{\Omega}\rot \boldsymbol{\phi} \cdot \boldsymbol{\psi}\;\diff x -
+\int\_{\Omega} \boldsymbol{\phi}\cdot\rot \boldsymbol{\psi} \;\diff x =-
+\int\_{\partial\Omega}(\boldsymbol{\phi}\times\nn)\cdot \boldsymbol{\psi} \;\diff s
 $$
 
 {{% /alert %}}
