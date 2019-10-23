@@ -98,9 +98,9 @@ Un des grands intérêts de l'expression \eqref{eq:FVpbmodel} est que **seules l
 ## Fonctions infiniment dérivables et à support compact
 
 {{< thm/thm definition >}}
-Soit une fonction $w\colon\Omega\to\Cb$, son **support** $\supp$ est alors défini par :
+Soit une fonction $\varphi\colon\Omega\to\Cb$, son **support** $\supp$ est alors défini par :
 $$
-\supp(w) := \overline\{\enstq\{x\in \Omega\}\{w(x) \neq 0\}\}.
+\supp(\varphi) := \overline\{\enstq\{x\in \Omega\}\{\varphi(x) \neq 0\}\}.
 $$
 {{< /thm/thm >}}
 
@@ -120,9 +120,9 @@ $$
 alors $g$ est nulle dans $\Omega$.
 {{< /thm/thm >}}
 {{< thm/proof >}}
-Montrons ce Lemme par l'absurde. Prenons $x_0 \in \Omega$ tel que $g(x_0) \neq 0$. Quitte à multiplier par $-1$, prenons $g(x_0) >0$. Par continuité, il existe un voisinage ouvert $U\_x$ autours de $x$ tel que $g(x)>0$ pour tout $x$ de $U\_{x\_0}$. Prenons maintenant une fonction test positive $\phi$ à support inclus dans $U\_x$ ($\phi > 0$ sur $U\_x$):
+Montrons ce Lemme par l'absurde. Prenons $x_0 \in \Omega$ tel que $g(x_0) \neq 0$. Quitte à multiplier par $-1$, prenons $g(x_0) >0$. Par continuité, il existe un voisinage ouvert $U\_x$ autours de $x$ tel que $g(x)>0$ pour tout $x$ de $U\_{x\_0}$. Prenons maintenant une fonction test positive $\varphi$ à support inclus dans $U\_x$ ($\varphi > 0$ sur $U\_x$):
 $$
-0 = \int\_{\Omega}g(x) \phi(x)\diff x = \int\_{U\_x} g(x)\phi(x) \diff x > 0,
+0 = \int\_{\Omega}g(x) \varphi(x)\diff x = \int\_{U\_x} g(x)\varphi(x) \diff x > 0,
 $$
 ce qui est en contradiction avec l'hypothèse sur $g(x_0)\neq 0$.
 {{< /thm/proof >}}
