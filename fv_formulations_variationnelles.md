@@ -107,12 +107,22 @@ $$
 {{< thm/thm definition >}}
 L'espace $\Cscr^{\infty}\_c(\Omega)$ est celui des fonctions $\Cscr^{\infty}$ sur $\Omega$ à support compact dans $\Omega$. 
 {{< /thm/thm >}}
-{{% alert note %}}
-Remarquons que pour une fonction $\Cscr^{\infty}\_c(\Omega)$, son support est alors un fermé borné de $\Omega$ et que, par continuité, elle est nulle sur le bord de $\Omega$.
-{{% /alert %}}
 
 
 {{< thm/thm lemma >}}
+Soit $\varphi \in \Cscr^{\infty}\_c(\Omega)$, alors $\varphi$ est nulle sur le bord $\partial\Omega$.
+{{< /thm/thm >}}
+{{< thm/proof >}}
+Nous avons $\supp(\varphi) \subset \Omega \subset \Rb^d$, et de plus, $\supp(\varphi)$ est un compact, donc un fermé borné, tandis que $\Omega$ est un ouvert borné et n'est pas fermé. Cela implique que :
+
+1. L'ensemble $\Omega\setminus \supp(\varphi)$ est un ouvert sur lequel $\varphi$ est identiquement nulle.
+2. $\partial\Omega \cap \supp(\varphi) = \emptyset$
+
+La fonction $\varphi$ peut donc être prolongée par continuité par 0 sur le bord de $\Omega\setminus \supp(\varphi)$ qui contient $\partial\Omega$.
+{{< /thm/proof >}}
+
+
+{{< thm/thm type="lemma" label="lemma:cinf" >}}
 Soit $\Omega$ un ouvert de $\Rb^d$, g une fonction continue dans $\Omega$. Si pour toute fonction $\varphi$ de $\Cscr^{\infty}(\Omega)$ à support compact dans $\Omega$, on a
 $$
 \int\_{\Omega}g(x)\varphi(x)\;\diff x = 0,
@@ -133,22 +143,37 @@ ce qui est en contradiction avec l'hypothèse sur $g(x_0)\neq 0$.
 Soit $u\in\Cscr^2(\overline{\Omega})$, alors $u$ vérifie \eqref{eq:pbmodel} si et seulement si $u$ satisfait \eqref{eq:FVpbmodel}.
 {{< /thm/thm >}}
 {{< thm/proof >}}
-Rappelons que le sens $\Rightarrow$ est évident. Remarquons maintenant que $\Cscr^{\infty}\_c(\Omega)\subset\Cscr^1(\Omega)$ et donc, en utilisant la formule de Green "à l'envers" dans \eqref{eq:FVpbmodel}, il vient que, pour tout $v$ de $\Cscr^{\infty}\_c(\Omega)$,
+Rappelons que le sens $\Rightarrow$ est évident. 
+
+Partons maintenant de \eqref{eq:FVpbmodel} et utilisons la formule de Green "à l'envers" et prenons un $v$ arbitraire de $\Cscr^1(\Omega)$ :
+
 $$
   \begin{array}{r r c l}
-&    \dsp  \int\_{\Omega} \nabla u\cdot \conj{\nabla v} \;\diff x +\int\_{\Omega}  u \conj{v} \;\diff x \dsp -\int\_{\Omega} f\conj{v}\;\diff x &=& 0 \\\\\\
+&\dsp  \int\_{\Omega} \nabla u\cdot \conj{\nabla v} \;\diff x +\int\_{\Omega}  u \conj{v} \;\diff x \dsp -\int\_{\Omega} f\conj{v}\;\diff x &=& 0 \\\\\\
 \implies& \dsp \int\_{\Omega} \left(\nabla u\cdot \conj{\nabla v} + \Delta u\cdot\conj{v}\right)\;\diff x
 + \int\_{\Omega} (-\Delta u +  u - f)\conj{v}\;\diff x &=& 0\\\\\\
  \implies &
-\dsp \int\_{\partial\Omega}\underbrace{(\dn u)}_{=0} \conj{v} \;\diff s + \int\_{\Omega} (-\Delta u + u - f)\conj{v}\;\diff x &=& 0\\\\\\
-\implies & \dsp \int\_{\Omega} (-\Delta u + u - f)\conj{v}\;\diff x &=& 0\\\\\\
+\dsp \int\_{\partial\Omega}(\dn u) \conj{v} \;\diff s + \int\_{\Omega} (-\Delta u + u - f)\conj{v}\;\diff x &=& 0
 \end{array}
 $$
-Ce qui se résume ainsi :
+La fonction $v$ étant arbitraire, nous
+\begin{equation}
+\label{eq:tmp}
+\forall v \in \Cscr^1, \dsp \int\_{\partial\Omega}(\dn u) \conj{v} \;\diff s + \int\_{\Omega} (-\Delta u + u - f)\conj{v}\;\diff x =0.
+\end{equation}
+Remarquons maintenant que $\Cscr^{\infty}\_c(\Omega)\subset\Cscr^1(\Omega)$. La relation ci-dessus est donc valable pour toute fonction $v$ de pour toute fonction $v$ de $\Cscr^{\infty}\_c(\Omega)$, le {{< thm/ref ref="lemma:cinf">}}lemme précédent{{< /thm/ref>}} implique que $u$ est solution de l'EDP recherchée :
 $$
-\forall v \in \Cscr^\infty\_c(\Omega), \qquad \int\_{\Omega} (-\Delta u + u - f)\conj{v}\;\diff x = 0
+-\Delta u + u = f \qquad (\Omega).
 $$
-Pour conclure, nous pouvons utiliser le lemme précédent.
+Il nous reste à montrer que $u$ vérifie la condition au bord $\dn u = 0$ sur $\partial\Omega$. La relation \eqref{eq:tmp} se simplifie
+$$
+\forall v \in \Cscr^1, \dsp \int\_{\partial\Omega}(\dn u) \conj{v} \;\diff s=0.
+$$
+Comme $u\in\Cscr^2(\overline{Omega})$, on a $\dn u\in\Cscr^1(\partial\Omega)$. Il existe donc $v\in\Cscr^1(\overline{Omega})$ telle que $v|\_{\partial\Omega} = \dn u$. En l'injectant dans l'équation ci-dessus, on obtient :
+$$
+\dsp \int\_{\partial\Omega} |\dn u|^2 \;\diff s=0.
+$$
+La fonction $|\dn u|^2$ étant positive sur $\partial\Omega$ et continue, nous en concluons que $|\dn u|^2 =0$ sur $\partial\Omega$ et donc que $\dn u = 0$ sur $\partial\Omega$, ce qui termine la preuve.
 {{< /thm/proof >}}
 
 ## Formulation variationnelle ou faible
