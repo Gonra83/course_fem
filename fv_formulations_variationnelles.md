@@ -110,7 +110,7 @@ L'espace $\Cscr^{\infty}\_c(\Omega)$ est celui des fonctions $\Cscr^{\infty}$ su
 
 
 {{< thm/thm lemma >}}
-Soit $\varphi \in \Cscr^{\infty}\_c(\Omega)$, alors $\varphi$ est nulle sur le bord $\partial\Omega$.
+Soit $\varphi \in \Cscr^{\infty}\_c(\Omega)$, alors $\varphi$ est nulle sur le bord $\partial\Omega$ (prolongement par continuité).
 {{< /thm/thm >}}
 {{< thm/proof >}}
 Nous avons $\supp(\varphi) \subset \Omega \subset \Rb^d$, et de plus, $\supp(\varphi)$ est un compact, donc un fermé borné, tandis que $\Omega$ est un ouvert borné et n'est pas fermé. Cela implique que :
