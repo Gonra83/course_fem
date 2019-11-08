@@ -154,13 +154,13 @@ Comme $\alpha>0$, alors $A$ est injective. En dimension finie et comme $A$ est u
 $$
 \alpha\|w_n - w_p\|\leq\|A(w_n) - A(w_p)\|.
 $$
-Quand $n$ et $p$ tendent vers l'infini, alors $\|w_n - w_p\| \to 0$. La suite $(w_n)_n$ est donc une suite de Cauchy dans $V$, qui est fermé, elle est donc convergente vers $w\in V$. Par continuité de $A$, la suite $(A(w_n))_n$ converge vers $A(w)$, élément de $\Image(A)$. Ce qui implique que $\Image(A)$ est fermé. Prenons maintenant $v\in \Image(A)^{\perp}$, par la coercivité de $a(\cdot,\cdot)$, nous avons
+Quand $n$ et $p$ tendent vers l'infini, alors $\|w_n - w_p\| \to 0$. La suite $(w_n)_n$ est donc une suite de Cauchy dans $V$, qui est complet (Hilbert), elle est donc convergente et converge vers un élément $w$ de $V$. Par continuité de $A$, la suite $(A(w_n))_n$ converge vers $A(w)$, élément de $\Image(A)$. Ce qui implique que $\Image(A)$ est fermé. Prenons maintenant $v\in \Image(A)^{\perp}$, par la coercivité de $a(\cdot,\cdot)$, nous avons
 $$
-\alpha\|v\|^2 \leq \abs{\Re\left(a(v,v)\right)} \leq \abs{a(v,v)} = \abs{\PS{A(v)}{v}} = 0.
+\alpha\\|v\\|^2 \leq \abs{\Re\left(a(v,v)\right)} \leq \abs{a(v,v)} = \abs{\PS{A(v)}{v}} = 0.
 $$
 Autrement dit, $v=0$ et donc $\Image(A)^\perp = \{0\}$ et nous avons
 $$
-\Image(A) = \overline{\Image(A)} = \left(\Image(A)^{\perp}\right)^{\perp} = \{0\}^{\perp} = V.
+\Image(A) = \overline{\Image(A)} = \left(\Image(A)^{\perp}\right)^{\perp} = \\{0\\}^{\perp} = V.
 $$
 L'application $A$ est donc bijective. Son inverse $A^{-1}$ existe, et, avec \eqref{eq:demoLax}, nous obtenons sa continuité :
 $$

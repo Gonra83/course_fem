@@ -105,15 +105,15 @@ $$
 {{< /thm/thm >}}
 
 {{< thm/thm definition >}}
-L'espace $\Cscr^{\infty}\_c(\Omega)$ est celui des fonctions $\Cscr^{\infty}$ sur $\Omega$ à support compact dans $\Omega$. 
+L'espace $\Cscr^{\infty}\_c(\Omega)$ est celui des fonctions $\Cscr^{\infty}(\Omega)$ telle que son support est un compact inclus dans $\Omega$. On parle alors de **fonctions** $\Cscr^{\infty}$ **à support compact**.
 {{< /thm/thm >}}
 
 
 {{< thm/thm lemma >}}
-Soit $\varphi \in \Cscr^{\infty}\_c(\Omega)$, alors $\varphi$ est nulle sur le bord $\partial\Omega$ (prolongement par continuité).
+Soit $\varphi \in \Cscr^{\infty}\_c(\Omega)$, alors $\varphi$ peut être prolongée par continuité par 0 sur $\partial\Omega$.
 {{< /thm/thm >}}
 {{< thm/proof >}}
-Nous avons $\supp(\varphi) \subset \Omega \subset \Rb^d$, et de plus, $\supp(\varphi)$ est un compact, donc un fermé borné, tandis que $\Omega$ est un ouvert borné et n'est pas fermé. Cela implique que :
+Nous avons $\supp(\varphi) \subsetneq \Omega \subset \Rb^d$, et de plus, $\supp(\varphi)$ est un compact, donc un fermé borné, tandis que $\Omega$ est un ouvert borné et n'est pas fermé. Cela implique que :
 
 1. L'ensemble $\Omega\setminus \supp(\varphi)$ est un ouvert sur lequel $\varphi$ est identiquement nulle.
 2. $\partial\Omega \cap \supp(\varphi) = \emptyset$
