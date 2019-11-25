@@ -169,7 +169,6 @@ Soit $u$ la solution exacte (*i.e.* solution de \eqref{eq3:pbmodel}) et $\uh$ la
 $$
 \forall \vh\in \Vh,\qquad a(\hme{e}, \vh) = 0.
 $$
-Autrement dit, l'erreur est orthogonale à $\Vh$.
 {{< /thm/thm >}}
 {{< thm/proof >}}
 Comme $\Vh\subset V$, nous pouvons choisir $v=\vh$ dans la formulation variationnelle \eqref{eq3:pbmodel}:
@@ -181,6 +180,12 @@ $$
 \end{array}
 $$
 {{< /thm/proof >}}
+
+
+{{% alert note%}}
+Si $a(\cdot,\cdot)$ est symmétrique, le lemme précédent implique que l'erreur est orthogonale à $\Vh$ par rapport au produit scalaire $a(\cdot,\cdot)$.
+{{% /alert %}}
+
 Nous pouvons maintenant montrer que l'erreur d'approximation $\uh$ de $u$ est uniformément bornée par la distance entre $u$ et l'espace $\Vh$. Ce résultat est connu comme étant [**le Lemme de Céa**](https://fr.wikipedia.org/wiki/Lemme_de_C%C3%A9a), démontré par [Jean Céa](https://fr.wikipedia.org/wiki/Jean_C%C3%A9a) durant [sa thèse](http://archive.numdam.org/article/AIF_1964__14_2_345_0.pdf/), en 1964.
 {{< thm/thm lemma "de Céa" >}}
 Soit $u$ la solution exacte (*i.e.* solution de \eqref{eq3:pbmodel}) et $\uh$ la solution approchée (*i.e.* solution de \eqref{eq3:pbmodelh}). Nous avons
