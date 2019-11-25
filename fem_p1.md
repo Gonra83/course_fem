@@ -115,7 +115,7 @@ $$
 
 ## Triangulation
 
-Nous construisons un espace discret $\hme{V}\subset\Ho$ basé sur les éléments finis $\Pun-$Lagrange. Celui-ci est basé sur un maillage triangulaire *régulier* du domaine $\Omega$. Pour simplifier, nous supposons également que $\partial\Omega$ est un polygône, de sorte que le maillage *épouse* parfaitement son bord.
+Nous construisons un espace discret $\hme{V}\subset\Ho$ basé sur les éléments finis $\Pun-$Lagrange. Celui-ci est basé sur un maillage triangulaire **conforme** du domaine $\Omega$. Pour simplifier, nous supposons également que $\partial\Omega$ est un polygône, de sorte que le maillage *épouse* parfaitement son bord.
 
 {{< thm/thm definition >}}
 Une triangulation ou un maillage triangulaire de $\Omega$ est un ensemble $\hme{\Tscr}$ de triangles $K$ vérifiant
