@@ -88,14 +88,14 @@ $\newcommand{\grandO}[1]{O\left(#1\right)}$
 $\newcommand{\qh}{\widehat{\qq}}$
 $\newcommand{\sh}{\widehat{\ssb}}$
 $\newcommand{\phih}{\widehat{\phi}}$
-$\newcommand{\Meh}{\widehat{M}^e}$
+$\newcommand{\Meh}{\widehat{M}}$
 $\newcommand{\varphih}{\widehat{\varphi}}$
 $\newcommand{\psih}{\widehat{\psi}}$
 $\newcommand{\gh}{\widehat{g}}$
-$\newcommand{\Kh}{\widehat{K}}$
+$\newcommand{\Kh}{\widehat{\tri{}}}$
 $\newcommand{\sumit}[1]{\ssb\_{#1}}$
 $\newcommand{\sumitK}[2]{\ssb\_{#2}^{#1}}$
-$\newcommand{\tri}[1]{K\_{#1}}$
+$\newcommand{\tri}[1]{T\_{#1}}$
 $\newcommand{\loctoglob}{\mathrm{Loc2Glob}}$
 $\newcommand{\aK}[1]{a\_{#1}}$
 $\newcommand{\ellK}[1]{\ell\_{#1}}$
@@ -104,66 +104,54 @@ $\newcommand{\mphi}[1]{\varphi\_{#1}}$
 $\newcommand{\mphiK}[2]{\mphi{#2}^{#1}}$
 $\newcommand{\xK}[2]{x^{#1}\_{#2}}$
 $\newcommand{\yK}[2]{y^{#1}\_{#2}}$
-$\newcommand{\TK}[1]{T^{\tri{#1}}}$
-$\newcommand{\BK}[1]{B\_{\tri{p}}}$
-$\newcommand{\JK}[1]{J\_{\tri{#1}}}$
+$\newcommand{\TK}[1]{F\_{#1}}$
+$\newcommand{\BK}[1]{B\_{#1}}$
+$\newcommand{\JK}[1]{J\_{#1}}$
 $\newcommand{\Me}[1]{M^e\_{{#1}}}$
-$\newcommand{\Mep}{\Me{p}}$
-$\newcommand{\De}[1]{D^e\_{{#1}}}$
+$\newcommand{\Mep}{M^{p}}$
+$\newcommand{\De}[1]{K\_{{#1}}}$
 $\newcommand{\Dep}{\De{p}}$
 
 ## Matrices de Masse et de Rigidité
 
 Nous devons maintenant calculer les *contributions élémentaires*, c'est à dire les quantités $\aK{p}(\mphiK{p}{j}, \mphiK{p}{i})$ et $\ellK{p}(\mphiK{p}{i})$. Pour simplifier, les sommets d'un triangle $\tri{p}$ seront notés $(\sumitK{p}{1}, \sumitK{p}{2}, \sumitK{p}{3})$ et ordonnés dans le sens trigonométrique. Nous noterons $\sumitK{p}{i}=(\xK{p}{i},\yK{p}{i})$ et $\mphiK{p}{j}$ une fonction de forme du triangle $\tri{p}$ sans la supposer linéaire. D'autre part, nous scindons les contributions élémentaires en deux parties :
 
-- La matrice de masse, notée $M$ de coefficient $M(I,J)$ donné par
+- **La matrice de masse**, notée $M$ de coefficient $M\_{I,J}$ donné par
 $$
-M(I,J) = \int\_{K}\mphi{J}(\xx)\overline{\mphi{I}(\xx)}\diff\xx.
+M\_{I,J} = \int\_{\Omega}\mphi{J}(\xx)\overline{\mphi{I}(\xx)}\diff\xx.
 $$
-- Matrice de rigidité, notée $D$ de coefficient $D(I,J)$ donné par
+- **La matrice de rigidité**, notée $K$ de coefficient $K\_{I,J}$ donné par
 $$
-D(I,J)=  \int\_{K}\nabla\mphi{J}(\xx)\overline{\nabla\mphi{I}(\xx)}\diff\xx.
+K\_{I,J}=  \int\_{\Omega}\nabla\mphi{J}(\xx)\overline{\nabla\mphi{I}(\xx)}\diff\xx.
 $$
 
 {{% alert note%}}
-Deux remarques :
-
-- La matrice $M$ représente l'opérateur identité dans la base des éléments finis (ce n'est pas la matrice diagonale remplie de 1...). En effet, si "l'EDP" était juste $u = f$, alors on aurait $a(u,v) = \int\_{\Omega}u\overline{v}$ et sa matrice $\Pun$ serait la matrice de masse.
-- Dans la littérature, la matrice de rigidité est souvent notée $K$, mais nous l'appelons $D$ pour éviter toute confusion avec les triangles, nommés $K$ également.
+La matrice $M$ représente l'opérateur identité dans la base des éléments finis (ce n'est pas la matrice diagonale remplie de 1...). En effet, si "l'EDP" était juste $u = f$, alors on aurait $a(u,v) = \int\_{\Omega}u\overline{v}$ et sa matrice $\Pun$ serait la matrice de masse.
 {{% /alert %}}
 
 ## Matrice de masse élémentaire
 
-Nous nous focalisons sur la matrice de masse, le principe est similaire pour la matrice $D$ et est détaillé juste après.
+Nous nous focalisons sur la matrice de masse, le principe est similaire pour la matrice $K$ et est détaillé juste après.
 
-Pour construire la matrice $M$, nous avons vu qu'il était préférable de parcourir les triangles plutôt que les sommets, autrement dit, plutôt que de calculer $M(I,J)$ directement, mieux vaut calculer, pour tout triangle $p$, la *contribution élémentaire* $\Mep(i,j)$ pour $i,j = 1,2,3$, définie par :
+Pour construire la matrice $M$, nous avons vu qu'il était préférable de parcourir les triangles plutôt que les sommets, autrement dit, plutôt que de calculer $M\_{I,J}$ directement, mieux vaut calculer, pour tout triangle $p$, la **contribution élémentaire** $M^p\_{i,j}$ pour $i,j = 1,2,3$, définie par :
 \begin{equation}
 \label{eq:matelem}
-\Mep(i,j) = \int\_{\tri{p}} \mphiK{p}{j} \overline{\mphiK{p}{i}}.
+M^p\_{i,j} = \int\_{\tri{p}} \mphiK{p}{j}(\xx)\ \overline{\mphiK{p}{i}(\xx)}\diff\xx.
 \end{equation}
-Chaque contribution élémentaire $\Mep(i,j)$ est ensuite ajoutée à $M(I,J)$, avec $I=\loctoglob(p,i)$ et $J=\loctoglob(p,j)$, de sorte qu'une fois toutes les contributions calculées, nous retrouvons bien la matrice de masse. 
-Nous nous focalisons ainsi maintenant sur le calcul de \eqref{eq:matelem}.
+Chaque contribution élémentaire $M^p\_{i,j}$ est ensuite ajoutée à $M\_{I,J}$, avec $I=\loctoglob(p,i)$ et $J=\loctoglob(p,j)$. 
 
 {{% alert note %}}
-La quantité $\Mep$ est une matrice $3\times 3$ appelée *matrice de masse élémentaire*.
+Les coefficients $M^p\_{i,j}$, pour $i,j=1,2,3$ peuvent être regroupés pour former la **matrice de masse élémentaire** $\Mep$ de taille $3\times 3$ et du triangle $\tri{p}$.
 {{% /alert %}}
 
 ## Triangle de référence
 
-Plaçons nous dans un triangle "simple" $\Kh$, appelé *triangle de référence*, souvent choisi comme étant le triangle rectangle de sommets $\sh\_{1}=(0,0)$, $\sh\_{2}=(1,0)$ et $\sh\_{3}=(0,1)$, ordonnés dans le sens trigonométrique. Pour différencier ce triangle d'un triangle du maillage, nous lui adjoignons un repère $(\xi,\eta)$
+Pour calculer la quantité élémentaire \eqref{eq:matelem}, plaçons nous tout d'abord dans un triangle "simple" $\Kh$, appelé **triangle de référence**. Celui-ci est souvent choisi comme étant le triangle rectangle de sommets $\sh\_{1}=(0,0)$, $\sh\_{2}=(1,0)$ et $\sh\_{3}=(0,1)$, ordonnés dans le sens trigonométrique. Pour différencier ce triangle d'un triangle du maillage, nous lui adjoignons un repère $(\xi,\eta)$
  dit **repère paramétrique**.
 
 {{< figure src="../triangle_ref.svg" title="Triangle de référence $\Kh$ et son repère paramétrique $(\xi,\eta)$." numbered="true" >}}
 
-Plutôt que d'indicer par $p$, nous notons $\varphih\_i \in \Pun(\Kh)$ les trois fonctions de forme associés aux sommets $\sh\_{i}$, pour $i=1,2,3$, définies par
-$$
-\varphih\_j(\sh\_{i}) = \delta\_{ij}.
-$$
-Dans ce triangle $\Kh$, la contribution élémentaire  $\Meh(i,j)$ pour $i,j = 1,2,3$ est donnée par
-$$
-\Meh(i,j) = \int\_{\Kh}\varphih\_j\overline{\varphih\_i}.
-$$
-Ces fonctions $\varphih\_j$ étant des polynômes de degré un, nous pouvons donc calculer analytiquement leurs coefficients :
+Plutôt que d'indicer par $p$, nous notons $\varphih\_i \in \Pun(\Kh)$ les trois fonctions de forme associés aux sommets $\sh\_{i}$, pour $i=1,2,3$, définies par $\varphih\_j(\sh\_{i}) = \delta\_{ij}$. Ces fonctions $\varphih\_j$ étant des polynômes de degré un, nous pouvons même les calculer analytiquement :
 $$
 \left\\{
   \begin{array}{l}
@@ -173,34 +161,12 @@ $$
   \end{array}
 \right.
 $$
-Par suite, nous en déduisons les valeurs de $\Meh(i,j)$ pour $i,j=1,2,3$ : 
 {{< thm/thm lemma >}}
-Pour $i,j=1,2,3$, avec $i=j$ :
+Dans le triangle $\Kh$, la matrice de masse élémentaire $\Meh = (\Meh\_{i,j})\_{1\leq i,j\leq 3}$ de coefficient 
 $$
-\int\_{\Kh} \varphih\_j\overline{\varphih\_j} \diff(x,y)  =\frac{1}{12},
+\Meh\_{i,j} = \int\_{\Kh} \varphih\_j(\xi)\overline{\varphih\_j(\eta)} \diff(\xi,\eta),
 $$
-et pour $j\neq i$:
-$$
-\int\_{\Kh} \varphih\_j\overline{\varphih\_i} \diff(x,y)  =\frac{1}{24}.
-$$
-{{< /thm/thm >}}
-{{< thm/proof >}}
-Prenons tout d'abord le cas $i=j=2$, soit $\overline{\varphih\_i} = \varphih\_j = \varphih\_2(\xi,\eta) = \xi$. Dans ce cas :
-$$
-\int\_{\Kh} \xi^2 \diff (\xi,\eta) = \int\_0^1\int\_0^{1-\xi} \xi^2 \diff\eta\diff\xi = \int\_0^1(1-\xi)\xi^2\diff\xi =
-\left[\frac{\xi^3}{3} - \frac{\xi^4}{4}\right]\_0^1=\frac{1}{3}-\frac{1}{4} = \frac{1}{12}.
-$$
-Les calculs sont similaires pour $j=1$ et $j=3$.
-
-Prenons maintenant $i\neq j$, par exemple $i=3$ et $j=2$ :
-$$
-  \int\_{\Kh} \xi\eta \diff (\xi,\eta) = \int\_0^1\left(\int\_0^{1-\xi} \eta \diff\eta\right)\xi\diff\xi
-  =  \frac{1}{2}\int\_0^1(1-\xi)^2\xi\diff\xi  
-  =  \frac{1}{2}\left[ \frac{1}{2} - \frac{2}{3} +\frac{1}{4}\right] =\frac{1}{24}.
-$$
-Les calculs sont similaires avec $i=1$ et $j=2,3$.
-{{< /thm/proof >}}
-La matrice de masse élémentaire $\Meh$ du triangle de référence $\Kh$ est donc donnée par
+est donnée par
 $$
 \Meh = \frac{1}{24}\left(
   \begin{array}{c c c}
@@ -210,35 +176,44 @@ $$
   \end{array}
 \right).
 $$
+{{< /thm/thm >}}
+
+{{< thm/proof >}}
+Prenons tout d'abord le cas $i=j=2$, soit $\overline{\varphih\_i} = \varphih\_j = \varphih\_2(\xi,\eta) = \xi$. Dans ce cas :
+$$
+\int\_{\Kh} \xi^2 \diff (\xi,\eta) = \int\_0^1\int\_0^{1-\xi} \xi^2 \diff\eta\diff\xi = \int\_0^1(1-\xi)\xi^2\diff\xi =
+\left[\frac{\xi^3}{3} - \frac{\xi^4}{4}\right]\_0^1=\frac{1}{3}-\frac{1}{4} = \frac{1}{12}.
+$$
+Les calculs sont similaires pour $j=1$ et $j=3$. Prenons maintenant $i\neq j$, par exemple $i=3$ et $j=2$ :
+$$
+  \int\_{\Kh} \xi\eta \diff (\xi,\eta) = \int\_0^1\left(\int\_0^{1-\xi} \eta \diff\eta\right)\xi\diff\xi
+  =  \frac{1}{2}\int\_0^1(1-\xi)^2\xi\diff\xi  
+  =  \frac{1}{2}\left[ \frac{1}{2} - \frac{2}{3} +\frac{1}{4}\right] =\frac{1}{24}.
+$$
+Les calculs sont similaires pour les autres combinaisons.
+{{< /thm/proof >}}
 
 ## Triangle quelconque
 
 
-Soit un triangle $\tri{p}$ du maillage et supposons que nous disposions d'une transformation bijective et linéaire $\TK{p}$ permetteant de transformer le triangle de référence $\Kh$ en $\tri{p}$ avec en plus $\TK{p}(\sh\_i) = \sumitK{p}{i}$. Cette fonction $\TK{p}$ transforme les  *coordonnées paramétriques* $(\xi,\eta)$ en *coordonnées physiques* $(x,y)$ avec $(x,y)=\TK{p}(\xi,\eta)\in\tri{p}$, et "conserve l'ordre des sommets".
+Soit un triangle $\tri{p}$ du maillage et supposons que nous disposions d'une transformation bijective et linéaire $\TK{p}$ permetteant de transformer le triangle de référence $\Kh$ en $\tri{p}$ avec en plus $\TK{p}(\sh\_i) = \sumitK{p}{i}$. Cette fonction $\TK{p}$ transforme les  **coordonnées paramétriques** $(\xi,\eta)$ en **coordonnées physiques** $(x,y)$ avec $(x,y)=\TK{p}(\xi,\eta)\in\tri{p}$, et conserve "l'ordre des sommets".
 
 
 {{< figure src="../ref.svg" title="Passage du triangle de référence $\Kh$ vers un triangle $\tri{p}$ par la transformation $\TK{p}$." numbered="true" >}}
 
 ### Changement de coordonnées
 
-Nous avons alors $\varphi\_j^p(x,y) = \varphi\_j^p(\TK{p}(\xi,\eta))$ avec :
+Nous avons $\varphi\_j^p(x,y) = \varphi\_j^p(\TK{p}(\xi,\eta))$ avec $\varphi\_j^p\circ\TK{p}\in\Pun(\Kh)$ et $\varphi\_j^p\circ\TK{p}(\sh\_i) = \delta\_{ij}$. Par unicité, nous avons $\varphi\_j^p\circ\TK{p} = \varphih\_j$. 
 
-1. $\varphi\_j^p\circ\TK{p}\in\Pun(\Kh)$
-2. $\varphi\_j^p\circ\TK{p}(\sh\_i) = \delta\_{ij}$
-
-En d'autres termes, nous avons $\varphi\_j^p\circ\TK{p} = \varphih\_j$ et donc la suite d'égalités suivantes :
-$$
-\varphi\_j^p(x,y) = \varphi\_j^p(\TK{p}(\xi,\eta)) = \varphih\_j(\xi,\eta).
-$$
-En notant $\JK{p}$ la matrice Jacobienne de $\TK{p}$, alors la quantité $\Mep(i,j)$ peut alors s'écrire, par changement de variables :
+En notant $\JK{p}$ la matrice Jacobienne de $\TK{p}$, alors la quantité $M^p\_{i,j}$ peut alors s'écrire, par changement de variables :
 $$
 \begin{array}{r c l}
-\Mep(i,j) &=& \dsp\int\_{\tri{p}}\mphiK{p}{j}(x,y)\overline{\mphiK{p}{i}(x,y)} \diff(x,y)\\\\\\
-&=&\dsp \det(\JK{p})\underbrace{\int\_{\Kh}\varphih\_{j}(\xi,\eta)\overline{\varphih\_{i}(\xi,\eta)}\diff(\xi,\eta)}\_{\text{Déjà calculé !}}\\\\\\
+M^p\_{i,j} &=& \dsp\int\_{\tri{p}}\mphiK{p}{j}(x,y)\overline{\mphiK{p}{i}(x,y)} \diff(x,y)\\\\\\
+&=&\dsp \abs{\det(\JK{p})}\underbrace{\int\_{\Kh}\varphih\_{j}(\xi,\eta)\overline{\varphih\_{i}(\xi,\eta)}\diff(\xi,\eta)}\_{\text{Déjà calculé !}}\\\\\\
 \end{array}
 $$
 
-Pour calculer la matrice élémentaire d'un triangle $\tri{p}$ quelconque, nous avons maintenant uniquement besoin du déterminant de la Jacobienne : $\det(\JK{p})$.
+Ainsi, pour calculer la matrice élémentaire d'un triangle $\tri{p}$ quelconque, nous n'avons besoin que du déterminant de la Jacobienne : $\det(\JK{p})$.
 
 ### Expression et Jacobienne de la transformation
 
@@ -254,11 +229,7 @@ $$
 \end{array}
 $$
 
-{{% alert note %}}
-Les fonctions d'interpolation géométrique $\varphih\_j$ sont ici identiques aux fonctions de forme $\varphih\_j$, c'est pourquoi nous parlons d'éléments finis **isoparamétriques**. Cependant, il faut bien se rappeler que ce n'est pas obligatoire et que le choix des fonctions $\psih\_j$ et $\varphih\_j$ est *découplé*. En particulier, pour obtenir des éléments courbes, nous pourrions choisir par exemple des fonctions $\psih\_j$ quadratiques.
-{{% /alert %}}
-
-Comme $\psih\_j = \varphih\_j$ pour tout $j=1,2,3$, nous disposons de leur expression analytique :
+En d'autres termes, les fonctions d'interpolation géométrique $\psih\_i$ sont ici identiques aux fonctions de forme $\varphih\_i$ :
 $$
 \left\\{
   \begin{array}{l}
@@ -283,14 +254,21 @@ $$
     \xK{p}{2} - \xK{p}{1} & \xK{p}{3} - \xK{p}{1}\\\\\\
     \yK{p}{2} - \yK{p}{1} & \yK{p}{3} - \yK{p}{1}
   \end{array}
-\right)
+\right),
 $$
-Le déterminant de cette matrice vaut
+et son déterminant vaut
 $$
-\det(\JK{p}) = (\xK{p}{2}-\xK{p}{1})(\yK{p}{3}-\yK{p}{1}) - (\xK{p}{3}-\xK{p}{1})(\yK{p}{2}-\yK{p}{1}).
+\begin{align}
+\abs{\det(\JK{p})} &= \abs{(\xK{p}{2}-\xK{p}{1})(\yK{p}{3}-\yK{p}{1}) - (\xK{p}{3}-\xK{p}{1})(\yK{p}{2}-\yK{p}{1})}\\\\\\
+&= 2|\tri{p}| \neq 0,
+\end{align}
 $$
-En valeur absolue, cela correspond à 2 fois l'aire du triangle $\tri{p}$. Le déterminant est donc non nul puisque le triangle n'est pas dégénéré et la transformation $\TK{p}$ est donc bien inversible.
+ce qui implique que le déterminant est non nul puisque le triangle n'est pas dégénéré : la transformation $\TK{p}$ est bien inversible.
 
+
+{{% alert note %}}
+Quand $\psih\_i = \varphih\_i$, nous parlons d'éléments finis **isoparamétriques**. Il convient de retenir que ce choix n'est pas obligatoire et les fonctions $\psih\_i$ et $\varphih\_i$ sont *indépendantes*. En particulier, pour obtenir des éléments courbes, les fonctions $\psih\_i$ pourraient être quadratiques par exemple.
+{{% /alert %}}
 
 {{< figure class="app-jacobi" title="<i class='fas fa-play-circle'></i> **Time To Play!**<br>**Déplacez les sommets du triangle** pour modifier la valeur du **Jacobien**. Quand il est négatif cela signifie que le triangle est **\"retourné\"** par rapport au triangle de référence." numbered="true" >}}
 
@@ -317,14 +295,7 @@ Développée par [Mina Pêcheux](http://minapecheux.com), une application web vo
 ### Expression finale de la matrice élémentaire
 
 {{< thm/thm lemma >}}
-Pour $i,j=1,2,3$ :
-$$
-\Mep(i,j) = \begin{cases}
-  \dsp\frac{\abs{\tri{p}}}{6} & \text{ si } i = j,\\\\\\
-  \dsp \frac{\abs{\tri{p}}}{12} & \text{ sinon.}
-\end{cases}
-$$
-Mise sous forme matricielle :
+La matrice de masse élémentaire $M^p = (M^p\_{i,j})\_{1\leq i,j\leq 3}$ du triangle $\tri{p}$ a pour expression
 $$
 \Mep =   \frac{\abs{\tri{p}}}{12}
 \left(
@@ -339,20 +310,34 @@ $$
 
 ## Matrice de rigidité élémentaire
 
-Nous appliquons la même procédure pour la matrice de rigidité, autrement dit, nous calculons les matrices de rigidité élémentaire $\Dep$ définie par
+Nous appliquons la même procédure pour la matrice de rigidité $K$, autrement dit, nous calculons les matrices de rigidité élémentaire $\Dep$ définies par
 $$
-\Dep(i,j) = \int\_{\tri{p}}\nabla \mphiK{p}{j}\cdot \overline{\nabla\mphiK{p}{i}}.
+\Dep(i,j) = \int\_{\tri{p}}\nabla \mphiK{p}{j}(x,y)\cdot \overline{\nabla\mphiK{p}{i}(x,y)}\diff(x,y).
 $$
 
-Nous pouvons d'ors et déjà remarqué que, en éléments finis $\Pun$, les quantités $\mphiK{p}{j}$ sont constantes sur chaque triangle et peuvent alors être sorties de l'intégrales :
-$$
-\Dep(i,j) = \nabla \mphiK{p}{j}\cdot \overline{\nabla\mphiK{p}{i}}\int\_{\tri{p}}\diff\xx = \abs{\tri{p}}\left[\nabla \mphiK{p}{j}\cdot \overline{\nabla\mphiK{p}{i}}\right]
-$$
-Les fonctions $\mphiK{p}{j}$ peuvent être calculées analytiquement ainsi que leur gradient. Nous étudions tout de même le cas plus abstrait d'éléments finis non forcément $\Pun$.
 
 ### Triangle de référence
 
-Bien que nous puissions obtenir une expression analytique dans le cas d'un triangle quelconque, nous nous en tenons ici au triangle de référence. Notons que nous disposons des expressions analytiques des gradients des fonctions de forme $\varphih\_j$ :
+{{< thm/thm lemma >}}
+Dans le triangle de référence $\Kh$, la matrice de rigidité élémentaire $\hat{K}= (\hat{K}\_{i,j})\_{1\leq i,j\leq 3}$ de coefficient
+$$
+\hat{K}\_{i,j} = \int\_{\Kh}\nabla \varphih\_{j}(\xi,\eta)\cdot \overline{\nabla\varphih\_{i}(\xi,\eta)}\diff(\xi,\eta),
+$$
+a pour expression
+$$
+\hat{K} =  \frac{1}{2}
+  \left(
+    \begin{array}{l l c}
+      2 & -1 & -1 \\\\\\
+      -1 & 1 & 0 \\\\\\
+      -1 & 0 & 1
+    \end{array}
+  \right)
+$$
+{{< /thm/thm >}}
+
+{{< thm/proof >}}
+Les gradients des fonctions de forme $\varphih\_j$ sont donnés par :
 $$
 \nabla\_{\xi,\eta}\varphih\_{1} =
 \left(
@@ -379,50 +364,31 @@ $$
   \end{array}
 \right).
 $$
-La matrice de rigidité élémentaire $\hat{D}^e$ du triangle de référence $\Kh$ est alors donnée par :
+La matrice étant symétrique, nous pouvons limiter les calculs à la partie triangulaire supérieure :
 $$
-\hat{D}^e(i,j) = \int\_{\Kh}\nabla \varphih\_{j}\cdot \overline{\nabla\varphih\_{i}}.
+\begin{aligned}
+\hat{K}\_{1,1} &=
+  \int\_{\Kh}\nabla\varphih\_1\cdot\overline{\nabla\varphih\_1} \diff (\xi,\eta) =
+  \int\_{\Kh} (-1,-1)\begin{pmatrix}-1\\\\\\ -1\end{pmatrix}\diff (\xi,\eta) =
+  2 \int\_{\Kh} \diff(\xi,\eta) &&= 1\\\\\\
+\hat{K}\_{2,2} &=
+  \int\_{\Kh}\nabla\varphih\_2\cdot\overline{\nabla\varphih\_2} \diff (\xi,\eta) =
+  \int\_{\Kh} (1,0)\begin{pmatrix}1\\\\\\ 0\end{pmatrix} \diff (\xi,\eta) =
+    \int\_{\Kh} \diff(\xi,\eta) &&= \frac{1}{2} =\hat{K}\_{3,3}\\\\\\
+\hat{K}\_{1,2} &=
+  \int\_{\Kh}\nabla\varphih\_1\cdot\overline{\nabla\varphih\_2} \diff (\xi,\eta) =
+  \int\_{\Kh} (-1,-1)\begin{pmatrix}1\\\\\\ 0\end{pmatrix} \diff (\xi,\eta) =
+    -\int\_{\Kh} \diff(\xi,\eta) &&= -\frac{1}{2}\\\\\\
+\hat{K}\_{1,3} &=
+  \int\_{\Kh}\nabla\varphih\_1\cdot\overline{\nabla\varphih\_3} \diff (\xi,\eta) =
+  \int\_{\Kh} (-1,-1)\begin{pmatrix}0\\\\\\ 1\end{pmatrix} \diff (\xi,\eta) =
+    -\int\_{\Kh} \diff(\xi,\eta)&& = -\frac{1}{2}\\\\\\
+\hat{K}\_{2,3} &=
+  \int\_{\Kh}\nabla\varphih\_2\cdot\overline{\nabla\varphih\_3} \diff (\xi,\eta) =
+  \int\_{\Kh} (1,0)\begin{pmatrix}0\\\\\\ 1\end{pmatrix} \diff (\xi,\eta) &&=
+  0.
+\end{aligned}
 $$
-{{< thm/thm lemma >}}
-Dans le triangle de référence, la matrice de rigidité élémentaire $\hat{D}^e$ vaut
-$$
-\hat{D}^e =  \frac{1}{2}
-  \left(
-    \begin{array}{l l c}
-      2 & -1 & -1 \\\\\\
-      -1 & 1 & 0 \\\\\\
-      -1 & 0 & 1
-    \end{array}
-  \right)
-$$
-{{< /thm/thm >}}
-{{< thm/proof >}}
-  Clairement, la matrice est symétrique. Nous avons :
-  $$\hat{D}\_{1,1} =
-    \int\_{\Kh}\nabla\varphih\_1\cdot\overline{\nabla\varphih\_1} \diff (\xi,\eta) =
-    \int\_{\Kh} (-1,-1)\left(\begin{array}{l}-1\\\\\\ -1\end{array}\right) \diff (\xi,\eta) =
-    2 \int\_{\Kh} \diff(\xi,\eta) = 1.
-  $$
-  $$\hat{D}\_{2,2} =
-    \int\_{\Kh}\nabla\varphih\_2\cdot\overline{\nabla\varphih\_2} \diff (\xi,\eta) =
-    \int\_{\Kh} (1,0)\left(\begin{array}{l}1\\\\\\ 0\end{array}\right) \diff (\xi,\eta) =
-     \int\_{\Kh} \diff(\xi,\eta) = \frac{1}{2} =\hat{D}\_{3,3}. 
-  $$
-  $$\hat{D}\_{1,2} =
-    \int\_{\Kh}\nabla\varphih\_1\cdot\overline{\nabla\varphih\_2} \diff (\xi,\eta) =
-    \int\_{\Kh} (-1,-1)\left(\begin{array}{l}1\\\\\\ 0\end{array}\right) \diff (\xi,\eta) =
-     -\int\_{\Kh} \diff(\xi,\eta) = -\frac{1}{2}.
-  $$
-  $$\hat{D}\_{1,3} =
-    \int\_{\Kh}\nabla\varphih\_1\cdot\overline{\nabla\varphih\_3} \diff (\xi,\eta) =
-    \int\_{\Kh} (-1,-1)\left(\begin{array}{l}0\\\\\\ 1\end{array}\right) \diff (\xi,\eta) =
-     -\int\_{\Kh} \diff(\xi,\eta) = -\frac{1}{2}.
-  $$
-  $$\hat{D}\_{2,3} =
-    \int\_{\Kh}\nabla\varphih\_2\cdot\overline{\nabla\varphih\_3} \diff (\xi,\eta) =
-    \int\_{\Kh} (1,0)\left(\begin{array}{l}0\\\\\\ 1\end{array}\right) \diff (\xi,\eta) =
-    0.
-  $$
 {{< /thm/proof >}}
 
 ### Triangle quelconque
@@ -452,7 +418,7 @@ En notant $\BK{p}$ la matrice de passage, nous avons
 $$
 \nabla\_{x,y}\mphiK{p}{j}(x,y) = \BK{p}\nabla\_{\xi,\eta}\varphih\_{j}(\xi,\eta).
 $$
-Pour obtenir la matrice $\BK{p}$, nous utilisons la Jacobienne $\JK{p}$, en remarquant que :
+L'opération "inverse" nous donne :
 $$
   \left(
     \begin{array}{c}
@@ -472,10 +438,8 @@ $$
       \dsp \frac{\partial \mphiK{p}{j}}{\partial x}\\\\\\
       \dsp \frac{\partial \mphiK{p}{j}}{\partial y}
     \end{array}
-  \right).
-$$
-Autrement dit, nous avons
-$$
+  \right)
+\iff
 \nabla\_{\xi,\eta}\varphih\_{j}(\xi,\eta) = (\JK{p})^T\nabla\_{x,y}\mphiK{p}{j}(x,y).
 $$
 Nous en déduisons que $\BK{p} = (\JK{p}^T)^{-1}$, en particulier, dans le cas d'une transformation linéaire de triangle, nous obtenons :
@@ -492,40 +456,48 @@ $$
 Au final, comme $X\cdot Y = X^TY$, nous obtenons
 \begin{equation}\label{eq:intRigidite}
 \int\_{\tri{p}} (\nabla\mphiK{p}{j})^T\overline{\nabla\mphiK{p}{i}} \diff(x,y)
-  = \det(\JK{p})\int\_{\Kh} (\nabla\varphih\_{j})^T  (\BK{p}^T \overline{\BK{p}})\overline{\nabla\varphih\_{i}} \diff (\xi,\eta).
+  = \abs{\det(\JK{p})}\int\_{\Kh} (\nabla\varphih\_{j})^T  (\BK{p}^T \overline{\BK{p}})\overline{\nabla\varphih\_{i}} \diff (\xi,\eta).
 \end{equation}
 La matrice $\BK{p}$ étant réelle, nous pouvons supprimer la conjugaison portant sur $\BK{p}$.
 
-{{% alert note %}}
-Pour les éléments finis $\Pun$, la matrice $\BK{p}$ ne dépend pas de $(\xi,\eta)$, de même des gradients $\nabla\varphih\_{j}$ : tout peut être sorti de l'intégrale, et comme $\det(\JK{p}) = 2\abs{\tri{p}}$ et $\abs{\Kh}= \frac{1}{2}$ :
+{{< thm/thm lemma >}}
+Les coefficients a matrice de rigidité élémentaire $\Dep = (K^p\_{i,j})\_{1\leq i,j\leq 3}$ sont obtenus pas la relation suivante
+$$
+\begin{align}
+K^p\_{i,j} &= \int\_{\tri{p}}\nabla \mphiK{p}{j}(x, y)\cdot \overline{\nabla\mphiK{p}{i}(x,y)}\diff(x,y),\\\\\\
+  &= \abs{\tri{p}}(\nabla\varphih\_{j})^T  (\BK{p}^T \overline{\BK{p}})\overline{\nabla\varphih\_{i}}.
+\end{align}
+$$
+{{< /thm/thm >}}
+{{< thm/proof >}}
+Pour les éléments finis $\Pun$, les gradients $\nabla\varphih\_{j}$ sont constants et peuvent être sortis de l'intégrale. De plus, comme $\abs{\det(\JK{p})} = 2\abs{\tri{p}}$ et $\abs{\Kh}= \frac{1}{2}$, nous avons
 $$
 \int\_{\tri{p}} \nabla\mphiK{p}{j}\cdot\overline{\nabla\mphiK{p}{i}} \diff(x,y) =
   \abs{\tri{p}}(\nabla\varphih\_{j})^T  (\BK{p}^T \overline{\BK{p}})\overline{\nabla\varphih\_{i}}.
 $$
-{{% /alert %}}
-
+{{< /thm/proof>}}
 
 ## Quadratures
 
 ### Sur un triangle
 
-En général, nous ne pouvons pas calculer analytiquement les intégrales. Par exemple, pour les termes du membre de droite, nous devons calculer :
+Étudions maintenant les termes du membre de droite comme
 $$
 \int\_{\tri{p}}f(\xx)\overline{\mphiK{p}{i}(\xx)}\diff \xx.
 $$
-Sauf pour certaines fonctions $f$ particulières, nous ne disposerons certainement pas de formules explicites pour ce terme. En pratique, nous passons à l'éléments de référence et nous approchons l'intégrale à l'aide d'une formule de quadrature :
+Sauf pour certaines fonctions $f$ particulières, nous ne pourrons certainement pas calculer explicitement ce terme, nous devons approcher cette intégrale à l'aide d'une formule de quadrature en passant à l'éléments de référence :
 $$
 \begin{array}{r l}
 \dsp \int\_{\tri{p}}f(\xx)\overline{\mphiK{p}{i}(\xx)}\diff \xx &=
-\dsp \det(\JK{p})\int\_{\Kh}f(\xx(\xi,\eta))\overline{\varphih\_i(\xi,\eta)}\diff (\xi,\eta) \\\\\\
-& \dsp \simeq \det(\JK{p})\sum\_{m=1}^M\omega\_m f(\xx(\xi\_m,\eta\_m))\overline{\varphih(\xi\_m,\eta\_m)}.
+\dsp \abs{\det(\JK{p})}\int\_{\Kh}f(\xx(\xi,\eta))\overline{\varphih\_i(\xi,\eta)}\diff (\xi,\eta) \\\\\\
+& \dsp \simeq \abs{\det(\JK{p})}\sum\_{m=1}^M\omega\_m f(\xx(\xi\_m,\eta\_m))\overline{\varphih(\xi\_m,\eta\_m)}.
 \end{array}
 $$
-Les points $(\xi\_m,\eta\_m)$ sont appelés *points de quadrature* (parfois *Points de Gauss*, même si la règle de quadrature n'est pas de Gauss) et les quantités $\omega\_m\in\Rb$ les *poids* associés. Notons que le point $\xx\_m = \xx(\xi\_m,\eta\_m)$ s'obtient par l'expression vue précédemment :
+Les points $(\xi\_m,\eta\_m)$ sont appelés **points de quadrature** (parfois **points de Gauss**, même si la règle de quadrature utilisée n'est pas de Gauss) et les quantités $\omega\_m\in\Rb$ les **poids** associés. Notons que le point $\xx\_m = \xx(\xi\_m,\eta\_m)$ s'obtient par l'expression vue précédemment :
 $$
 \xx\_m = \sum\_{i=1}^3\sumitK{p}{i}\psih\_i(\xi\_m,\eta\_m).
 $$
-Nous présentons ici deux règles de quadrature pour l'intégration sur $\Kh$ d'une fonction $g$ quelconque (intégrale) : $\int\_{\Kh}\gh(\xx)\diff\xx$. La première règle est exacte pour des polynômes de degré 1, la deuxième pour des polynômes de degré 2 (règles de Hammer) :
+Nous présentons ici deux règles de quadrature pour l'intégrale $\int\_{\Kh}\gh(\xx)\diff\xx$ sur $\Kh$ d'une fonction $g$ quelconque. La première règle est exacte pour des polynômes de degré 1, la deuxième pour des polynômes de degré 2 (règles de Hammer) :
 
 | $\xi\_m$ | $\eta\_m$ | $\omega\_m$ |Degré de précision|
 | -------- | --------  | --------   | ---------------- |

@@ -66,13 +66,13 @@ $\newcommand{\Nt}{N\_t}$
 $\newcommand{\Ne}{N\_e}$
 $\newcommand{\sumit}[1]{\ssb\_{#1}}$
 $\newcommand{\sumitK}[2]{\ssb\_{#2}^{#1}}$
-$\newcommand{\tri}[1]{K\_{#1}}$
+$\newcommand{\tri}[1]{T\_{#1}}$
 $\newcommand{\loctoglob}{\mathrm{Loc2Glob}}$
 $\newcommand{\mphi}[1]{\varphi\_{#1}}$
 $\newcommand{\mphiK}[2]{\mphi{#2}^{#1}}$
 
 
-Le maillage du domaine est une étape que nous ne détaillerons pas (ou alors plus tard). Sachons cependant que cette étape est à la fois compliquée, du point de vue mathématique et algorithmique, et très coûteuse, surtout en 3D ! Pour des géométries complexes, le temps de création du maillage peut dépasser celui de la résolution du système linéaire. Nous utiliserons le logiciel libre [GMSH](https://GMSH.info) et un [tutoriel]({{< ref "tutorial/gmsh">}}) pour mailler et dessiner les domaines.
+Le maillage du domaine est une étape que nous ne détaillerons pas. Sachons cependant que cette étape est à la fois compliquée, du point de vue mathématique et algorithmique, et très coûteuse, du point de vue temps CPU, surtout en 3D ! Pour des géométries complexes, le temps de création du maillage peut dépasser celui de la résolution du système linéaire. Nous utiliserons le logiciel libre [GMSH](https://GMSH.info) et un [tutoriel]({{< ref "tutorial/gmsh">}}) pour dessiner puis mailler des domaines.
 
 
 {{% alert note %}}
@@ -87,7 +87,7 @@ Les $\Nt$ triangles du maillage seront numérotés de 1 à $\Nt$ : $\tri{1}, \tr
 
 ### Orientation
 
-Pour un triangle d'un maillage de sommets $\ssb\_I, \ssb\_J, \ssb\_K$, deux orientations sont possibles (le choix du premier sommet n'ayant aucune incidence sur l'orientation) :  $K = [\ssb\_I, \ssb\_J, \ssb\_K]$ ou $K' = [\ssb\_I, \ssb\_K, \ssb\_J]$. La normale unitaire sortante au triangle $K$ est alors opposé à $K'$. Il est donc important que chaque triangle d'une même surface soit orienté dans le même sens ! 
+Pour un triangle d'un maillage de sommets $\ssb\_I, \ssb\_J, \ssb\_K$, deux orientations sont possibles (le choix du premier sommet n'ayant aucune incidence sur l'orientation) :  $\tri{} = [\ssb\_I, \ssb\_J, \ssb\_K]$ ou $\tri{}^{\prime} = [\ssb\_I, \ssb\_K, \ssb\_J]$. La normale unitaire sortante au triangle $\tri{}$ est alors opposé à $ \tri{}^{\prime}$. Il est donc important que chaque triangle d'une même surface soit orienté dans le même sens !
 
 {{< figure src="../orientation.svg" title="Orientation d'un triangle" numbered="true" >}}
 
@@ -99,14 +99,14 @@ Les $\Ns$ sommets $\sumit{I}$ d'un maillage seront numérotés de 1 à $\Ns$ : $
 
 ### Locale
 
-Chaque sommet appartient à au moins un triangle et possède alors une numérotation **locale** dans ce triangle, c'est-à-dire 1, 2 ou 3. Pour ne pas confondre avec la numérotation globale, nous indiquerons le numéro du triangle, par exemple $\sumitK{p}{i}$ est le $i^{ème}$ sommet du triangle $\tri{p}$. Dit autrement, le triangle $\tri{p}$ a pour sommets $\sumitK{p}{1}, \sumitK{p}{2}, \sumitK{p}{3}$.
+Chaque sommet appartient à au moins un triangle et possède alors une numérotation **locale** dans ce triangle, c'est-à-dire 1, 2 ou 3. Pour ne pas confondre avec la numérotation globale, nous indiquerons le numéro du triangle, par exemple $\sumitK{p}{i}$ est le $i^{ème}$ sommet du triangle $\tri{p}$, de sommets $[\sumitK{p}{1}, \sumitK{p}{2}, \sumitK{p}{3}]$.
 
 ### Locale vers Globale
 
 Pour un triangle $\tri{p} = [\sumitK{p}{1}, \sumitK{p}{2}, \sumitK{p}{3}]$ donné, nous aurons besoin de passer de la numérotation locale d'un de ses sommets à sa numérotation globale. Pour cela, nous introduisons une fonction `Loc2Glob` définie formellement ainsi :
 $$
 \begin{array}{l}
-  \forall p=1\,\ldots,\Nt, \forall i = 1, 2, 3, \\\\\\
+  \forall p=1\,\ldots,\Nt, \quad \forall i = 1, 2, 3, \\\\\\
   \loctoglob(p,i) = I \iff \sumitK{p}{i} = \sumit{I}.
 \end{array}
 $$
@@ -137,7 +137,7 @@ En général, un fichier de maillage contient plusieurs informations :
 1. Le **numéro global** et les **coordonnées** des sommets
 2. La **connectivité** des éléments
 
-Autrement dit, il est facile de retrouver les numéros de noeuds composant un élément, mais il est plus coûteux de retrouver les éléments associés à un noeud.
+Autrement dit, il est facile de **retrouver les numéros de noeuds composant un élément**, mais il est plus **coûteux de retrouver les éléments contenants un noeud**.
 
 ## Exemples
 

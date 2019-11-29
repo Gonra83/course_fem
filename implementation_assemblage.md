@@ -73,7 +73,7 @@ $\newcommand{\hme}[1]{#1_h}$
 $\newcommand{\vh}{v\_h}$
 $\newcommand{\Vh}{V\_h}$
 $\newcommand{\uh}{u\_h}$
-$\newcommand{\Nh}{N\_h}$
+$\newcommand{\Nh}{\Ns}$
 $\newcommand{\ui}{u\_i}$
 $\newcommand{\uj}{u\_j}$
 $\newcommand{\UI}{U\_I}$
@@ -87,7 +87,7 @@ $\newcommand{\Punw}{\Pun(\omega)}$
 $\newcommand{\grandO}[1]{O\left(#1\right)}$
 $\newcommand{\sumit}[1]{\ssb\_{#1}}$
 $\newcommand{\sumitK}[2]{\ssb\_{#2}^{#1}}$
-$\newcommand{\tri}[1]{K\_{#1}}$
+$\newcommand{\tri}[1]{T\_{#1}}$
 $\newcommand{\loctoglob}{\mathrm{Loc2Glob}}$
 $\newcommand{\aK}[1]{a\_{#1}}$
 $\newcommand{\Ns}{N\_s}$
@@ -97,7 +97,7 @@ $\newcommand{\mphiK}[2]{\mphi{#2}^{#1}}$
 
 ## Système Linéaire
 
-En appliquant la méthode de Galerkin sur la base $(\mphi{J})\_{1\leq J \leq N_h}$, nous obtenons le système linéaire des éléments finis $\Pun$-Lagrange :
+En appliquant la méthode de Galerkin sur la base $(\mphi{J})\_{1\leq J \leq \Ns}$, nous obtenons le système linéaire des éléments finis $\Pun$-Lagrange :
 $$
 AU = B,
 $$
@@ -121,56 +121,55 @@ $$
 \right.
 $$
 
-Nous pouvons remarquer que la matrice $A$ est **creuse**, c'est-à-dire qu'un nombre important de ses coefficients sont nuls. En effet, si les sommets $\sumit{I}$ et $\sumit{J}$ ne sont pas les sommets d'un même triangle, alors $\AIJ = 0$ puisque $\supp(\mphi{I})\cap\supp(\mphi{J}) =\emptyset$. Un sommet $\sumit{I}$ est, en pratique, connecté à un faible nombre de sommets, par rapport au nombre total de sommets du maillage. En moyenne de manière empirique, un nœud est connecté au maximum à 6 à 8 autres nœuds.
+Pour deux sommets $\sumit{I}$ et $\sumit{J}$ n'appartenant pas un même triangle, alors $\supp(\mphi{I})\cap\supp(\mphi{J}) =\emptyset$ et donc le coefficient $\AIJ$ est nul. En pratique, un sommet est connecté à un faible nombre de sommets par rapport au nombre total de sommets du maillage. En moyenne de manière empirique, un nœud est connecté au maximum à 6 à 8 autres nœuds (en 2D). Une conséquence directe est que **la matrice $A$ est creuse**, c'est-à-dire qu'un nombre important de ses coefficients sont nuls. Une stratégie de stockage creux est donc à utiliser (souvent [COO](https://en.wikipedia.org/wiki/Sparse_matrix#Coordinate_list_(COO)) puis [CSR](https://en.wikipedia.org/wiki/Sparse_matrix#Compressed_sparse_row_(CSR,_CRS_or_Yale_format)))
 
 ## Calcul des coefficients : approche naïve
-
 
 Nous devons bien entendu construire cette matrice : calculer chacun de ses coefficients et les stocker. Un algorithme *naïf* mais naturel pour calculer chaque coefficient est de boucler sur les sommets $\sumit{I}$ et $\sumit{J}$ et de remplir la matrice au fur et à mesure, c'est-à-dire de remplir les coefficients $\AIJ$ les uns après les autres. 
 
 ```
-For every vertices I = 1:N_s
-  For every vertices J = 1:N_s
+For every vertices I = 1:\Ns
+  For every vertices J = 1:\Ns
     // Calcul du coefficient A_{I,J}
     A_{I,J} = 0;
-    For every triangles K_p
-      A_{I,J} += ...
+    For every triangles T_p
+      A_{I,J} += int_{T_p}...
     EndFor
   EndFor
   //Calcul de B_I
   B_I = 0;
-  For every triangles K_p
-    B_I += ...
+  For every triangles T_p
+    B_I += int_{T_p}...
   EndFor
 EndFor
 ```
-Malheureusement, cet algorithme a un coût en $\grandO{N\_s^2}$ ce qui est trop important pour être utilisable en pratique. De plus, nous ne disposons en général pas de fonction permettant de retrouver, à un sommet donné, les triangles auxquels il appartient.
+Cet algorithme a un coût en $\grandO{N\_s^2}$ ce qui est trop important pour être utilisable en pratique. De plus, nous ne disposons en général pas de fonction permettant de retrouver, à un sommet donné, les triangles auxquels il appartient.
 
 ## Algorithme d'assemblage
 
-Une autre manière de procéder, que l'on appelle **assemblage**, boucle sur les éléments plutôt que sur les sommets, en remarquant que :
+Une autre manière de procéder est **l'algorithme d'assemblage** qui consiste à boucler sur les éléments plutôt que sur les sommets, en remarquant que :
 $$
 a(\mphi{J},\mphi{I}) = \sum\_{p=1}^{\Nt} \aK{p}(\mphi{J},\mphi{I}), \qquad \aK{p}(\mphi{J},\mphi{I}) = \left(\int\_{\tri{p}}\nabla \mphi{J}(x) \cdot\overline{\nabla \mphi{I}(x)}\diff x +\int\_{\tri{p}}\mphi{J}(x) \overline{\mphi{I}(x)}\diff x\right).
 $$
-Ensuite, nous réécrivons la matrice $A$ sous la forme suivante
+Notons $E^{I,J} = \ee\_I\ee\_J^T$ la matrice canonique de taille $\Ns\times\Ns$ de coefficient nul partout sauf celui de la $I^{ème}$ ligne et $J^{ème}$ colonne qui vaut 1. La matrice $A$ peut alors être réécrite sous la forme suivante
 $$
-A = \sum\_{i=1}^{N_h}\sum\_{j=1}^{N_h}a(\mphi{J},\mphi{I}) \ee\_I^T\ee\_J,
+A = \sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}A\_{I,J} E^{I,J} = \sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}a(\mphi{J},\mphi{I}) E^{I,J},
 $$
 où $\ee\_J$ est le vecteur de la base canonique de $\Rb^{\Ns}$. Nous avons alors
 $$
 \begin{array}{r l}
-  A &= \dsp \sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}a(\mphi{J},\mphi{I}) \ee\_I^T\ee\_J\\\\\\
-    &= \dsp \sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}\sum\_{p=1}^{\Nt}\aK{p}(\mphi{J},\mphi{I}) \ee\_I^T\ee\_J\\\\\\
-    &= \dsp \sum\_{p=1}^{\Nt}\sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}\aK{p}(\mphi{J},\mphi{I}) \ee\_I^T\ee\_J
+  A &= \dsp \sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}a(\mphi{J},\mphi{I}) E^{I,J}\\\\\\
+    &= \dsp \sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}\left[\sum\_{p=1}^{\Nt}\aK{p}(\mphi{J},\mphi{I})\right] E^{I,J}\\\\\\
+    &= \dsp \sum\_{p=1}^{\Nt}\sum\_{I=1}^{\Ns}\sum\_{J=1}^{\Ns}\aK{p}(\mphi{J},\mphi{I}) E^{I,J}
 \end{array}
 $$
 
-Nous remarquons maintenant que $\aK{p}(\mphi{J},\mphi{I})$ est nul dès lors que $\sumit{I}$ ou $\sumit{J}$ n'est pas un sommet de $\tri{p}$. Finalement, la somme sur tous les sommets du maillage se réduit alors à une somme sur les sommets de $\tri{p}$ uniquement, notés $\\{\sumitK{p}{1}, \sumitK{p}{2}, \sumitK{p}{3}\\}$.
+Nous remarquons maintenant que $\aK{p}(\mphi{J},\mphi{I})$ est nul dès lors que $\sumit{I}$ ou $\sumit{J}$ n'est pas un sommet de $\tri{p}$. La somme sur tous les sommets du maillage se réduit alors à une somme sur les 3 sommets de $\tri{p}$ uniquement :
 
 $$
 \begin{array}{r c l}
-  A   &=& \dsp \sum\_{p=1}^{\Nt}\sum\_{i=1}^{3}\sum\_{j=1}^{3}\aK{p}(\mphiK{p}{j},\mphiK{p}{i}) \ee\_{I\_{p,i}}^T\ee\_{I\_{p,j}}\\\\\\
-&=& \dsp \sum\_{p=1}^{\Nt}\sum\_{i=1}^{3}\sum\_{j=1}^{3}\aK{p}(\mphi{I\_{p,j}},\mphi{I\_{p,i}}) \ee\_{I\_{p,i}}^T\ee\_{I\_{p,j}}
+  A  &=& \dsp \sum\_{p=1}^{\Nt}\sum\_{i=1}^{3}\sum\_{j=1}^{3}\aK{p}(\mphi{\texttt{Loc2Glob}(p,j)},\mphi{\texttt{Loc2Glob}(p,i)}) E^{\texttt{Loc2Glob}(p,i), \texttt{Loc2Glob}(p,j)}\\\\\\
+&=& \dsp \sum\_{p=1}^{\Nt}\sum\_{i=1}^{3}\sum\_{j=1}^{3}\aK{p}(\mphiK{p}{j},\mphiK{p}{i}) E^{\texttt{Loc2Glob}(p,i), \texttt{Loc2Glob}(p,j)}\\\\\\
 \end{array}
 $$
 
@@ -182,13 +181,13 @@ Pour chaque élément (=triangle) du maillage, nous effectuons 9 opérations : l
 A = 0; // Matrice nulle
 B = 0; // Vecteur nul
 For p = 1:N_triangles
-  For i=1:3 //3 = N_s
+  For i=1:3
     I = Loc2Glob(p, i)$ // Indice globale du i-ème sommet dans la matrice
-    For j=1:3 //3 = N_s
+    For j=1:3
       J = Loc2Glob(p, j)$ // Indice globale de j-ème sommet dans la matrice
-      A(I,J) += a_{p}(phi_J, phi_I) // forme a(.,.) restreinte au triangle K_p
+      A(I,J) += a_{p}(phi_J, phi_I) // forme a(.,.) restreinte au triangle T_p
     EndFor
-  B_I += l_{p}(phi_I)$ // forme l(.) restreinte au triangle K_p
+  B_I += l_{p}(phi_I)$ // forme l(.) restreinte au triangle T_p
   EndFor
 EndFor
 ```
@@ -209,7 +208,7 @@ En réalité, les boucles sur les sommets locaux, c'est-à-dire les boucles sur 
 {{% alert warning %}}
 Cet algorithme est pour l'instant encore inutilisable :
   
-- Les quantités $\aK{p}(\mphi{J}, \mphi{I})$ ne sont pas déterminées analytiquement : nous verrons plus tard comment les approcher efficacement à l'aide de formules de quadrature.
+- Les quantités $\aK{p}(\mphi{J}, \mphi{I})$ et $\ell(\mphi{I})$ doivent être déterminées.
 - L'écriture de l'algorithme suppose que la matrice est dense, au sens où elle possède une valeur pour chaque indice $(I,J)$. Nous devons donc adapter cette écriture pour le cas d'une matrice creuse (diminution du coût mémoire).
 - Il manque toujours et bien entendu les (éventuelles) conditions de Dirichlet.
 {{% /alert %}}
