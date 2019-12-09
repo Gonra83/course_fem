@@ -28,6 +28,7 @@ edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "m
   weight = 30
 
 +++
+
 $\newcommand{\Cb}{\mathbb{C}}$
 $\newcommand{\Nb}{\mathbb{N}}$
 $\newcommand{\Pb}{\mathbb{P}}$
@@ -195,7 +196,6 @@ Les calculs sont similaires pour les autres combinaisons.
 
 ## Triangle quelconque
 
-
 Soit un triangle $\tri{p}$ du maillage et supposons que nous disposions d'une transformation bijective et linéaire $\TK{p}$ permetteant de transformer le triangle de référence $\Kh$ en $\tri{p}$ avec en plus $\TK{p}(\sh\_i) = \sumitK{p}{i}$. Cette fonction $\TK{p}$ transforme les  **coordonnées paramétriques** $(\xi,\eta)$ en **coordonnées physiques** $(x,y)$ avec $(x,y)=\TK{p}(\xi,\eta)\in\tri{p}$, et conserve "l'ordre des sommets".
 
 
@@ -203,7 +203,7 @@ Soit un triangle $\tri{p}$ du maillage et supposons que nous disposions d'une tr
 
 ### Changement de coordonnées
 
-Nous avons $\varphi\_j^p(x,y) = \varphi\_j^p(\TK{p}(\xi,\eta))$ avec $\varphi\_j^p\circ\TK{p}\in\Pun(\Kh)$ et $\varphi\_j^p\circ\TK{p}(\sh\_i) = \delta\_{ij}$. Par unicité, nous avons $\varphi\_j^p\circ\TK{p} = \varphih\_j$. 
+Nous avons $\varphi\_j^p(x,y) = \varphi\_j^p(\TK{p}(\xi,\eta))$ avec $\varphi\_j^p\circ\TK{p}\in\Pun(\Kh)$ et $\varphi\_j^p\circ\TK{p}(\sh\_i) = \delta\_{ij}$. Par unicité, nous avons $\varphi\_j^p\circ\TK{p} = \varphih\_j$.
 
 En notant $\JK{p}$ la matrice Jacobienne de $\TK{p}$, alors la quantité $M^p\_{i,j}$ peut alors s'écrire, par changement de variables :
 $$
@@ -265,32 +265,11 @@ $$
 $$
 ce qui implique que le déterminant est non nul puisque le triangle n'est pas dégénéré : la transformation $\TK{p}$ est bien inversible.
 
-
 {{% alert note %}}
 Quand $\psih\_i = \varphih\_i$, nous parlons d'éléments finis **isoparamétriques**. Il convient de retenir que ce choix n'est pas obligatoire et les fonctions $\psih\_i$ et $\varphih\_i$ sont *indépendantes*. En particulier, pour obtenir des éléments courbes, les fonctions $\psih\_i$ pourraient être quadratiques par exemple.
 {{% /alert %}}
 
 {{< figure class="app-jacobi" title="<i class='fas fa-play-circle'></i> **Time To Play!**<br>**Déplacez les sommets du triangle** pour modifier la valeur du **Jacobien**. Quand il est négatif cela signifie que le triangle est **\"retourné\"** par rapport au triangle de référence." numbered="true" >}}
-
-<!--
-{{/*
-{{% alert note %}} 
-Développée par [Mina Pêcheux](http://minapecheux.com), une application web vous permet de modifier le triangle $\tri{p}$ et obtenir directement l'expression de la Jacobienne :
-
-[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "app/ref2tri/index.html">}})
-
-{{% /alert %}}
-*/}}
-!--
-<!--
-<iframe class="d-none d-lg-block" 
-    id="ref2tri"
-    title="Transformation du triangle de référence"
-    width="100%"
-    height="600"
-    src="../ref2tri/index.html">
-    -->
-
 
 ### Expression finale de la matrice élémentaire
 
@@ -314,7 +293,6 @@ Nous appliquons la même procédure pour la matrice de rigidité $K$, autrement 
 $$
 \Dep(i,j) = \int\_{\tri{p}}\nabla \mphiK{p}{j}(x,y)\cdot \overline{\nabla\mphiK{p}{i}(x,y)}\diff(x,y).
 $$
-
 
 ### Triangle de référence
 
@@ -425,8 +403,7 @@ $$
       \dsp \frac{\partial \varphih\_{j}}{\partial \xi}\\\\\\
       \dsp \frac{\partial \varphih\_{j}}{\partial \eta}
     \end{array}
-  \right)
-  =
+  \right)  =
   \left(
     \begin{array}{c c}
       \dsp \frac{\partial x}{\partial \xi} & \dsp \frac{\partial y}{\partial \xi}\\\\\\
@@ -516,10 +493,6 @@ Voici quelques formules de quadrature sur un segment $[\sumitK{p}{1}, \sumitK{p}
 |    Trapèze | 1  | $\dsp\frac{\abs{\sigma}}{2}\left(g(\sumitK{p}{1}) + g(\sumitK{p}{2})\right)$ |
 |    1/3 Simpson | 2 | $\dsp\frac{\abs{\sigma}}{6}\left(g(\sumitK{p}{1}) + 4g(\sumitK{p}{12}) + g(\sumitK{p}{2})\right)$ |
 
-<!-- 
-- Point du milieu (degré 1) : $\dsp \int\_{\sumitK{p}{1}}^{\sumitK{p}{2}}g(x)\diff x \simeq g(\sumitK{p}{12})$
-- Trapèze (degré 1) :  $\dsp \int\_{\sumitK{p}{1}}^{\sumitK{p}{2}}g(x)\diff x \simeq \frac{\abs{\sigma}}{2}\left(g(\sumitK{p}{1}) + g(\sumitK{p}{2})\right)$
-- 1/3 Simpson (degré 2) :  $\dsp \int\_{\sumitK{p}{1}}^{\sumitK{p}{2}}g(x)\diff x \simeq \frac{\abs{\sigma}}{6}\left(g(\sumitK{p}{1}) + 4g(\sumitK{p}{12}) + g(\sumitK{p}{2})\right)$ -->
 
 {{% alert note %}}
 Les formules de quadrature ont évidemment un impact sur la qualité de l'approximation, toutefois, elles jouent un rôle relativement mineur par rapport aux autres approximations (et l'on peut choisir plus de points d'intégration !).
