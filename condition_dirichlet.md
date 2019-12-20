@@ -433,8 +433,7 @@ AU = b \iff
     u\_I\\\\\\
     u\_D
   \end{array}
-\right) = 
-\left(
+\right) = \left(
   \begin{array}{c}
     b\_I\\\\\\
     g\_h
@@ -455,8 +454,7 @@ $$
       u\_I\\\\\\
       u\_D
     \end{array}
-  \right)
-  = 
+  \right)  = 
   \left(
     \begin{array}{c}
       b\_I - A\_{I,D} g\_h\\\\\\
