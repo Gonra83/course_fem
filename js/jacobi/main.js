@@ -11,7 +11,7 @@ mesh_triangles = [[0,1,2]];
 var point_color = "darkblue";
 var txt_color = "white";
 
-var r = 10.0; // radius of vert
+var r = 7.0; // radius of vert
 var max_x =150.0, max_y=120.0;
 var min_x =-50.0, min_y=-20.0;
 var size_x = (max_x - min_x) + 3*r;
@@ -38,7 +38,7 @@ var resetbutton=divtitle.insert('button')
 var svg = div.insert('svg', ":first-child")
                 .attr('viewBox', parseFloat(min_x - 1.5*r) + " " + parseFloat(min_y - 1.5*r)+ " " + parseFloat(size_x)  + " " +  parseFloat(size_y))
                 .attr('preserveAspectRatio', "xMidYMid meet")
-                .attr('style', 'width:100%; border:solid 1px;')
+                .attr('style', 'max-width:500px; border:solid 1px;')
                 ;
 
 //Build triangle and vertices (and title)

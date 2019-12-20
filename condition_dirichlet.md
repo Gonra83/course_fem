@@ -454,8 +454,7 @@ $$
       u\_I\\\\\\
       u\_D
     \end{array}
-  \right)  = 
-  \left(
+  \right)  =   \left(
     \begin{array}{c}
       b\_I - A\_{I,D} g\_h\\\\\\
       g\_h
