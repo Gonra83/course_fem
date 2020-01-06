@@ -90,8 +90,7 @@ $$
 \begin{array}{r c l}
   a(u,v) &:=& \dsp\int\_{\Omega}\nabla u(x) \cdot \overline{\nabla v(x)} \diff x +
   \int\_{\Omega}  u(x)\overline{ v(x)} \diff x\\\\\\
-  \ell(v) &:= &\dsp\int\_{\partial\Omega} g(x)\overline{v(x)} \diff s(x)
-  + \int\_{\Omega} f(x)\overline{v(x)} \diff x.
+  \ell(v) &:= &\dsp\int\_{\partial\Omega} g(x)\overline{v(x)} \diff s(x)  + \int\_{\Omega} f(x)\overline{v(x)} \diff x.
 \end{array}
 $$
 Nous avons alors la proposition suivante
@@ -103,20 +102,16 @@ Soit $u\in \Cscr^2(\overline{\Omega})$. Alors $u$ est solution de \eqref{eq:dnNo
   $$
     \forall v \in \Cscr^1(\overline{\Omega}),\qquad 
     \int\_{\Omega}\nabla u(x) \cdot \overline{\nabla v(x)} \diff x +
-    \int\_{\Omega}  u(x)\overline{ v(x)} \diff x
-    =
-\int\_{\partial\Omega} g(x)\overline{v(x)} \diff s(x)
-+ \int\_{\Omega} f(x)\overline{v(x)} \diff x.
+    \int\_{\Omega}  u(x)\overline{ v(x)} \diff x    =
+\int\_{\partial\Omega} g(x)\overline{v(x)} \diff s(x)+ \int\_{\Omega} f(x)\overline{v(x)} \diff x.
 $$
 Nous appliquons la formule de Green sur le premier terme pour obtenir (nous simplifions la notation en supprimant les quantités $(x)$)
   $$
     \forall v \in \Cscr^1(\overline{\Omega}),\qquad 
     - \int\_{\Omega}\Delta u. \overline{v} \diff x +
     \int\_{\partial\Omega}\dn u. \overline{v}\diff x +
-    \int\_{\Omega}  u\overline{ v} \diff x
-    =
-\int\_{\partial\Omega} g\overline{v} \diff s
-+ \int\_{\Omega} f\overline{v} \diff x.
+    \int\_{\Omega}  u\overline{ v} \diff x    =
+\int\_{\partial\Omega} g\overline{v} \diff s + \int\_{\Omega} f\overline{v} \diff x.
 $$
 Nous regroupons les termes pour obtenir
   \begin{equation}\label{eq:proof1}

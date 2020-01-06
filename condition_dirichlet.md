@@ -290,20 +290,17 @@ U =\left(
 $$
 et le système linéaire $AU = b$  devient :
 $$
-AU = b \iff 
-\left(
+AU = b \iff \left(
   \begin{array}{c c}
     A\_{I,I}  & A\_{I, D}\\\\\\
     A\_{D, I} & A\_{D,D}
   \end{array}
-\right)
-\left(
+\right) \left(
   \begin{array}{c}
     u\_I\\\\\\
     u\_D
   \end{array}
-\right) = 
-\left(
+\right) =  \left(
   \begin{array}{c}
     b\_I\\\\\\
     b\_D
@@ -325,8 +322,7 @@ $$
       u\_I\\\\\\
       u\_D
     \end{array}
-  \right)
-  = 
+  \right)  = 
   \left(
     \begin{array}{c}
       b\_I\\\\\\
@@ -357,8 +353,7 @@ $$
       u\_I\\\\\\
       u\_D
     \end{array}
-  \right)
-  = 
+  \right)  = 
   \left(
     \begin{array}{c}
       b\_I\\\\\\
