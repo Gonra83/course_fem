@@ -99,6 +99,7 @@ $\newcommand{\grandO}[1]{O\left(#1\right)}$
 $\newcommand{\Cun}{\Cscr^1(\Omega)}$
 $\newcommand{\Cunz}{\Cscr^1\_0(\Omega)}$
 $\newcommand{\Cdeux}{\Cscr^2(\Omega)}$
+$\newcommand{\Cdeuxz}{\Cscr^2\_0(\Omega)}$
 $\newcommand{\Hoz}{H^1\_0(\Omega)}$
 $\newcommand{\HoD}{H^1\_{0,\Gamma\_D}(\Omega)}$
 $\newcommand{\Vhz}{V\_{h,0}}$
@@ -122,13 +123,13 @@ Nous considérons tout d'abord le cas où $g= 0$. La condition de Dirichlet est 
 $$
 \Cunz = \enstq{u\in\Cun}{u\restrict\_{\partial\Omega}= 0}.
 $$
-Supposons que $u\in\Cdeux$, alors en multipliant par une fonction test $v\in\Cun$, en intégrant sur $\Omega$  et en utilisant la formule de Green, il vient que
+Supposons que $u\in\Cdeux\cap\Cunz$, alors en multipliant par une fonction test $v\in\Cunz$, en intégrant sur $\Omega$  et en utilisant la formule de Green, il vient que
 $$
 \begin{array}{r l}
-  \dsp \int\_{\Omega} -\Delta u(\xx)\overline{v}(\xx)\diff(\xx) &=
-  \dsp \int\_{\Omega} \nabla u(\xx)\cdot\overline{\nabla v(\xx)}\diff\xx+ 
-  \dsp \int\_{\partial\Omega} \dn u(\xx) \overline{v(\xx)}\diff\xx \\\\\\ &=
-  \dsp \int\_{\Omega} \nabla u(\xx)\cdot\overline{\nabla v(\xx)}\diff\xx.
+  \dsp \int\_{\Omega} -\Delta u(\xx)v(\xx)\diff(\xx) &=
+  \dsp \int\_{\Omega} \nabla u(\xx)\cdot\nabla v(\xx)\diff\xx+
+  \dsp \int\_{\partial\Omega} \dn u(\xx) \underbrace{v(\xx)}\_{=0}\diff\xx \\\\\\ &=
+  \dsp \int\_{\Omega} \nabla u(\xx)\cdot\nabla v(\xx)\diff\xx.
 \end{array}
 $$
 Nous obtenons donc la formulation faible suivante :
