@@ -201,7 +201,7 @@ Plutôt que de tenter de résoudre le problème d'origine \eqref{eq:pbmodel}, no
 
 Même si nous n'avons pas encore parcouru toutes les conditions aux limites possibles, l'application web ci-dessous, développée par [Mina Pêcheux](http://minapecheux.com/wp/), permet de comprendre l’influence des conditions aux limites et des autres paramètres sur la “forme” de la formulation faible :
 
-[<button type="button" class="btn btn-outline-primary">Accès à l'application en plein écran</button>]({{<relref "app/weak-formulation/v2/index.html">}})
+[<button type="button" class="btn btn-outline-primary">Accès à l'application en plein écran</button>](../app/weak-formulation/v2/index.html)
 
 
 {{< app src="../app/weak-formulation/v2/index.html" >}}

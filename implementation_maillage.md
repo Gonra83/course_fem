@@ -146,14 +146,14 @@ Autrement dit, il est facile de **retrouver les numéros de noeuds composant un 
 <object type="text/html" data="../sub/index.html" width="100%" height="auto"></object>
 
 - [Script GMSH](https://github.com/Bertbk/geogmsh/blob/master/submarine.geo)
-- [Plein écran]({{<relref "sub.html">}})
+- [Plein écran](../sub.html)
 
 ### Théière
 
 <object type="text/html" data="../teapot/index.html" width="100%" height="auto"></object>
 
 - [Script GMSH](https://github.com/Bertbk/geogmsh/blob/master/teapot.geo)
-- [Plein écran]({{<relref "teapot.html">}})
+- [Plein écran](../teapot/index.html)
 
 
 {{< js src="https://d3js.org/d3.v5.min.js" >}}

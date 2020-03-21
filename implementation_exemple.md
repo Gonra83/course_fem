@@ -31,6 +31,6 @@ edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "m
 +++
 
 
-Développée par [Mina Pêcheux](http://minapecheux.com), cette [application web]({{<relref "app/matrix-assembly/index.html">}}) présente l'assemblage pas à pas d'une matrice. En cliquant sur un triangle, les contributions de ce dernier seront ajoutées dans la grande matrice de masse. La matrice de masse élémentaire associée au triangle est également affichée.
+Développée par [Mina Pêcheux](http://minapecheux.com), cette [application web](../app/matrix-assembly/index.html) présente l'assemblage pas à pas d'une matrice. En cliquant sur un triangle, les contributions de ce dernier seront ajoutées dans la grande matrice de masse. La matrice de masse élémentaire associée au triangle est également affichée.
 
-[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>]({{<relref "app/matrix-assembly/index.html">}}) 
+[<button type="button" class="btn btn-outline-primary">Accès à l'application</button>](../app/matrix-assembly/index.html) 

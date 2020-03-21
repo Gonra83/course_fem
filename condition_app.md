@@ -31,7 +31,7 @@ edit_page = {repo_url = "https://github.com/Bertbk/course_fem", repo_branch = "m
 
 Développée par [Mina Pêcheux](http://minapecheux.com), cette application permet comprendre l'influence des conditions aux limites et des autres paramètres sur la "forme" de la formulation faible :
 
-[<button type="button" class="btn btn-outline-primary">Application plein écran</button>]({{<relref "app/weak-formulation/v2/index.html">}})
+[<button type="button" class="btn btn-outline-primary">Application plein écran</button>](../app/weak-formulation/v2/index.html)
 
 {{< app src="../app/weak-formulation/v2/index.html" >}}
 
