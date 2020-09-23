@@ -82,9 +82,7 @@ Comme $v$ est arbitraire, l'égalité ci-dessous vaut pour tout $v$ :
 
 \begin{equation}
 \forall v \in \Cscr^1(\overline{\Omega}), \qquad
-\int\_{\Omega} \nabla u \cdot \conj{\nabla v} \;\diff x
-+ \int\_{\Omega} u \cdot \conj{ v} \;\diff x
-= \int\_{\Omega} f \conj{v} \;\diff x.
+\int\_{\Omega} \nabla u \cdot \conj{\nabla v} \;\diff x + \int\_{\Omega} u \cdot \conj{ v} \;\diff x = \int\_{\Omega} f \conj{v} \;\diff x.
 \label{eq:FVpbmodel}
 \end{equation}
 
