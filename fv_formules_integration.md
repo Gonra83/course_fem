@@ -110,9 +110,7 @@ De ce Théorème fondamental découlent des Corollaires qui nous seront pratique
 {{< thm/thm corollary "Formule d'intégration par parties" >}}
 Soit $\Omega$ un ouvert borné, régulier de classe $\Cscr^1$. Soit $u$ et $v$ deux fonctions de $\Cscr^1(\overline{\Omega})$, alors elles vérifient la formule d'intégration par parties
 $$
-\int\_{\Omega}\frac{\partial u}{\partial x\_i}(x)v(x)\diff x =
--\int\_{\Omega}u(x)\frac{\partial v}{\partial x\_i}(x)\diff x
-+ \int\_{\partial\Omega}u(x)v(x)n\_i(x)\diff s.
+\int_{\Omega}\frac{\partial u(x)}{\partial x_i}v(x)\diff x = -\int_{\Omega}u(x)\frac{\partial v(x)}{\partial x_i}\diff x + \int_{\partial\Omega}u(x)v(x)n_i(x)\diff s.
 $$
 {{< /thm/thm >}}
 
@@ -121,9 +119,9 @@ En supposant $u\in\Cscr^2(\overline{\Omega})$, soit à peine plus régulier, nou
 {{< thm/thm corollary "Formule de Green" >}}
 Soit $\Omega$ un ouvert borné, régulier de classe $\Cscr^1$ et soient deux fonctions $u\in\Cscr^2(\overline{\Omega})$ et $v\in\Cscr^1(\overline{\Omega})$. Elles vérifient alors la Formule de Green :
 $$
-\int\_{\Omega}\Delta u(x)v(x)\diff x =
--\int\_{\Omega}\nabla u(x)\cdot \nabla v(x) \diff x
-+ \int\_{\partial\Omega}\frac{\partial u}{\partial \nn}(x)v(x)\diff s,
+\int_{\Omega}\Delta u(x)v(x)\diff x =
+-\int_{\Omega}\nabla u(x)\cdot \nabla v(x) \diff x
++ \int_{\partial\Omega}\frac{\partial u}{\partial \nn}(x)v(x)\diff s,
 $$
 où $\displaystyle\nabla u = \left(\frac{\partial u}{\partial x\_i}\right)\_{1\leq i \leq d}$ est le vecteur gradient de $u$, et $\displaystyle\frac{\partial u}{\partial \nn} = \nabla u \cdot \nn$ est la **dérivée normale** de $u$ sur le bord $\partial\Omega$.
 {{< /thm/thm >}}
